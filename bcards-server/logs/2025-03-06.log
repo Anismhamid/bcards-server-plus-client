@@ -1,0 +1,17 @@
+2025-03-06T21:16:12.228Z - Status Code: 400 - Error: Cast to ObjectId failed for value "67c9fef71d6d891c8d25cc4sa" (type string) at path "_id" for model "users"
+2025-03-06T21:16:16.343Z - Status Code: 400 - Error: Cast to ObjectId failed for value "67c9fef71d6d891c8d25cc4sa" (type string) at path "_id" for model "users"
+2025-03-06T21:16:17.563Z - Status Code: 400 - Error: Cast to ObjectId failed for value "67c9fef71d6d891c8d25cc4sa" (type string) at path "_id" for model "users"
+2025-03-06T21:16:47.596Z - Status Code: 400 - Error: Invalid email or password
+2025-03-06T21:17:05.249Z - Status Code: 400 - Error: Invalid email or password
+2025-03-06T21:17:06.156Z - Status Code: 400 - Error: Invalid email or password
+2025-03-06T21:17:06.964Z - Status Code: 400 - Error: Invalid email or password
+2025-03-06T21:17:07.747Z - Status Code: 400 - Error: Invalid email or password
+2025-03-06T21:25:59.156Z - Status Code: 400 - Error: Invalid email or password
+2025-03-06T22:37:23.628Z - Status Code: 400 - Error: no cards to provide
+2025-03-06T22:37:24.979Z - Status Code: 400 - Error: no cards to provide
+2025-03-06T22:37:25.999Z - Status Code: 400 - Error: no cards to provide
+2025-03-06T23:13:14.703Z - Status Code: 400 - Error: "image.url" is not allowed to be empty
+2025-03-06T23:15:09.782Z - Status Code: 400 - Error: invalid email or password
+2025-03-06T23:29:48.929Z - Status Code: 400 - Error: no cards to provide
+2025-03-06T23:32:05.258Z - Status Code: 400 - Error: no cards to provide
+2025-03-06T23:52:59.589Z - Status Code: 400 - Error: no cards to provide
