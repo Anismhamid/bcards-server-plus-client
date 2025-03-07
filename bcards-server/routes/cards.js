@@ -137,6 +137,35 @@ router.patch("/:id", auth, async (req, res) => {
 	}
 });
 
+router.patch("/like/:cardId/:userId", auth, async (req, res) => {
+	try {
+		if (!req.payload) return res.status(401).send("Please login to add like");
+
+		const {cardId, userId} = req.params;
+
+		// Find the card by cardId
+		const card = await Cards.findById(cardId);
+		if (!card) return res.status(404).send("Card not found");
+
+		// Check if the userId is already in the likes array
+		const isLiked = card.likes.includes(userId);
+
+		// If user already liked, remove their ID (unlike)
+		if (isLiked) {
+			card.likes = card.likes.filter((like) => like !== userId);
+		} else {
+			// If not liked yet, add userId to likes
+			card.likes.push(userId);
+		}
+		// Save the updated card document
+		await card.save();
+
+		res.status(200).json(card);
+	} catch (error) {
+		console.log(error);
+	}
+});
+
 // dele card by user have the card or admin users
 router.delete("/:id", auth, async (req, res) => {
 	try {

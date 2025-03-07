@@ -35,27 +35,26 @@ export const getLikedCardById = async (userId: string) => {
 };
 
 export const updateLikeStatus = async (cardId: string, userId: string): Promise<any> => {
-	let token: string | null = localStorage.getItem("bCards_token");
-	if (!token) return;
-
 	const payload = {
 		cardId,
 		userId,
 	};
 
 	try {
-		const updatedCard: Cards[] = await axios.request({
-			method: "patch",
-			url: `${getCards.url}/${payload.cardId}?likes=${userId}`,
-			headers: {
-				"x-auth-token": token,
+		const updatedCard: Cards[] = await axios.patch(
+			`${getCards.url}/like/${payload.cardId}/${userId}`,
+			payload,
+			{
+				headers: {
+					Authorization: localStorage.getItem("bCards_token"),
+				},
 			},
-			data: payload,
-		});
+		);
 		return updatedCard;
 	} catch (error) {
+		console.log(error);
+
 		errorMSG("Failed to update like status. Please try again later");
-		return null;
 	}
 };
 

@@ -40,10 +40,10 @@ export const getAllUsers = async (page: number, limit: number) => {
 // Get specific user by ID
 export const getUserById = async (userId: string) => {
 	try {
-		const response = await axios.get(`${getUsers.url}/${userId}`,{
+		const response = await axios.get(`${getUsers.url}/${userId}`, {
 			headers: {
-				Authorization:JSON.parse(localStorage.getItem("bCards_token")as string),
-			}
+				Authorization: localStorage.getItem("bCards_token"),
+			},
 		});
 		return response.data;
 	} catch (error) {
@@ -90,7 +90,7 @@ export const patchUserBusiness = async (
 	try {
 		const response = await axios.patch(`${getUsers.url}/${cardId}`, data, {
 			headers: {
-				Authorization: JSON.parse(localStorage.getItem("bCards_token") as string),
+				Authorization: localStorage.getItem("bCards_token"),
 			},
 		});
 		infoMSG(

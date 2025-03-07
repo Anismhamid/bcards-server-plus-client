@@ -116,15 +116,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({darkSetter}) => {
 											Fav Cards
 										</NavLink>
 									</li>
-									<li className='nav-item'>
-										<NavLink
-											style={{color: theme.color}}
-											className='nav-link'
-											to={pathes.profile}
-										>
-											Profile
-										</NavLink>
-									</li>
 									{isAdmin && (
 										<li className='nav-item'>
 											<NavLink

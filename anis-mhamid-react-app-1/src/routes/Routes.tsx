@@ -3,7 +3,6 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import FavCards from "../components/FavCards";
 import About from "../components/About";
-import Profile from "../components/Profile";
 import Cards from "../components/Cards";
 import SandBox from "../components/SandBox";
 import MyCards from "../components/MyCards";
@@ -19,7 +18,6 @@ export const routes = {
 	about: <Route path='/about' element={<About />} />,
 	sandBox: <Route path='/sandBox' element={<SandBox />} />,
 	myCards: <Route path='/myCards' element={<MyCards />} />,
-	profile: <Route path='/profile' element={<Profile />} />,
 	userDetails: <Route path='/userDetails/:userId' element={<UserDetails />} />,
 	cardDetails: <Route path='/cardDetails/:cardId' element={<CardDetails />} />,
 	pageNotFound: <Route path='*' element={<PageNotFound />} />,
@@ -33,7 +31,6 @@ export enum pathes {
 	favCards = "/fav-cards",
 	sandBox = "/sandBox",
 	myCards = "/myCards",
-	profile = "/profile",
 	userDetails = "/userDetails/:userId",
 	cardDetails = "/cardDetails/:cardId",
 	pageNotFound = "*",

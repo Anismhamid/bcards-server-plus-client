@@ -206,7 +206,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 																handleLikeToggle_Cards(
 																	card._id as string,
 																	allCards,
-																	decodedToken?._id,
+																	decodedToken._id,
 																	setCards,
 																)
 															}

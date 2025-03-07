@@ -407,3 +407,52 @@
 2025-03-07T20:26:30.965Z - Status Code: 400 - Error: "address.zip" must be a string
 2025-03-07T20:27:49.296Z - Status Code: 400 - Error: "address.zip" must be a string
 2025-03-07T20:28:46.891Z - Status Code: 400 - Error: "address.zip" must be a string
+2025-03-07T20:57:52.257Z - Status Code: 404 - Error: No cards found for this user
+2025-03-07T20:57:59.862Z - Status Code: 404 - Error: No cards found for this user
+2025-03-07T21:14:58.088Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:14:58.951Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:15:03.721Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:15:06.853Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:15:16.409Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:16:00.089Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:16:22.942Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:16:41.559Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:16:44.921Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:16:57.653Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:17:00.900Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:17:03.965Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:17:13.895Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:17:20.818Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:18:53.117Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:18:54.312Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:19:15.374Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:19:17.664Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:19:40.506Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:19:41.403Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:45:21.878Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:45:35.281Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:49:28.805Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:50:35.608Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:51:15.696Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:51:16.492Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:52:42.617Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:53:19.331Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:53:20.415Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:53:22.050Z - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+2025-03-07T21:55:05.281Z - Status Code: 401 - Error: access denied. no token provided
+2025-03-07T21:55:25.875Z - Status Code: 401 - Error: access denied. no token provided
+2025-03-07T21:56:08.465Z - Status Code: 401 - Error: access denied. no token provided
+2025-03-07T22:41:58.295Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:42:02.553Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:44:00.951Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:51:39.291Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:51:40.278Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:51:42.341Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:51:51.976Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:51:56.411Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T22:52:19.182Z - Status Code: 401 - Error: just business or admin users can update the cards
+2025-03-07T23:03:55.356Z - Status Code: 409 - Error: The card already exists
+2025-03-07T23:07:17.026Z - Status Code: 404 - Error: No cards found for this user
+2025-03-07T23:07:25.458Z - Status Code: 401 - Error: access denied. no token provided
+2025-03-07T23:07:36.725Z - Status Code: 401 - Error: access denied. no token provided
+2025-03-07T23:29:28.098Z - Status Code: 404 - Error: No cards found for this user

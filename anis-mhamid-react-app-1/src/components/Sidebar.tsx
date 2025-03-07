@@ -1,6 +1,6 @@
 import {FunctionComponent, useContext} from "react";
 import {SiteTheme} from "../theme/theme";
-import {about, heart, home, business, profile, users} from "../fontAwesome/Icons";
+import {about, heart, home, business, users} from "../fontAwesome/Icons";
 import {Link, useLocation} from "react-router-dom";
 import {pathes} from "../routes/Routes";
 import {useUserContext} from "../context/UserContext";
@@ -72,31 +72,6 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 										} rounded-5 fs-5`}
 									>
 										{heart}
-									</button>
-								</OverlayTrigger>
-							</ButtonToolbar>
-						</Link>
-					</div>
-					<div
-						style={{
-							backgroundColor: isActive(pathes.profile) ? "#83B4BC" : "",
-						}}
-						className={` footer-icon `}
-					>
-						<Link to={pathes.profile}>
-							<ButtonToolbar>
-								<OverlayTrigger
-									placement='top'
-									overlay={tooltips.profile}
-								>
-									<button
-										className={`${
-											isActive(pathes.profile)
-												? "text-info"
-												: "text-light"
-										} rounded-5 fs-5`}
-									>
-										{profile}
 									</button>
 								</OverlayTrigger>
 							</ButtonToolbar>
