@@ -12,7 +12,7 @@ const auth = require("../middlewares/auth");
 const userRegisterJoiSchema = Joi.object({
 	name: Joi.object({
 		first: Joi.string().min(2).required(),
-		middle: Joi.string(),
+		middle: Joi.string().allow(""),
 		last: Joi.string().min(1).required(),
 	}),
 	isBusiness: Joi.boolean().required(),
@@ -34,7 +34,7 @@ const userRegisterJoiSchema = Joi.object({
 			"Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character",
 		),
 	address: Joi.object({
-		state: Joi.string().min(2),
+		state: Joi.string().min(2).allow(""),
 		country: Joi.string().min(2).required(),
 		city: Joi.string().min(2).required(),
 		street: Joi.string().min(2).required(),
