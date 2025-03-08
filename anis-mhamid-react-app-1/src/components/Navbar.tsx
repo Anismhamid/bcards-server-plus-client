@@ -3,14 +3,13 @@ import {Link, NavLink, useNavigate} from "react-router-dom";
 import {pathes} from "../routes/Routes";
 import {useUserContext} from "../context/UserContext";
 import useToken from "../hooks/useToken";
-import {fathMe, logOut} from "../fontAwesome/Icons";
+import {logOut} from "../fontAwesome/Icons";
 import {SiteTheme} from "../theme/theme";
 
 interface NavbarProps {
-	darkSetter: Function;
 }
 
-const Navbar: FunctionComponent<NavbarProps> = ({darkSetter}) => {
+const Navbar: FunctionComponent<NavbarProps> = () => {
 	const theme = useContext(SiteTheme);
 	const navigate = useNavigate();
 	const {
@@ -54,7 +53,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({darkSetter}) => {
 			>
 				<div className='container-fluid'>
 					{/* Dark Mode Toggle Button */}
-					<button
+					{/* <button
 						style={{backgroundColor: theme.background, color: theme.color}}
 						onClick={() => darkSetter()}
 						id='toggle-theme'
@@ -62,7 +61,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({darkSetter}) => {
 						className='btn btn-link border-primary'
 					>
 						{fathMe}
-					</button>
+					</button> */}
 
 					{/* Logo */}
 					<NavLink className='navbar-brand logo' to={pathes.cards}>

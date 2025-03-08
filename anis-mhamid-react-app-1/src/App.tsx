@@ -1,14 +1,11 @@
 import {BrowserRouter as Router, Routes} from "react-router-dom";
 import {routes} from "./routes/Routes";
-import Navbar from "./components/Navbar";
 import {ToastContainer} from "react-toastify";
 import {useEffect, useState} from "react";
 import {SiteTheme, theme} from "./theme/theme";
 import React from "react";
 import Sidebar from "./components/Sidebar";
 import {fathMe} from "./fontAwesome/Icons";
-import { Button } from "react-bootstrap";
-// const themes = useContext(SiteTheme);
 
 function App() {
 	const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -33,7 +30,27 @@ function App() {
 			<Router>
 				<ToastContainer />
 				{/* Dark Mode Toggle Button */}
-
+				<div className='m-auto bg-dark py-3 d-flex justify-content-between'>
+					<button
+						style={{width: "50px"}}
+						onClick={() => handleTheme()}
+						id='toggle-theme'
+						aria-label='Toggle theme'
+						className='ms-3 btn btn-link border-primary'
+					>
+						{fathMe}
+					</button>
+					<p className='text-light m-auto fw-bold'>
+						Welcome to
+						<strong
+							className='mx-1 fs-3 fw-bolder'
+							style={{color: "#83B4BC"}}
+						>
+							bCards
+						</strong>
+						your go-to solution for digital business cards
+					</p>
+				</div>
 				<Sidebar />
 				<Routes>
 					{Object.entries(routes).map(([key, route]) => (

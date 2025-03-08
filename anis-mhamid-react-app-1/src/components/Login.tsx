@@ -12,6 +12,7 @@ import Loading from "./Loading";
 import {SiteTheme} from "../theme/theme";
 import {closedEye, eye} from "../fontAwesome/Icons";
 import SocilasModal from "../atoms/socialsModal/SocilasModal";
+import Navbar from "./Navbar";
 
 interface LoginProps {}
 
@@ -102,7 +103,8 @@ const Login: FunctionComponent<LoginProps> = () => {
 
 	return (
 		<>
-			<main style={{backgroundColor: theme.background, color: theme.color}}>
+		<Navbar/>
+			<main style={{paddingTop:"3rem",backgroundColor: theme.background, color: theme.color}}>
 				{formik.error && <p className=' text-danger'>{formik.error}</p>}
 
 				<form
@@ -228,8 +230,7 @@ const Login: FunctionComponent<LoginProps> = () => {
 							log in with Google
 						</button>
 					</div>
-				</form>
-				<div className='row border reg rounded-4 mb-2 h-100'>
+				<div className='row border reg mt-5 rounded-4'>
 					<div className='col'>
 						<p style={{fontSize: "16px"}} className=' fw-bold text-center '>
 							Don't have an account?
@@ -239,6 +240,7 @@ const Login: FunctionComponent<LoginProps> = () => {
 						</p>
 					</div>
 				</div>
+				</form>
 				<div className='one'>
 					<hr className='w-75 m-auto automatic-border m-5' />
 				</div>

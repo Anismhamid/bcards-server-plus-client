@@ -18,8 +18,8 @@ export const registeryFormikValues = {
 		country: "",
 		city: "",
 		street: "",
-		houseNumber: 0,
-		zip: 0,
+		houseNumber: "0",
+		zip: "0",
 	},
 	isBusiness: false,
 };
@@ -69,7 +69,7 @@ export const registeryFormikShcema = yup.object({
 		city: yup.string().min(2).max(256).required("City is required"),
 		street: yup.string().min(2).max(256).required("Street is required"),
 		houseNumber: yup.number().min(1).required("House number is required"),
-		zip: yup.number().min(2).required("Zip code is required"),
+		zip: yup.string().min(2).required("Zip code is required"),
 	}),
 	isBusiness: yup.boolean(),
 });

@@ -19,6 +19,7 @@ import {SiteTheme} from "../theme/theme";
 import Button from "../atoms/buttons/Button";
 import {pathes} from "../routes/Routes";
 import DeleteModal from "../atoms/modals/DeleteModal";
+import Navbar from "./Navbar";
 
 interface SandBoxProps {}
 
@@ -114,201 +115,211 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 	if (isLoading) return <Loading />;
 
 	return (
-		<main style={{backgroundColor: theme.background, color: theme.color}}>
-			<div className='row w-100'>
-				<div className='col-md-4 col-lg-3'>
-					<h6
-						style={{backgroundColor: theme.background}}
-						className='inset-shadow lead display-5 p-3 fw-bold  rounded-end-pill'
-					>
-						SandBox
-					</h6>
+		<>
+			<Navbar />
+			<main style={{backgroundColor: theme.background, color: theme.color}}>
+				<div className='row w-100'>
+					<div className='col-md-4 col-lg-3'>
+						<h6
+							style={{backgroundColor: theme.background}}
+							className='inset-shadow lead display-5 p-3 fw-bold  rounded-end-pill'
+						>
+							SandBox
+						</h6>
+					</div>
 				</div>
-			</div>
 
-			<hr />
-			<Button text={"Home"} path={() => navigate(pathes.cards)} />
-			{/* Pagination */}
-			<div className='container-sm'>
-				<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>
-					{[...Array(Math.ceil(usersToDisplay.length / usersPerPage))].map(
-						(_, i) => (
-							<Pagination.Item
-								key={i}
-								active={currentPage === i + 1}
-								onClick={() => {
-									setCurrentPage(i + 1);
+				<hr />
+				<Button text={"Home"} path={() => navigate(pathes.cards)} />
+				{/* Pagination */}
+				<div className='container-sm'>
+					<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>
+						{[...Array(Math.ceil(usersToDisplay.length / usersPerPage))].map(
+							(_, i) => (
+								<Pagination.Item
+									key={i}
+									active={currentPage === i + 1}
+									onClick={() => {
+										setCurrentPage(i + 1);
+									}}
+								>
+									{i + 1}
+								</Pagination.Item>
+							),
+						)}
+					</Pagination>
+				</div>
+				<div className='d-flex justify-content-around'>
+					<div className='mt-3 mb-3'>
+						<form
+							className='d-flex me-3'
+							onSubmit={(e) => e.preventDefault()}
+						>
+							<input
+								id='search-user'
+								name='search-user'
+								className='form-control me-2 search-input'
+								type='search'
+								placeholder='name/email/Phone'
+								aria-label='search-user'
+								onChange={(e) => {
+									handleSearch(e.target.value);
+									setUserSearch(filteredUsers);
 								}}
-							>
-								{i + 1}
-							</Pagination.Item>
-						),
-					)}
-				</Pagination>
-			</div>
-			<div className='d-flex justify-content-around'>
-				<div className='mt-3 mb-3'>
-					<form className='d-flex me-3' onSubmit={(e) => e.preventDefault()}>
-						<input
-							id='search-user'
-							name='search-user'
-							className='form-control me-2 search-input'
-							type='search'
-							placeholder='name/email/Phone'
-							aria-label='search-user'
-							onChange={(e) => {
-								handleSearch(e.target.value);
-								setUserSearch(filteredUsers);
-							}}
-						/>
-					</form>
+							/>
+						</form>
+					</div>
 				</div>
-			</div>
-			{!searchTerm && (
-				<div className='table-responsive'>
-					<table
-						style={{backgroundColor: theme.background, color: theme.color}}
-						className='table table-striped'
-					>
-						<thead>
-							<tr>
-								<th colSpan={3}>Image</th>
-								<th colSpan={3}>email</th>
-								<th colSpan={4}>Full Name</th>
-								<th colSpan={1}>Edit</th>
-								<th colSpan={1}>Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-							{currentUsers.map((user: User) => (
-								<tr key={user._id}>
-									<td colSpan={3}>
-										<Link to={`/userDetails/${user._id}`}>
-											<img
-												className='img-fluid mx-5 rounded-5'
-												src={
-													user.image.url || "/avatar-design.png"
-												}
-												alt={`${user.image?.alt}'s profile`}
-												style={{
-													width: "70px",
-													height: "70px",
-												}}
-											/>
-										</Link>
-									</td>
-									<td colSpan={3}>
-										{user.name.first} {user.name.last}
-									</td>
-									<td colSpan={4}>{user.email}</td>
-
-									{decodedToken?.isAdmin && (
-										<>
-											<td colSpan={1}>
-												<Link to={`/userDetails/${user._id}`}>
-													<button className='text-warning '>
-														{edit}
-													</button>
-												</Link>
-											</td>
-											<td colSpan={1}>
-												<button
-													className='text-danger '
-													onClick={() => {
-														onShow();
-														setSelectedUserId(
-															user._id as string,
-														);
-													}}
-												>
-													{trash}
-												</button>
-											</td>
-										</>
-									)}
-								</tr>
-							))}
-						</tbody>
-					</table>
-				</div>
-			)}
-			{/* Displaying the user result or all users */}
-			{userSearch && searchTerm && (
-				<div
-					style={{backgroundColor: theme.background, color: theme.color}}
-					className='user-found card my-3 min-vh-100'
-				>
-					<h3>Users Found</h3>
-					{userSearch.map((user) => (
-						<div
+				{!searchTerm && (
+					<div className='table-responsive'>
+						<table
 							style={{
 								backgroundColor: theme.background,
 								color: theme.color,
 							}}
-							className='card  fw-bold'
-							key={user._id}
+							className='table table-striped'
 						>
-							<div className='card-body'>
-								<p>
-									<strong>Name:</strong> {user.name.first}
-								</p>
-								<p>
-									<strong>Email:</strong> {user.email}
-								</p>
-								<Link to={`/userDetails/${user._id}`}>
-									<img
-										className='img-fluid'
-										src={user.image.url || "/avatar-design.png"}
-										alt={user.name.first}
-										style={{
-											width: "100px",
-											height: "100px",
-											borderRadius: "50%",
-										}}
-									/>
-								</Link>
-							</div>
+							<thead>
+								<tr>
+									<th colSpan={3}>Image</th>
+									<th colSpan={3}>email</th>
+									<th colSpan={4}>Full Name</th>
+									<th colSpan={1}>Edit</th>
+									<th colSpan={1}>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								{currentUsers.map((user: User) => (
+									<tr key={user._id}>
+										<td colSpan={3}>
+											<Link to={`/userDetails/${user._id}`}>
+												<img
+													className='img-fluid mx-5 rounded-5'
+													src={
+														user?.image?.url ||
+														"/avatar-design.png"
+													}
+													alt={`${user.image?.alt}'s profile`}
+													style={{
+														width: "70px",
+														height: "70px",
+													}}
+												/>
+											</Link>
+										</td>
+										<td colSpan={3}>
+											{user.name.first} {user.name.last}
+										</td>
+										<td colSpan={4}>{user.email}</td>
 
-							{isAdmin && (
-								<>
-									<div className='d-flex text-end justify-content-end my-3'>
-										<Link to={`/userDetails/${user._id}`}>
+										{decodedToken?.isAdmin && (
+											<>
+												<td colSpan={1}>
+													<Link to={`/userDetails/${user._id}`}>
+														<button className='text-warning '>
+															{edit}
+														</button>
+													</Link>
+												</td>
+												<td colSpan={1}>
+													<button
+														className='text-danger '
+														onClick={() => {
+															onShow();
+															setSelectedUserId(
+																user._id as string,
+															);
+														}}
+													>
+														{trash}
+													</button>
+												</td>
+											</>
+										)}
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				)}
+				{/* Displaying the user result or all users */}
+				{userSearch && searchTerm && (
+					<div
+						style={{backgroundColor: theme.background, color: theme.color}}
+						className='user-found card my-3 min-vh-100'
+					>
+						<h3>Users Found</h3>
+						{userSearch.map((user) => (
+							<div
+								style={{
+									backgroundColor: theme.background,
+									color: theme.color,
+								}}
+								className='card  fw-bold'
+								key={user._id}
+							>
+								<div className='card-body'>
+									<p>
+										<strong>Name:</strong> {user.name.first}
+									</p>
+									<p>
+										<strong>Email:</strong> {user.email}
+									</p>
+									<Link to={`/userDetails/${user._id}`}>
+										<img
+											className='img-fluid'
+											src={user?.image?.url || "/avatar-design.png"}
+											alt={user.name.first}
+											style={{
+												width: "100px",
+												height: "100px",
+												borderRadius: "50%",
+											}}
+										/>
+									</Link>
+								</div>
+
+								{isAdmin && (
+									<>
+										<div className='d-flex text-end justify-content-end my-3'>
+											<Link to={`/userDetails/${user._id}`}>
+												<button
+													className='text-warning mx-5'
+													onClick={() => {
+														handleEdit(user._id as string);
+													}}
+												>
+													{edit}
+												</button>
+											</Link>
+
 											<button
-												className='text-warning mx-5'
+												className='text-danger'
 												onClick={() => {
-													handleEdit(user._id as string);
+													onShow();
+													setSelectedUserId(user._id as string);
 												}}
 											>
-												{edit}
+												{trash}
 											</button>
-										</Link>
-
-										<button
-											className='text-danger'
-											onClick={() => {
-												onShow();
-												setSelectedUserId(user._id as string);
-											}}
-										>
-											{trash}
-										</button>
-									</div>
-								</>
-							)}
-						</div>
-					))}
-				</div>
-			)}
-			<DeleteModal
-				method='Delete'
-				toDelete='Are you sure you want to Delete This User? this User will be permanently removed. This action cannot be undone.'
-				render={() => refresh()}
-				show={showDeleteModal}
-				onHide={() => onHide()}
-				onDelete={() => handleDelete(selectedUserId)}
-				navigateTo={""}
-			/>
-		</main>
+										</div>
+									</>
+								)}
+							</div>
+						))}
+					</div>
+				)}
+				<DeleteModal
+					method='Delete'
+					toDelete='Are you sure you want to Delete This User? this User will be permanently removed. This action cannot be undone.'
+					render={() => refresh()}
+					show={showDeleteModal}
+					onHide={() => onHide()}
+					onDelete={() => handleDelete(selectedUserId)}
+					navigateTo={""}
+				/>
+			</main>
+		</>
 	);
 };
 

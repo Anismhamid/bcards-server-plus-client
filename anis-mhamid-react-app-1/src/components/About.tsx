@@ -1,6 +1,7 @@
 import {FunctionComponent, useContext} from "react";
 import {SiteTheme} from "../theme/theme";
 import {Link} from "react-router-dom";
+import Navbar from "./Navbar";
 
 interface AboutProps {}
 
@@ -9,12 +10,15 @@ const About: FunctionComponent<AboutProps> = () => {
 
 	return (
 		<>
+			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
 				<header className='row w-100'>
 					<div className='col-md-6 col-lg-3'>
 						<h6
 							style={{backgroundColor: theme.background}}
-							className='display-4 text-primary'>About bCards
+							className='display-4 text-primary'
+						>
+							About bCards
 						</h6>
 					</div>
 				</header>

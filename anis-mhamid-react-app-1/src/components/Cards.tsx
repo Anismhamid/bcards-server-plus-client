@@ -25,6 +25,7 @@ import {
 import {Pagination} from "react-bootstrap";
 import DeleteAndEditButtons from "../atoms/buttons/DeleteAndEditButtons";
 import ImageModal from "../atoms/modals/ImageModal";
+import Navbar from "./Navbar";
 
 interface CardsHomeProps {}
 
@@ -53,7 +54,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 	const onHideDeleteCardModal = useCallback(() => setShowDeleteModal(false), []);
 
 	useEffect(() => {
-		const token = localStorage.getItem("bCards_token") ;
+		const token = localStorage.getItem("bCards_token");
 		setIsLogedIn(!!token);
 	}, [decodedToken]);
 
@@ -98,201 +99,210 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 	if (isLoading) return <Loading />;
 
 	return (
-		<main style={{backgroundColor: theme.background, color: theme.color}}>
-			<div className='container py-5 lead'>
-				{isBusiness && (
-					<div className='mb-4'>
-						<Link to={pathes.myCards}>
-							<button className='btn btn-dark btn-sm'>Add New Card</button>
-						</Link>
+		<>
+			<Navbar />
+			<main style={{backgroundColor: theme.background, color: theme.color}}>
+				<div className='container py-5 lead'>
+					{isBusiness && (
+						<div className='mb-4'>
+							<Link to={pathes.myCards}>
+								<button className='btn btn-dark btn-sm'>
+									Add New Card
+								</button>
+							</Link>
+						</div>
+					)}
+					{/* Search Bar */}
+					<div className=' rounded-3 p-2'>
+						<label htmlFor='searchCard' className='mb-2 display-6'>
+							Search
+						</label>
+						<form
+							className='d-flex me-3'
+							onSubmit={handleSearch}
+							aria-label='Search cards'
+						>
+							<input
+								id='searchCard'
+								name='searchCard'
+								className='form-control me-2 search-input'
+								type='search'
+								placeholder='card name   |   phone   |   email   |   country'
+								aria-label='Search'
+								value={searchTerm}
+								onChange={(e) => setSearchTerm(e.target.value)}
+							/>
+						</form>
 					</div>
-				)}
-				{/* Search Bar */}
-				<div className=' rounded-3 p-2'>
-					<label htmlFor='searchCard' className='mb-2 display-6'>
-						Search
-					</label>
-					<form
-						className='d-flex me-3'
-						onSubmit={handleSearch}
-						aria-label='Search cards'
-					>
-						<input
-							id='searchCard'
-							name='searchCard'
-							className='form-control me-2 search-input'
-							type='search'
-							placeholder='card name   |   phone   |   email   |   country'
-							aria-label='Search'
-							value={searchTerm}
-							onChange={(e) => setSearchTerm(e.target.value)}
-						/>
-					</form>
-				</div>
-				<hr />
-				{/* Pagination */}
-				<div className='container-sm mt-3'>
-					<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>
-						{paginationItems}
-					</Pagination>
-				</div>
-				<h1 className='text-center my-5'>Home</h1>
-				<hr />
+					<hr />
+					{/* Pagination */}
+					<div className='container-sm mt-3'>
+						<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>
+							{paginationItems}
+						</Pagination>
+					</div>
+					<h1 className='text-center my-5'>Home</h1>
+					<hr />
 
-				<div className='row ms-auto'>
-					<div className='row'>
-						{currentCards.map((card: Cards) => (
-							<div key={card._id} className='col-12 col-md-6 col-xl-4 my-3'>
+					<div className='row ms-auto'>
+						<div className='row'>
+							{currentCards.map((card: Cards) => (
 								<div
-									className='custom-border card2 card w-100 h-100 border-1 shadow-lg rounded-lg overflow-hidden'
-									style={{
-										backgroundColor: theme.background,
-										color: theme.color,
-									}}
+									key={card._id}
+									className='col-12 col-md-6 col-xl-4 my-3'
 								>
-									<img
-										onClick={() => {
-											setCardImageUrl(card.image.url);
-											setCardImageAlt(card.image.alt);
-											OnShowImageCardModal();
-										}}
-										className='card-img-top img'
-										src={card.image.url}
-										alt={card.image.alt}
+									<div
+										className='custom-border card2 card w-100 h-100 border-1 shadow-lg rounded-lg overflow-hidden'
 										style={{
-											height: "300px",
-											cursor: "pointer",
+											backgroundColor: theme.background,
+											color: theme.color,
 										}}
-									/>
+									>
+										<img
+											onClick={() => {
+												setCardImageUrl(card.image.url);
+												setCardImageAlt(card.image.alt);
+												OnShowImageCardModal();
+											}}
+											className='card-img-top img'
+											src={card.image.url}
+											alt={card.image.alt}
+											style={{
+												height: "300px",
+												cursor: "pointer",
+											}}
+										/>
 
-									<div className='card-body'>
-										<h5 className='card-title text-center'>
-											<Link
-												className=' text-decoration-none'
-												to={`${pathes.cardDetails.replace(
-													":cardId",
-													card._id as string,
-												)}`}
-											>
-												{card.title}
-											</Link>
-										</h5>
-										<h6 className='card-subtitle text-center mb-2 text-secondary'>
-											{card.subtitle}
-										</h6>
-										<hr />
-										<div className='card-text'>
-											<h5>Phone:</h5>
-											<p>{card.phone}</p>
-											<h5>Address:</h5>
-											{/* <p>
+										<div className='card-body'>
+											<h5 className='card-title text-center'>
+												<Link
+													className=' text-decoration-none'
+													to={`${pathes.cardDetails.replace(
+														":cardId",
+														card._id as string,
+													)}`}
+												>
+													{card.title}
+												</Link>
+											</h5>
+											<h6 className='card-subtitle text-center mb-2 text-secondary'>
+												{card.subtitle}
+											</h6>
+											<hr />
+											<div className='card-text'>
+												<h5>Phone:</h5>
+												<p>{card.phone}</p>
+												<h5>Address:</h5>
+												{/* <p>
 												{card.address.city},{card.address.street}
 											</p> */}
-											<h5>{card.email}</h5>
-										</div>
+												<h5>{card.email}</h5>
+											</div>
 
-										{decodedToken._id && (
-											<>
-												<hr />
-												<div className='d-flex justify-content-between align-items-center'>
-													<div className='likes-container d-flex align-items-center'>
-														<button
-															style={{
-																backgroundColor:
-																	theme.background,
-																color: theme.color,
-															}}
-															onClick={() =>
-																handleLikeToggle_Cards(
-																	card._id as string,
-																	allCards,
-																	decodedToken._id,
-																	setCards,
-																)
-															}
-															className={`${
-																card.likes?.includes(
-																	decodedToken?._id,
-																)
-																	? "text-danger"
-																	: ""
-															} fs-4 rounded-5`}
-														>
-															{heart} {card.likes?.length}
-														</button>
-														<sub>
-															<p
+											{decodedToken._id && (
+												<>
+													<hr />
+													<div className='d-flex justify-content-between align-items-center'>
+														<div className='likes-container d-flex align-items-center'>
+															<button
 																style={{
 																	backgroundColor:
 																		theme.background,
 																	color: theme.color,
 																}}
+																onClick={() =>
+																	handleLikeToggle_Cards(
+																		card._id as string,
+																		allCards,
+																		decodedToken._id,
+																		setCards,
+																	)
+																}
 																className={`${
 																	card.likes?.includes(
 																		decodedToken?._id,
-																	) && "text-danger"
-																} mx-1 fs-5`}
-															></p>
-														</sub>
+																	)
+																		? "text-danger"
+																		: ""
+																} fs-4 rounded-5`}
+															>
+																{heart}{" "}
+																{card.likes?.length}
+															</button>
+															<sub>
+																<p
+																	style={{
+																		backgroundColor:
+																			theme.background,
+																		color: theme.color,
+																	}}
+																	className={`${
+																		card.likes?.includes(
+																			decodedToken?._id,
+																		) && "text-danger"
+																	} mx-1 fs-5`}
+																></p>
+															</sub>
+														</div>
 													</div>
-												</div>
-												{(isAdmin ||
-													card.user_id ===
-														decodedToken._id) && (
-													<div className='mt-3 d-flex justify-content-around'>
-														<DeleteAndEditButtons
-															setCardToDelete={() => {
-																setCardToDelete(
-																	card._id as string,
-																);
-															}}
-															card={card}
-															onShowDeleteCardModal={() =>
-																onShowDeleteCardModal()
-															}
-														/>
-													</div>
-												)}
-											</>
-										)}
+													{(isAdmin ||
+														card.user_id ===
+															decodedToken._id) && (
+														<div className='mt-3 d-flex justify-content-around'>
+															<DeleteAndEditButtons
+																setCardToDelete={() => {
+																	setCardToDelete(
+																		card._id as string,
+																	);
+																}}
+																card={card}
+																onShowDeleteCardModal={() =>
+																	onShowDeleteCardModal()
+																}
+															/>
+														</div>
+													)}
+												</>
+											)}
+										</div>
 									</div>
+									<ImageModal
+										show={onShowImageModal}
+										onHide={() => {
+											OnHideImageCardModal();
+										}}
+										image={cardImageUrl}
+										imageName={cardImageAlt}
+									/>
 								</div>
-								<ImageModal
-									show={onShowImageModal}
-									onHide={() => {
-										OnHideImageCardModal();
-									}}
-									image={cardImageUrl}
-									imageName={cardImageAlt}
-								/>
-							</div>
-						))}
-						<DeleteModal
-							method={"Delete"}
-							navigateTo={""}
-							toDelete='CardAre you sure you want to Delete This Card? this card will be permanently removed. This action cannot be undone.'
-							render={() => onHideDeleteCardModal()}
-							show={showDeleteModal}
-							onHide={() => onHideDeleteCardModal()}
-							onDelete={() => {
-								handleDeleteCard_Cards(
-									cardToDelete as string,
-									setCards((prev) =>
-										prev.filter((c) => c._id !== cardToDelete),
-									),
-								);
-							}}
-						/>
+							))}
+							<DeleteModal
+								method={"Delete"}
+								navigateTo={""}
+								toDelete='CardAre you sure you want to Delete This Card? this card will be permanently removed. This action cannot be undone.'
+								render={() => onHideDeleteCardModal()}
+								show={showDeleteModal}
+								onHide={() => onHideDeleteCardModal()}
+								onDelete={() => {
+									handleDeleteCard_Cards(
+										cardToDelete as string,
+										setCards((prev) =>
+											prev.filter((c) => c._id !== cardToDelete),
+										),
+									);
+								}}
+							/>
+						</div>
+					</div>
+					{/* Pagination */}
+					<div className='container-sm mt-3'>
+						<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>
+							{paginationItems}
+						</Pagination>
 					</div>
 				</div>
-				{/* Pagination */}
-				<div className='container-sm mt-3'>
-					<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>
-						{paginationItems}
-					</Pagination>
-				</div>
-			</div>
-		</main>
+			</main>
+		</>
 	);
 };
 
