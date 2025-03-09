@@ -33,7 +33,6 @@ export const getAllUsers = async (page: number, limit: number) => {
 		return response.data;
 	} catch (error) {
 		errorMSG("Filed to fetch data please try again later");
-		return null;
 	}
 };
 
@@ -48,7 +47,6 @@ export const getUserById = async (userId: string) => {
 		return response.data;
 	} catch (error) {
 		errorMSG("Unexpected error please try again");
-		return null;
 	}
 };
 
@@ -60,11 +58,10 @@ export const registerNewUser = async (user: User): Promise<any | null> => {
 		});
 		return response.data;
 	} catch (error) {
-		console.log(error);
 		errorMSG("Failed to register user. Please try again later.");
-		return null;
 	}
 };
+
 // Delete specific user by ID
 export const deleteUserById = async (userId: string) => {
 	try {
@@ -76,9 +73,7 @@ export const deleteUserById = async (userId: string) => {
 		return response.data;
 	} catch (error) {
 		console.log(error);
-
 		errorMSG("Failed to delete user. Please try again later.");
-		return null;
 	}
 };
 

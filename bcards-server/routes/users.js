@@ -168,20 +168,17 @@ router.get("/", auth, async (req, res) => {
 router.get("/:id", auth, async (req, res) => {
 	try {
 		// Check if the user is an admin or if the user is accessing their own data
-		if (req.payload._id !== req.params.id || !req.payload.isAdmin) {
+		if (req.payload.isAdmin || req.payload._id === req.params.id) {
+			// Fetch user by ID
+			const user = await User.findById(req.params.id).select("-password");
+			if (!user) return res.status(404).send("User not found");
+			// Send the user data with status 200
+			return res.status(200).send(user);
+		} else {
 			return res
 				.status(401)
 				.send("Access denied. You are not authorized to access this user's data");
 		}
-
-		// Fetch user by ID
-		const user = await User.findById(req.params.id);
-		if (!user) {
-			return res.status(404).send("User not found");
-		}
-
-		// Send the user data as response
-		return res.status(200).send(user); // Send the user data with status 200
 	} catch (error) {
 		return res.status(400).send(error.message); // Send the error message if something goes wrong
 	}

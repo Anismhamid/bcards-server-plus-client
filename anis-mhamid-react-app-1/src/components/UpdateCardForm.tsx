@@ -75,10 +75,10 @@ const UpdateCardForm: FunctionComponent<UpdateCardFormProps> = ({refresh}) => {
 		}),
 		onSubmit: (values: Cards) => {
 			try {
-				putCard(cardId as string, values as Cards)
-					.then((res) => {
+				putCard(cardId as string, values)
+					.then(() => {
 						refresh();
-						successMSG(`${res.title} card is updated successfully`);
+						successMSG(`card is updated successfully`);
 					})
 					.catch((error) => {
 						console.error("Error updating card:", error);

@@ -22,7 +22,7 @@ const cardSchema = Joi.object({
 		alt: Joi.string().required(),
 	}),
 	address: Joi.object({
-		state: Joi.string().default("not defined"),
+		state: Joi.string().allow("").default("not defined"),
 		country: Joi.string().min(2).required(),
 		city: Joi.string().min(2).required(),
 		street: Joi.string().min(2).required(),
@@ -121,19 +121,33 @@ router.post("/", auth, async (req, res) => {
 });
 
 // update card by id
-router.patch("/:id", auth, async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
 	try {
-		if (!req.payload.isBusiness || !req.payload.isAdmin)
-			return res
-				.status(401)
-				.send("just business or admin users can update the cards");
+		// find card by ID
+		const card = await Cards.findById(req.params.id);
+		if (!card) return res.status(404).send("User not found");
+
+		// check if user cave permission to update the card
+		if (card.user_id !== req.payload._id && !req.payload.isAdmin)
+			return res.status(401).send("Only owner or admin users can update the card");
+
+		// check body validation
 		const {error} = cardSchema.validate(req.body);
 		if (error) return res.status(400).send(error.details[0].message);
-		let cardToUpdate = await Cards.findByIdAndUpdate(req.params.id, req.body);
-		if (!cardToUpdate) return res.status(404).send("Card not found");
-		res.status(200).send(cardToUpdate);
+
+		// get the userCard and update
+		let userCardToUpdae = await Cards.findByIdAndUpdate(req.params.id, req.body, {
+			new: true,
+		});
+		if (!userCardToUpdae) return res.status(404).send("Card not found");
+
+		// // save the card
+		// await userCardToUpdae.save();
+
+		// return the card
+		res.status(200).send(userCardToUpdae);
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send(error);
 	}
 });
 

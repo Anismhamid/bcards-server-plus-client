@@ -24,7 +24,7 @@ const logToFile = (statusCode, errorMessage) => {
 	}
 
 	// Prepare log message
-	const logMessage = `${date.toISOString()} - Status Code: ${statusCode} - Error: ${errorMessage}\n`;
+	const logMessage = `${new Date().toLocaleString()} - Status Code: ${statusCode} - Error: ${errorMessage}\n`;
 
 	// Append the log message to the file
 	fs.appendFile(logFilePath, logMessage, (err) => {

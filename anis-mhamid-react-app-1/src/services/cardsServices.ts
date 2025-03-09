@@ -87,18 +87,14 @@ export const createNewCard = async (card: Cards) => {
 
 export const putCard = async (cardId: string, newCard: Cards) => {
 	try {
-		const token = localStorage.getItem("bCards_token");
-
-		if (!token)
-			errorMSG("Error while making authentication please try againg later.");
-
 		const response = await axios.put(`${getCards.url}/${cardId}`, newCard, {
 			headers: {
-				Authorization: token,
+				Authorization: localStorage.getItem("bCards_token"),
 			},
 		});
 		return response.data;
 	} catch (error) {
+		console.log(error);
 		errorMSG("Failed to update card. Please try again later.");
 	}
 };
