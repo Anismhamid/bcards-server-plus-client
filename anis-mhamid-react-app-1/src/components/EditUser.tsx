@@ -90,10 +90,10 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
-				<h6 className='lead display-5 p-3 fw-bold'>User Details</h6>
+				<h6 className='lead display-5 p-3 fw-bold text-primary'>User Details</h6>
 				<hr />
 				<Button text={"Back"} path={() => navigate(-1)} />
-				<hr className=' w-25' />
+				<hr />
 				<div className='container'>
 					<div className='row mp-5 fw-bold lead'>
 						<div className='col-12'>

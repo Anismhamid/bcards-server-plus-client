@@ -33,3 +33,19 @@
 3/10/2025, 2:16:16 AM - Status Code: 403 - Error: just admin user can access
 3/10/2025, 2:16:17 AM - Status Code: 403 - Error: just admin user can access
 3/10/2025, 2:17:02 AM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 7:48:54 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 7:49:20 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 7:49:22 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 7:49:31 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 7:49:50 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 7:49:55 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 7:53:01 PM - Status Code: 401 - Error: access denied. no token provided
+3/10/2025, 8:36:34 PM - Status Code: 400 - Error: invalid email or password
+3/10/2025, 10:13:03 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:14:10 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:14:15 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:16:32 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:17:34 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:17:54 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:20:26 PM - Status Code: 403 - Error: just admin user can access
+3/10/2025, 10:24:42 PM - Status Code: 404 - Error: No cards found for this user

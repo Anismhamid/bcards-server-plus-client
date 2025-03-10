@@ -49,19 +49,24 @@ export const registeryFormikShcema = yup.object({
 		.string()
 		.required("Password is required")
 		.min(8, "Password must be at least 8 characters long")
-		.max(20, "Password must be at most 20 characters long")
-		.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*+=-_].{8,}$)/),
+		.max(30, "Password must be at most 20 characters long")
+		.matches(
+			/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*+=-_].{8,}$)/,
+			"Password must contain at least one number, one lowercase letter, one uppercase letter, and one special character(Abc12345[!@#$%^&*-_+=])",
+		),
 	image: yup.object({
 		url: yup
 			.string()
 			.min(14, "Image URL must be at least 14 characters long")
 			.url("Please provide a valid URL")
-			.optional()
+			.default(
+				"https://images.unsplash.com/photo-1740418644050-7c315b61bbff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8",
+			)
 			.matches(/https?:\/\/[^\s]+/),
 		alt: yup
 			.string()
 			.min(2, "Image alt text must be at least 2 characters long")
-			.optional(),
+			.default("Profile"),
 	}),
 	address: yup.object({
 		state: yup.string().min(2).max(256).optional(),

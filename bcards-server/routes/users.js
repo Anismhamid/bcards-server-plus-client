@@ -153,7 +153,7 @@ router.post("/login", async (req, res) => {
 // get all users for admin users
 router.get("/", auth, async (req, res) => {
 	try {
-		if (req.payload.isAdmin === true)
+		if (!req.payload.isAdmin === true)
 			return res.status(403).send("just admin user can access");
 		const users = await User.find().select("-password");
 		if (!users) return res.status(401).send("no found users");

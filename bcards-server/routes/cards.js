@@ -41,48 +41,6 @@ async function generateBizNumber() {
 	return randomBizNumber;
 }
 
-// get all cards for global users
-router.get("/", async (req, res) => {
-	try {
-		// find the cads
-		const cards = await Cards.find();
-		// check if cards is empty
-		if (!cards.length) return res.status(400).send("no cards to provide");
-
-		res.status(200).send(cards);
-	} catch (error) {
-		res.status(400).send(error);
-	}
-});
-
-// get all cards for spicific user
-router.get("/my-cards", auth, async (req, res) => {
-	try {
-		// Ensure the user is logged in
-		if (!req.payload._id) {
-			return res.status(401).send("You have to login to see your cards");
-		}
-		const specific_user_cards = await Cards.find({user_id: req.payload._id});
-		if (specific_user_cards.length === 0)
-			return res.status(404).send("No cards found for this user");
-
-		res.status(200).send(specific_user_cards);
-	} catch (error) {
-		res.status(400).send(error.message);
-	}
-});
-
-// get spicific card by id
-router.get("/:id", async (req, res) => {
-	try {
-		const card_by_id = await Cards.findOne({_id: req.params.id});
-		if (!card_by_id) return res.status(404).send("Card not found");
-		res.status(200).send(card_by_id);
-	} catch (error) {
-		res.status(400).send(error.message);
-	}
-});
-
 // created card from spicific business user or admin users
 router.post("/", auth, async (req, res) => {
 	try {
@@ -151,6 +109,7 @@ router.put("/:id", auth, async (req, res) => {
 	}
 });
 
+// update like
 router.patch("/like/:cardId/:userId", auth, async (req, res) => {
 	try {
 		if (!req.payload) return res.status(401).send("Please login to add like");
@@ -198,6 +157,48 @@ router.delete("/:id", auth, async (req, res) => {
 			return res.status(404).send("The card is not found. problem with card id");
 
 		res.status(200).send(`The card has been deleted successfully`);
+	} catch (error) {
+		res.status(400).send(error.message);
+	}
+});
+
+// get all cards for global users
+router.get("/", async (req, res) => {
+	try {
+		// find the cads
+		const cards = await Cards.find();
+		// check if cards is empty
+		if (!cards.length) return res.status(400).send("no cards to provide");
+
+		res.status(200).send(cards);
+	} catch (error) {
+		res.status(400).send(error);
+	}
+});
+
+// get all cards for spicific user
+router.get("/my-cards", auth, async (req, res) => {
+	try {
+		// Ensure the user is logged in
+		if (!req.payload._id) {
+			return res.status(401).send("You have to login to see your cards");
+		}
+		const specific_user_cards = await Cards.find({user_id: req.payload._id});
+		if (specific_user_cards.length === 0)
+			return res.status(404).send("No cards found for this user");
+
+		res.status(200).send(specific_user_cards);
+	} catch (error) {
+		res.status(400).send(error.message);
+	}
+});
+
+// get spicific card by id
+router.get("/:id", async (req, res) => {
+	try {
+		const card_by_id = await Cards.findOne({_id: req.params.id});
+		if (!card_by_id) return res.status(404).send("Card not found");
+		res.status(200).send(card_by_id);
 	} catch (error) {
 		res.status(400).send(error.message);
 	}

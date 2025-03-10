@@ -16,10 +16,12 @@ import Loading from "./Loading";
 import {useUserContext} from "../context/UserContext";
 import useToken from "../hooks/useToken";
 import Navbar from "./Navbar";
+import {closedEye, eye} from "../fontAwesome/Icons";
 
 interface RegisterProps {}
 
 const Register: FunctionComponent<RegisterProps> = () => {
+	const [showPassword, setShowPassword] = useState(false);
 	const navigate = useNavigate();
 	const theme = useContext(SiteTheme);
 	const [loading, setLoading] = useState(false);
@@ -37,19 +39,15 @@ const Register: FunctionComponent<RegisterProps> = () => {
 
 		onSubmit: (values: User) => {
 			setLoading(true);
-			try {
-				registerNewUser(values)
-					.then(() => {
-						navigate(pathes.login);
-						setLoading(false);
-						successMSG(`Please Login to get in Bcards`);
-					})
-					.catch((err) => {
-						errorMSG(`Registration failed: ${err.message || err}`);
-					});
-			} catch (error) {
-				errorMSG(`This user already have registered`);
-			}
+			registerNewUser(values)
+				.then(() => {
+					navigate(pathes.login);
+					setLoading(false);
+					successMSG(`Please Login to get in Bcards`);
+				})
+				.catch((err) => {
+					errorMSG(`Registration failed: ${err.message || err}`);
+				});
 		},
 	});
 
@@ -59,8 +57,10 @@ const Register: FunctionComponent<RegisterProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
+				<h6 className='lead display-5 p-3 fw-bold text-primary'>User Register</h6>
+				<hr />
+				<Button text={"Back"} path={() => navigate(-1)} />
 				<div className='container justify-content-center pt-5'>
-					<Button text={"Back"} path={() => navigate(-1)} />
 					<p className='text-center fs-6 my-3 fw-bold'>Download the app</p>
 					<hr className=' w-50 m-auto mb-2' />
 					<div className='row reg2 m-auto'>
@@ -173,16 +173,51 @@ const Register: FunctionComponent<RegisterProps> = () => {
 							</div>
 
 							<div className='col-md-6 col-sm-12'>
-								<CardsInput
-									name={"password"}
-									type={"password"}
-									value={registeryFormik.values.password}
-									error={registeryFormik.errors.password}
-									touched={registeryFormik.touched.password}
-									placeholder={"Password"}
-									onChange={registeryFormik.handleChange}
-									onBlur={registeryFormik.handleBlur}
-								/>
+								<div className='form-floating my-3'>
+									<input
+										type={showPassword ? "text" : "password"}
+										id={"password"}
+										name={"password"}
+										value={registeryFormik.values.password}
+										placeholder={"Password"}
+										className={`form-control w-100 my-1 ${
+											registeryFormik.touched.password &&
+											registeryFormik.errors.password
+												? "is-invalid"
+												: ""
+										}`}
+										onChange={registeryFormik.handleChange}
+										onBlur={registeryFormik.handleBlur}
+										aria-label={"password"}
+									/>
+									{registeryFormik.touched.password &&
+										registeryFormik.errors.password && (
+											<div className='invalid-feedback'>
+												{registeryFormik.errors.password}
+											</div>
+										)}
+									<label
+										htmlFor={"password"}
+										className='form-label fw-bold text-secondary'
+									>
+										{"Password"}
+									</label>
+
+									<button
+										type='button'
+										onClick={() => setShowPassword((prev) => !prev)}
+										style={{
+											position: "absolute",
+											right: "10px",
+											top: "25%",
+											transform: "translateY(-50%)",
+										}}
+										className='btn btn-link'
+										aria-label={`Toggle password visibility`}
+									>
+										{showPassword ? eye : closedEye}
+									</button>
+								</div>
 							</div>
 						</div>
 
@@ -287,6 +322,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 						</div>
+
 						{/* House number and Zip */}
 						<div className='row '>
 							<div className='col-md-6 col-sm-12 mt-2'>
@@ -314,9 +350,10 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 						</div>
+
+						<hr />
 						{/* Business Account Checkbox */}
-						<div className='text-start my-3  w-50'>
-							<hr />
+						<div className='text-start my-3 d-flex justify-content-around align-content-center w-100'>
 							<input
 								type='checkbox'
 								name='isBusiness'
@@ -331,15 +368,17 @@ const Register: FunctionComponent<RegisterProps> = () => {
 							>
 								Business Account
 							</label>
+							{/* Submit Button */}
+							<button
+								type='submit'
+								className='btn btn-primary w-50 py-2 mt-3'
+								disabled={
+									!registeryFormik.dirty || !registeryFormik.isValid
+								}
+							>
+								REGISTER
+							</button>
 						</div>
-						{/* Submit Button */}
-						<button
-							type='submit'
-							className='btn btn-primary w-100 py-2 mt-3'
-							disabled={!registeryFormik.dirty || !registeryFormik.isValid}
-						>
-							REGISTER
-						</button>
 					</form>
 				</div>
 			</main>

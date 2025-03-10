@@ -8,6 +8,7 @@ const cards = require("./routes/cards");
 const chalk = require("chalk");
 const fs = require("fs");
 const path = require("path");
+const expressRoutes = require("express-list-routes");
 
 const port = process.env.PORT || 5000;
 
@@ -46,7 +47,7 @@ const logger = (req, res, next) => {
 		}
 		originalSend.call(this, body); // Continue the normal response flow
 	};
-	console.log(req.method+req.url);
+	console.log(req.method + req.url);
 	next();
 };
 
@@ -65,7 +66,8 @@ mongoose
 		console.log(chalk.red.bold("Error while connecting to MongoDB:"), error),
 	);
 
-// Middlewares
+
+	// Middlewares
 app.use(express.json());
 app.use(cors());
 app.use(logger); // Register the logger middleware
@@ -76,3 +78,5 @@ app.use("/api/cards", cards);
 
 // Start server
 app.listen(port, () => console.log(chalk.blue.bold("Server started on port: "), port));
+
+expressRoutes(app);
