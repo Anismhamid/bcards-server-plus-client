@@ -3,6 +3,7 @@ import {
 	faArrowRight,
 	faBriefcase,
 	faCircleExclamation,
+	faCloud,
 	faEdit,
 	faEye,
 	faEyeSlash,
@@ -24,6 +25,7 @@ export const trash = <FontAwesomeIcon icon={faTrash} />;
 export const edit = <FontAwesomeIcon icon={faEdit} />;
 export const errorCircle = <FontAwesomeIcon icon={faCircleExclamation} />;
 export const plus = <FontAwesomeIcon icon={faPlus} />;
+export const cloud = <FontAwesomeIcon icon={faCloud} />;
 export const fathMe = <FontAwesomeIcon icon={faMoon} />;
 export const leftArrow = <FontAwesomeIcon icon={faArrowLeft} />;
 export const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;

@@ -62,9 +62,11 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
-				<Button text='Back' path={() => navigate(pathes.cards)} />
-				<h6 className='lead display-5 my-3 fw-bold'>My Cards</h6>
-				<hr className=' w-25' />
+				<h6 className='lead display-5 p-2 fw-bold'>My cards</h6>
+				<hr />
+				<div className='p-3'>
+					<Button text='Back' path={() => navigate(pathes.cards)} />
+				</div>
 				<div className='container py-5'>
 					<div className='w-100'>
 						<button onClick={() => onShow()}>Add Card</button>

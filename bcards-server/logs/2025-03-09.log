@@ -14,3 +14,201 @@
 3/9/2025, 2:10:07 AM - Status Code: 401 - Error: Only owner or admin users can update the card
 3/9/2025, 2:11:11 AM - Status Code: 401 - Error: Only owner or admin users can update the card
 3/9/2025, 2:15:31 AM - Status Code: 401 - Error: Only owner or admin users can update the card
+3/9/2025, 6:56:52 PM - Status Code: 400 - Error: Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character
+3/9/2025, 6:57:47 PM - Status Code: 400 - Error: Invalid email or password
+3/9/2025, 6:59:16 PM - Status Code: 400 - Error: Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character
+3/9/2025, 7:05:51 PM - Status Code: 400 - Error: Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character
+3/9/2025, 11:39:00 PM - Status Code: 400 - Error: invalid email or password
+3/10/2025, 12:02:10 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:02:12 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:07:09 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:07:10 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:07:54 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:07:59 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:08:14 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:08:16 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:08:18 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:08:23 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:08:25 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:09:00 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:10:20 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:10:21 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:14:14 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:14:21 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:18:07 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:18:15 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:18:18 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:18:46 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:18:50 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:21:03 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:21:35 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:21:36 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:22:35 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:22:37 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:25:40 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:25:46 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:25:53 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:26:00 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:26:02 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:29:58 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:33:18 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:36:19 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:36:26 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:40:16 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:40:56 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:41:18 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:05 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:18 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:19 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:20 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:26 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:29 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:31 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:33 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:42:37 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:43:13 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:43:17 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 12:44:26 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "profile" (type string) at path "_id" for model "Users"
+3/10/2025, 12:45:39 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "profile" (type string) at path "_id" for model "Users"
+3/10/2025, 12:46:18 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:46:18 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:20 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:29 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:31 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:37 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:40 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:44 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:45 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:47 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:48 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:47:49 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:48:32 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:48:35 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:48:38 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:48:49 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:48:57 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:00 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:10 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:13 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:30 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:34 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:37 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:39 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:42 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:48 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:59 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:49:59 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:02 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:04 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:04 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:17 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:19 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:23 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:26 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:38 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:40 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:45 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:50 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:54 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:50:59 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:51:02 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:52:49 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:52:51 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:01 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:03 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:13 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:13 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:18 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:20 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:21 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:25 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:28 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:29 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:30 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:30 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:31 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:31 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:33 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:33 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:35 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:36 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:44 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:54 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:53:55 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:55:41 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:55:51 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:55:54 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:56:07 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:56:13 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:56:51 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:57:13 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:57:27 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:57:38 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:57:50 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:58:16 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 12:58:19 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:04:27 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:05:49 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:05:55 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:07 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:13 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:21 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:22 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:32 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:39 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:06:49 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:07:26 AM - Status Code: 400 - Error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:07:37 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:07:37 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:08:04 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:08:04 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:09:06 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:09:06 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:10:08 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:10:08 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:10:14 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 1:10:28 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 1:10:39 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 1:10:49 AM - Status Code: 401 - Error: Access denied. You are not authorized to access this user's data
+3/10/2025, 1:10:59 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:10:59 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:11:23 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:11:23 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:13:37 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:13:37 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:00 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:00 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:26 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:26 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:28 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:28 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:35 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:35 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:36 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:36 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:38 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:38 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:41 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:41 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:42 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:42 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:44 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:44 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:52 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:52 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:14:56 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:14:56 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:16:05 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:16:05 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:16:26 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:16:26 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:16:42 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:16:42 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:16:43 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:16:43 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:17:00 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Users"
+3/10/2025, 1:17:00 AM - Status Code: 400 - Error: {"stringValue":"\"undefined\"","valueType":"string","kind":"ObjectId","value":"undefined","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"undefined\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:17:07 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Users"
+3/10/2025, 1:17:07 AM - Status Code: 400 - Error: {"stringValue":"\"0\"","valueType":"string","kind":"ObjectId","value":"0","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"0\" (type string) at path \"_id\" for model \"Users\""}
+3/10/2025, 1:17:07 AM - Status Code: 400 - Error: CastError: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Users"
+3/10/2025, 1:17:07 AM - Status Code: 400 - Error: {"stringValue":"\"0\"","valueType":"string","kind":"ObjectId","value":"0","path":"_id","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"0\" (type string) at path \"_id\" for model \"Users\""}

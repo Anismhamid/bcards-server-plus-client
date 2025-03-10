@@ -48,9 +48,9 @@ export const registeryFormikShcema = yup.object({
 	password: yup
 		.string()
 		.required("Password is required")
-		.min(7, "Password must be at least 7 characters long")
+		.min(8, "Password must be at least 8 characters long")
 		.max(20, "Password must be at most 20 characters long")
-		.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[!@#$%^&*]).{8,}$/),
+		.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*+=-_].{8,}$)/),
 	image: yup.object({
 		url: yup
 			.string()

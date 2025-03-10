@@ -9,6 +9,7 @@ import MyCards from "../components/MyCards";
 import UserDetails from "../components/EditUser";
 import CardDetails from "../components/CardDeatails";
 import PageNotFound from "../components/PageNotFound";
+import Profile from "../components/Profile";
 
 export const routes = {
 	cards: <Route path='/' element={<Cards />} />,
@@ -18,6 +19,7 @@ export const routes = {
 	about: <Route path='/about' element={<About />} />,
 	sandBox: <Route path='/sandBox' element={<SandBox />} />,
 	myCards: <Route path='/myCards' element={<MyCards />} />,
+	profile: <Route path='/profile' element={<Profile />} />,
 	userDetails: <Route path='/userDetails/:userId' element={<UserDetails />} />,
 	cardDetails: <Route path='/cardDetails/:cardId' element={<CardDetails />} />,
 	pageNotFound: <Route path='*' element={<PageNotFound />} />,
@@ -27,6 +29,7 @@ export enum pathes {
 	cards = "/",
 	register = "/register",
 	login = "/login",
+	profile = "/profile",
 	about = "/about",
 	favCards = "/fav-cards",
 	sandBox = "/sandBox",

@@ -1,12 +1,16 @@
 import {FunctionComponent, useContext} from "react";
 import {SiteTheme} from "../theme/theme";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Navbar from "./Navbar";
+import Button from "../atoms/buttons/Button";
+import {pathes} from "../routes/Routes";
+import Footer from "./Footer";
 
 interface AboutProps {}
 
 const About: FunctionComponent<AboutProps> = () => {
 	const theme = useContext(SiteTheme);
+	const nanegate = useNavigate();
 
 	return (
 		<>
@@ -16,10 +20,13 @@ const About: FunctionComponent<AboutProps> = () => {
 					<div className='col-md-6 col-lg-3'>
 						<h6
 							style={{backgroundColor: theme.background}}
-							className='display-4 text-primary'
+							className='display-4 text-primary p-2'
 						>
 							About bCards
 						</h6>
+						<div className='p-3'>
+							<Button text={"Back"} path={() => nanegate(-1)} />
+						</div>
 					</div>
 				</header>
 				<hr />
@@ -75,16 +82,7 @@ const About: FunctionComponent<AboutProps> = () => {
 					</section>
 				</div>
 			</main>
-			<footer className='text-center pb-5 border-top border-info w-100'>
-				<h2 className='mt-5'>Contact Us</h2>
-				<p className=' lead'>
-					Have questions or want to learn more? Feel free to reach out to us at
-				</p>
-				<Link to='mailto:support@bcards.com' className='text-primary'>
-					support@bcards.com
-				</Link>
-				<p className=' pb-5'>&copy; 2024 bCards. All Rights Reserved.</p>
-			</footer>
+
 		</>
 	);
 };

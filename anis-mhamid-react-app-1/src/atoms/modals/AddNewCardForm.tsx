@@ -4,7 +4,7 @@ import {Cards} from "../../interfaces/Cards";
 import {createNewCard} from "../../services/cardsServices";
 import {errorMSG, successMSG} from "../taosyify/Toastify";
 import CardsInput from "./CardsInput";
-import {plus} from "../../fontAwesome/Icons";
+import {cloud} from "../../fontAwesome/Icons";
 import {
 	cardsFormikValues,
 	cardsFormikValuesSchema,
@@ -37,8 +37,9 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 				className='fw-bold card p-4 shadow-lg rounded-3'
 			>
 				{/* Title and Subtitle */}
-				<div className='row'>
+				<div className='row shadow rounded bg-danger-subtle'>
 					<div className='col-6'>
+						<span className=' text-danger fs-5'>*</span>
 						<CardsInput
 							placeholder='Title'
 							name='title'
@@ -51,6 +52,7 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 						/>
 					</div>
 					<div className='col-6'>
+						<span className=' text-danger fs-5'>*</span>
 						<CardsInput
 							placeholder='Subtitle'
 							name='subtitle'
@@ -65,38 +67,42 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 				</div>
 
 				{/* Description */}
-				<div className='form-floating mb-3'>
-					<textarea
-						style={{height: "100px"}}
-						id='description'
-						name={"description"}
-						value={formik.values.description}
-						placeholder={"description"}
-						className={`form-control w-100 ${
-							formik.touched.description && formik.errors.description
-								? "is-invalid"
-								: ""
-						}`}
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						aria-label={"description"}
-					/>
-					{formik.touched.description && formik.errors.description && (
-						<div className='invalid-feedback'>
-							{formik.errors.description}
-						</div>
-					)}
-					<label
-						htmlFor={"description"}
-						className='form-label fw-bold text-secondary'
-					>
-						{"description"}
-					</label>
+				<div className='form-floating my-3 shadow rounded bg-danger-subtle p-2'>
+					<span className=' text-danger fs-6'>*</span>
+					<div className='form-floating my-3'>
+						<textarea
+							style={{height: "100px"}}
+							id='description'
+							name={"description"}
+							value={formik.values.description}
+							placeholder={"description"}
+							className={`form-control w-100 ${
+								formik.touched.description && formik.errors.description
+									? "is-invalid"
+									: ""
+							}`}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							aria-label={"description"}
+						/>
+						{formik.touched.description && formik.errors.description && (
+							<div className='invalid-feedback'>
+								{formik.errors.description}
+							</div>
+						)}
+						<label
+							htmlFor={"description"}
+							className='form-label fw-bold text-secondary'
+						>
+							{"description"}
+						</label>
+					</div>
 				</div>
 
 				{/* Phone and Email */}
-				<div className='row'>
-					<div className='col-6'>
+				<div className='row shadow rounded bg-danger-subtle'>
+					<div className='col-6 '>
+						<span className=' text-danger fs-6'>*</span>
 						<CardsInput
 							placeholder='Phone (9-11)'
 							name='phone'
@@ -109,6 +115,7 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 						/>
 					</div>
 					<div className='col-6'>
+						<span className=' text-danger fs-6'>*</span>
 						<CardsInput
 							placeholder='Email'
 							name='email'
@@ -135,8 +142,9 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 				/>
 
 				{/* Image URL and Alt */}
-				<div className='row'>
+				<div className='row mb-3 shadow rounded bg-danger-subtle'>
 					<div className='col-8'>
+						<span className=' text-danger fs-6'>*</span>{" "}
 						<CardsInput
 							placeholder='image Url'
 							name='image.url'
@@ -149,6 +157,7 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 						/>
 					</div>
 					<div className='col-4'>
+						<span className=' text-danger fs-6'>*</span>
 						<CardsInput
 							placeholder='img name'
 							name='image.alt'
@@ -164,7 +173,7 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 
 				{/* Address Fields */}
 				<div className='row'>
-					<div className='col-4'>
+					<div className='col-4 '>
 						<CardsInput
 							placeholder='state'
 							name='address.state'
@@ -176,9 +185,10 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 							onBlur={formik.handleBlur}
 						/>
 					</div>
-					<div className='col-4'>
+					<div className='col-4 rounded-start bg-danger-subtle'>
+						<span className=' text-danger fs-6'>*</span>
 						<CardsInput
-							placeholder='country'
+							placeholder='country '
 							name='address.country'
 							type='text'
 							value={formik.values.address.country}
@@ -188,9 +198,10 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 							onBlur={formik.handleBlur}
 						/>
 					</div>
-					<div className='col-4'>
+					<div className='col-4 rounded-end bg-danger-subtle'>
+						<span className=' text-danger fs-6'>*</span>
 						<CardsInput
-							placeholder='city'
+							placeholder='city *'
 							name='address.city'
 							type='text'
 							value={formik.values.address.city}
@@ -204,7 +215,8 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 
 				{/* Street, House Number, Zip */}
 				<div className='row'>
-					<div className='col-4'>
+					<div className='col-4 shadow rounded bg-danger-subtle'>
+						<span className=' text-danger fs-6'>*</span>
 						<CardsInput
 							placeholder='street'
 							name='address.street'
@@ -242,12 +254,12 @@ const AddNewCardForm: FunctionComponent<AddNewCardFormProps> = ({refresh}) => {
 					</div>
 				</div>
 
-				<div className='mb-3'>
+				<div className='m-auto'>
 					<button
 						type='submit'
-						className='btn btn-success w-100 py-2 fw-bold shadow-lg'
+						className='btn btn-success m-auto mt-5 py-2 fw-bold shadow-lg'
 					>
-						{plus}
+						Add to your cloud {cloud}
 					</button>
 				</div>
 			</form>

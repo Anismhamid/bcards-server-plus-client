@@ -6,8 +6,7 @@ import useToken from "../hooks/useToken";
 import {logOut} from "../fontAwesome/Icons";
 import {SiteTheme} from "../theme/theme";
 
-interface NavbarProps {
-}
+interface NavbarProps {}
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
 	const theme = useContext(SiteTheme);
@@ -52,17 +51,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 				className='navbar navbar-expand-lg shadow'
 			>
 				<div className='container-fluid'>
-					{/* Dark Mode Toggle Button */}
-					{/* <button
-						style={{backgroundColor: theme.background, color: theme.color}}
-						onClick={() => darkSetter()}
-						id='toggle-theme'
-						aria-label='Toggle theme'
-						className='btn btn-link border-primary'
-					>
-						{fathMe}
-					</button> */}
-
 					{/* Logo */}
 					<NavLink className='navbar-brand logo' to={pathes.cards}>
 						<img
@@ -106,6 +94,15 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
 							</li>
 							{isLogedIn && (
 								<>
+									<li className='nav-item'>
+										<NavLink
+											style={{color: theme.color}}
+											className='nav-link'
+											to={pathes.profile}
+										>
+											Profile
+										</NavLink>
+									</li>
 									<li className='nav-item'>
 										<NavLink
 											style={{color: theme.color}}

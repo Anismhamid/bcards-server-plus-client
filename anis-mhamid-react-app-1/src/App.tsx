@@ -6,6 +6,7 @@ import {SiteTheme, theme} from "./theme/theme";
 import React from "react";
 import Sidebar from "./components/Sidebar";
 import {fathMe} from "./fontAwesome/Icons";
+import Footer from "./components/Footer";
 
 function App() {
 	const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -57,6 +58,7 @@ function App() {
 						<React.Fragment key={key}>{route}</React.Fragment>
 					))}
 				</Routes>
+				<Footer />
 			</Router>
 		</SiteTheme.Provider>
 	);

@@ -63,9 +63,11 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 					color: theme.color,
 				}}
 			>
-				<h6 className='lead display-5 p-3 fw-bold'>My favorite</h6>
+				<h6 className='lead display-5 p-2 fw-bold'>My favorite</h6>
 				<hr />
-				<Button text={"Back"} path={() => nanegate(pathes.cards)} />
+				<div className='p-3'>
+					<Button text={"Back"} path={() => nanegate(pathes.cards)} />
+				</div>
 				<div className='container py-5'>
 					<div className='row'>
 						{cards.map((card: Cards) => {

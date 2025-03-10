@@ -46,6 +46,7 @@ export const getUserById = async (userId: string) => {
 		});
 		return response.data;
 	} catch (error) {
+		console.log(error);
 		errorMSG("Unexpected error please try again");
 	}
 };

@@ -22,13 +22,29 @@ const AddNewCardModal: FunctionComponent<AddNewCardModalProps> = ({
 				size='lg'
 				onHide={() => onHide()}
 				backdrop='static'
-				keyboard={false}
-				data-bs-theme='dark'
+				keyboard={true}
+				data-bs-theme='danger'
 				centered
 				scrollable
 			>
-				<Modal.Header closeButton>
-					<Modal.Title className=' text-light display-6'>Add CARD</Modal.Title>
+				<Modal.Header
+					style={{background: "#ECF8F8"}}
+					className=" shadow"
+					closeButton
+					aria-label='create new card'
+				>
+					<Modal.Title className='text-danger bg-light p-1 rounded border border-danger'>
+						<span className='fs-6'>
+							On pc
+							<span className='mx-1 border border-2 rounded p-1 fw-bold'>
+								Esc
+							</span>
+							to exit
+						</span>
+					</Modal.Title>
+					<Modal.Dialog className='text-light display-6 shadow rounded'>
+						<span className='p-2 text-success fw-bold'>Add CARD</span>
+					</Modal.Dialog>
 				</Modal.Header>
 				<Modal.Body>
 					<AddNewCardForm refresh={() => refresh()} />

@@ -27,9 +27,10 @@ const userRegisterJoiSchema = Joi.object({
 		),
 	email: Joi.string().email().min(2).required(),
 	password: Joi.string()
-		.min(6)
+		.min(8)
+		.max(20)
 		.required()
-		.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/)
+		.regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*+=-_])/)
 		.message(
 			"Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character",
 		),
@@ -152,7 +153,7 @@ router.post("/login", async (req, res) => {
 // get all users for admin users
 router.get("/", auth, async (req, res) => {
 	try {
-		if (!req.payload.isAdmin)
+		if (req.payload.isAdmin === true)
 			return res.status(403).send("just admin user can access");
 		const users = await User.find().select("-password");
 		if (!users) return res.status(401).send("no found users");
@@ -172,6 +173,7 @@ router.get("/:id", auth, async (req, res) => {
 			// Fetch user by ID
 			const user = await User.findById(req.params.id).select("-password");
 			if (!user) return res.status(404).send("User not found");
+
 			// Send the user data with status 200
 			return res.status(200).send(user);
 		} else {
@@ -180,7 +182,7 @@ router.get("/:id", auth, async (req, res) => {
 				.send("Access denied. You are not authorized to access this user's data");
 		}
 	} catch (error) {
-		return res.status(400).send(error.message); // Send the error message if something goes wrong
+		return res.status(400).send(error);
 	}
 });
 
