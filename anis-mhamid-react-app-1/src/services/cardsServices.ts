@@ -112,27 +112,11 @@ export const getCardById = async (cardId: string) => {
 };
 
 export const deleteCardById = async (cardId: string) => {
-	const token: string | null = localStorage.getItem("bCards_token");
-	if (!token) {
-		errorMSG("Authentication required. Please log in.");
-	}
-	try {
-		const response = await axios.delete(`${getCards.url}/${cardId}`, {
-			headers: {
-				"x-auth-token": token,
-				"Content-Type": "application/json",
-			},
-		});
-
-		return response.data;
-	} catch (error) {
-		if (axios.isAxiosError(error)) {
-			errorMSG(
-				`Internet connection error: ${error.response?.data || error.message}`,
-			);
-		} else {
-			errorMSG(`Unexpected error: ${error}`);
-			return null;
-		}
-	}
+	const token = localStorage.getItem("bCards_token");
+	const response = await axios.delete(`${getCards.url}/${cardId}`, {
+		headers: {
+			Authorization: token,
+		},
+	});
+	return response.data;
 };

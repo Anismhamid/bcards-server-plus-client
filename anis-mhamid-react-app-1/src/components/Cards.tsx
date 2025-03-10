@@ -39,7 +39,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const {isAdmin, setIsLogedIn, isBusiness} = useUserContext();
 	const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
-	const [cardToDelete, setCardToDelete] = useState<SetStateAction<string>>("");
+	const [cardToDelete, setCardToDelete] = useState<string>("");
 	const [onShowImageModal, setOnShowImageModal] = useState<boolean>(false);
 	const [cardImageUrl, setCardImageUrl] = useState<string>("");
 	const [cardImageAlt, setCardImageAlt] = useState<string>("");
@@ -250,15 +250,15 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 															decodedToken._id) && (
 														<div className='mt-3 d-flex justify-content-around'>
 															<DeleteAndEditButtons
+																onShowDeleteCardModal={() =>
+																	onShowDeleteCardModal()
+																}
 																setCardToDelete={() => {
 																	setCardToDelete(
 																		card._id as string,
 																	);
 																}}
 																card={card}
-																onShowDeleteCardModal={() =>
-																	onShowDeleteCardModal()
-																}
 															/>
 														</div>
 													)}

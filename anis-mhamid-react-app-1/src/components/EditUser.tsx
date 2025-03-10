@@ -72,8 +72,8 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 
 		setIsLoading(true);
 		getUserById(userId)
-			.then((data: User) => {
-				setUser(data);
+			.then((data) => {
+				setUser(data.data);
 				setIsLoading(false);
 			})
 			.catch((err) => {
@@ -111,7 +111,10 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 						</div>
 						<div className='col-12'>
 							<img
-								src={user.image.url}
+								src={
+									user.image.url ||
+									"/avatar-design.png"
+								}
 								alt={user.image.alt}
 								className=' img-fluid rounded-5 my-4'
 								style={{maxWidth: "20rem"}}

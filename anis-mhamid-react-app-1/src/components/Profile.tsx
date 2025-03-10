@@ -14,7 +14,7 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 
 	useEffect(() => {
 		getUserById(decodedToken._id || "")
-			.then((user) => setUserData(user))
+			.then((user) => setUserData(user.data))
 			.catch((err) => console.log(err));
 	}, [decodedToken._id]);
 
@@ -78,7 +78,7 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 												: "text-info"
 										} lead ms-2`}
 									>
-										{userData.isBusiness ? "Business" : "User"}
+										{userData.isBusiness ? "Business" : "Client"}
 									</span>
 								</h5>
 							</div>

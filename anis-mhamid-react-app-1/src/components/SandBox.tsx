@@ -88,20 +88,16 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 
 	const handleDelete = useCallback(
 		(userId: string) => {
-			try {
-				deleteUserById(userId)
-					.then((res) => {
-						setUsers((prevUsers: User[]) =>
-							prevUsers.filter((user) => user._id !== res._id),
-						);
-						infoMSG("User deleted successfully.");
-					})
-					.catch(() => {
-						errorMSG("Error deleting user.");
-					});
-			} catch (error) {
-				errorMSG("Failed to delete user.");
-			}
+			deleteUserById(userId)
+				.then((res) => {
+					setUsers((prevUsers: User[]) =>
+						prevUsers.filter((user) => user._id !== res._id),
+					);
+					infoMSG("User deleted successfully.");
+				})
+				.catch(() => {
+					errorMSG("Error deleting user.");
+				});
 		},
 		[currentPage, usersPerPage],
 	);
@@ -225,10 +221,10 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 													<button
 														className='text-danger '
 														onClick={() => {
-															onShow();
 															setSelectedUserId(
 																user._id as string,
 															);
+															onShow();
 														}}
 													>
 														{trash}

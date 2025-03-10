@@ -14,14 +14,14 @@ interface UserInputFormikPropsType {
 
 const CardsInput: FunctionComponent<UserInputFormikPropsType> = (props) => {
 	return (
-		<div className='form-floating my-3'>
+		<div className='form-floating mb-2'>
 			<input
 				type={props.type}
 				id={props.name}
 				name={props.name}
 				value={props.value}
 				placeholder={props.placeholder}
-				className={`form-control w-100 my-1 ${
+				className={`form-control shadow w-100 my-1 ${
 					props.touched && props.error ? "is-invalid" : ""
 				}`}
 				onChange={props.onChange}

@@ -142,23 +142,27 @@ router.patch("/like/:cardId/:userId", auth, async (req, res) => {
 // dele card by user have the card or admin users
 router.delete("/:id", auth, async (req, res) => {
 	try {
+		// check if user is not a business user or admin before performing permission check
 		if (!req.payload.isBusiness && !req.payload.isAdmin) {
-			const cardToDelete = await Cards.findById(req.params.id);
+			let cardToDelete = await Cards.findById(req.params.id);
 			if (!cardToDelete) return res.status(404).send("Card not found");
 
-			if (cardToDelete.user_id !== req.payload._id) {
+			// check if the card belongs to the user
+			if (cardToDelete.user_id !== req.payload._id)
 				return res
 					.status(403)
 					.send("You do not have permission to delete this card");
-			}
+		} else {
+			// check If the user is an admin or business user, just fetch the card to delete it
+			cardToDelete = await Cards.findById(req.params.id);
+			if (!cardToDelete) return res.status(404).send("Card not found");
 		}
-		const cardToDelete = await Cards.findByIdAndDelete(req.params.id);
-		if (!cardToDelete)
-			return res.status(404).send("The card is not found. problem with card id");
 
-		res.status(200).send(`The card has been deleted successfully`);
+		await Cards.findByIdAndDelete(req.params.id);
+
+		res.status(200).send("The card has been deleted successfully");
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send(error);
 	}
 });
 

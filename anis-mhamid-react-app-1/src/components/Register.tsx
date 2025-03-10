@@ -97,13 +97,15 @@ const Register: FunctionComponent<RegisterProps> = () => {
 						<hr className='w-75 m-auto automatic-border m-5' />
 					</div>
 					<h1 className='text-center py-1 '>REGISTER</h1>
+					{/* Register form */}
 					<form
 						onSubmit={registeryFormik.handleSubmit}
 						className='shadow p-4 rounded-4 py-5 border'
 					>
 						{/* First and Middle Name */}
 						<div className='row'>
-							<div className='col-md-6 col-sm-12'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded shadow'>
+								<span className=' text-danger fs-5'>*</span>
 								<CardsInput
 									name={"name.first"}
 									type={"text"}
@@ -130,8 +132,9 @@ const Register: FunctionComponent<RegisterProps> = () => {
 							</div>
 						</div>
 						{/* Last Name and Phone */}
-						<div className='row'>
-							<div className='col-md-6 col-sm-12'>
+						<div className='row shadow my-2'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-start'>
+								<span className='text-danger fs-5'>*</span>
 								<CardsInput
 									name={"name.last"}
 									type={"text"}
@@ -144,7 +147,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 
-							<div className='col-md-6 col-sm-12'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-end'>
+								<span className='text-danger fs-5'>*</span>
 								<CardsInput
 									name={"phone"}
 									type={"tel"}
@@ -157,9 +161,11 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 						</div>
+
 						{/* Email and Password */}
-						<div className='row'>
-							<div className='col-md-6 col-sm-12'>
+						<div className='row shadow rounded my-2'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-start'>
+								<span className=' text-danger fs-5'>*</span>
 								<CardsInput
 									name={"email"}
 									type={"email"}
@@ -172,15 +178,16 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 
-							<div className='col-md-6 col-sm-12'>
-								<div className='form-floating my-3'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-end'>
+								<span className=' text-danger fs-5'>*</span>
+								<div className='form-floating mb-1'>
 									<input
 										type={showPassword ? "text" : "password"}
 										id={"password"}
 										name={"password"}
 										value={registeryFormik.values.password}
 										placeholder={"Password"}
-										className={`form-control w-100 my-1 ${
+										className={`form-control w-100 shadow my-1 ${
 											registeryFormik.touched.password &&
 											registeryFormik.errors.password
 												? "is-invalid"
@@ -222,7 +229,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
 						</div>
 
 						{/* Image URL and Alt Text */}
-						<div className='row'>
+						<div className='row my-2'>
 							<div className='col-md-6 col-sm-12'>
 								<div className='form-floating mb-3'>
 									<input
@@ -231,7 +238,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
 										name={"image.url"}
 										value={registeryFormik.values.image.url}
 										placeholder={"Image URL"}
-										className={`form-control`}
+										className={`form-control shadow`}
 										onChange={registeryFormik.handleChange}
 										onBlur={registeryFormik.handleBlur}
 										aria-label={"url"}
@@ -253,7 +260,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
 										name={"image.alt"}
 										value={registeryFormik.values.image.alt}
 										placeholder={"Image URL"}
-										className={`form-control`}
+										className={`form-control shadow`}
 										onChange={registeryFormik.handleChange}
 										onBlur={registeryFormik.handleBlur}
 										aria-label={"imageAlt"}
@@ -283,7 +290,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 
-							<div className='col-md-6 col-sm-12'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded'>
+								<span className=' text-danger fs-5'>*</span>
 								<CardsInput
 									name={"address.country"}
 									type={"text"}
@@ -296,8 +304,10 @@ const Register: FunctionComponent<RegisterProps> = () => {
 								/>
 							</div>
 						</div>
-						<div className='row '>
-							<div className='col-md-6 col-sm-12 mt-2'>
+						{/* City and street */}
+						<div className='row my-2 shadow rounded'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-start'>
+								<span className=' text-danger fs-5'>*</span>
 								<CardsInput
 									name={"address.city"}
 									type={"text"}
@@ -309,7 +319,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
 									onBlur={registeryFormik.handleBlur}
 								/>
 							</div>
-							<div className='col-md-6 col-sm-12 mt-2'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-end'>
+								<span className='text-danger fs-5'>*</span>
 								<CardsInput
 									name={"address.street"}
 									type={"text"}
@@ -324,8 +335,9 @@ const Register: FunctionComponent<RegisterProps> = () => {
 						</div>
 
 						{/* House number and Zip */}
-						<div className='row '>
-							<div className='col-md-6 col-sm-12 mt-2'>
+						<div className='row my-2'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-start'>
+								<span className=' text-danger fs-5'>*</span>
 								<CardsInput
 									name={"address.houseNumber"}
 									type={"number"}
@@ -337,7 +349,8 @@ const Register: FunctionComponent<RegisterProps> = () => {
 									onBlur={registeryFormik.handleBlur}
 								/>
 							</div>
-							<div className='col-md-6 col-sm-12 mt-2'>
+							<div className='col-md-6 col-sm-12 bg-danger-subtle rounded-end'>
+								<span className=' text-danger fs-5'>*</span>
 								<CardsInput
 									name={"address.zip"}
 									type={"text"}

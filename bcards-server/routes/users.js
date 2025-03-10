@@ -153,11 +153,15 @@ router.post("/login", async (req, res) => {
 // get all users for admin users
 router.get("/", auth, async (req, res) => {
 	try {
-		if (!req.payload.isAdmin === true)
+		// check if user is admin
+		if (!req.payload.isAdmin)
 			return res.status(403).send("just admin user can access");
+
+		// find user
 		const users = await User.find().select("-password");
 		if (!users) return res.status(401).send("no found users");
 
+		// return the user
 		res.status(200).send(users);
 	} catch (error) {
 		console.log(chalk.red(error.message));
@@ -183,6 +187,25 @@ router.get("/:id", auth, async (req, res) => {
 		}
 	} catch (error) {
 		return res.status(400).send(error);
+	}
+});
+
+router.delete("/:userId", auth, async (req, res) => {
+	try {
+		const userIdFromPayload = req.payload._id;
+		if (req.params.userId != userIdFromPayload && !req.payload.isAdmin)
+			return res.status(401).send("You do not have permission to delete this user");
+
+		// find the user in the database
+		const user = await User.findByIdAndDelete(req.params.userId);
+
+		// If user not found, return an error
+		if (!user) return res.status(404).send("User not found");
+
+		// Send success response
+		res.status(200).send("User deleted successfully");
+	} catch (error) {
+		res.status(400).send(error.message);
 	}
 });
 

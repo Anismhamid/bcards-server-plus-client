@@ -37,18 +37,12 @@ export const getAllUsers = async (page: number, limit: number) => {
 };
 
 // Get specific user by ID
-export const getUserById = async (userId: string) => {
-	try {
-		const response = await axios.get(`${getUsers.url}/${userId}`, {
-			headers: {
-				Authorization: localStorage.getItem("bCards_token"),
-			},
-		});
-		return response.data;
-	} catch (error) {
-		console.log(error);
-		errorMSG("Unexpected error please try again");
-	}
+export const getUserById = (userId: string) => {
+	return axios.get(`${getUsers.url}/${userId}`, {
+		headers: {
+			Authorization: localStorage.getItem("bCards_token"),
+		},
+	});
 };
 
 // Register a new user
