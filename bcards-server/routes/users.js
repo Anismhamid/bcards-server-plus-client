@@ -30,10 +30,7 @@ const userRegisterJoiSchema = Joi.object({
 		.min(8)
 		.max(20)
 		.required()
-		.regex(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*+=-_])/)
-		.message(
-			"Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character",
-		),
+		,
 	address: Joi.object({
 		state: Joi.string().min(2).allow(""),
 		country: Joi.string().min(2).required(),

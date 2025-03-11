@@ -1,0 +1,3 @@
+3/11/2025, 4:54:49 PM - Status Code: 400 - Error: Invalid email or password
+3/11/2025, 4:54:55 PM - Status Code: 400 - Error: TypeError: Cannot set properties of null (setting 'password')
+3/11/2025, 4:54:55 PM - Status Code: 400 - Error: {}
