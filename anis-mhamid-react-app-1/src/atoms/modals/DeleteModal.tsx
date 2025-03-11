@@ -9,7 +9,7 @@ interface DeleteModalProps {
 	onDelete: Function;
 	render: Function;
 	toDelete: string;
-	navigateTo: string;
+	navigateTo: any;
 	method: string;
 }
 

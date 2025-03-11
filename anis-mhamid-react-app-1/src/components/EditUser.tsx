@@ -14,6 +14,7 @@ import {tooltips} from "../atoms/ToolTip";
 import {handleDelete_User} from "../handleFunctions/users";
 import {updateUserFormikSchema} from "../fomikFormsValidation/UpdateFormikValues";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface EditUserProps {}
 
@@ -111,10 +112,7 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 						</div>
 						<div className='col-12'>
 							<img
-								src={
-									user.image.url ||
-									"/avatar-design.png"
-								}
+								src={user.image.url || "/avatar-design.png"}
 								alt={user.image.alt}
 								className=' img-fluid rounded-5 my-4'
 								style={{maxWidth: "20rem"}}
@@ -373,6 +371,7 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 					navigateTo={""}
 				/>
 			</main>
+			<Footer theme={theme} />;
 		</>
 	);
 };

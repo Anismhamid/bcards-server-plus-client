@@ -19,6 +19,7 @@ import {
 	faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
 export const heart = <FontAwesomeIcon icon={faHeart} />;
 export const trash = <FontAwesomeIcon icon={faTrash} />;
@@ -38,3 +39,5 @@ export const about = <FontAwesomeIcon icon={faInfoCircle} />;
 export const logOut = <FontAwesomeIcon icon={faRightFromBracket} />;
 export const eye = <FontAwesomeIcon icon={faEye} />;
 export const closedEye = <FontAwesomeIcon icon={faEyeSlash} />;
+export const linkedin = <FontAwesomeIcon icon={faLinkedin} />;
+export const instagram = <FontAwesomeIcon icon={faInstagram} />;

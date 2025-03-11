@@ -1,17 +1,14 @@
 import {FunctionComponent, useContext} from "react";
 import {SiteTheme} from "../theme/theme";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Navbar from "./Navbar";
 import Button from "../atoms/buttons/Button";
-import {pathes} from "../routes/Routes";
 import Footer from "./Footer";
-
 interface AboutProps {}
 
 const About: FunctionComponent<AboutProps> = () => {
 	const theme = useContext(SiteTheme);
 	const nanegate = useNavigate();
-
 	return (
 		<>
 			<Navbar />
@@ -82,7 +79,7 @@ const About: FunctionComponent<AboutProps> = () => {
 					</section>
 				</div>
 			</main>
-
+			<Footer theme={theme} />;
 		</>
 	);
 };

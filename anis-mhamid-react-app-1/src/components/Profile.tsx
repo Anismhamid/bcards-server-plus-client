@@ -3,6 +3,8 @@ import {User} from "../interfaces/User";
 import {getUserById} from "../services/userServices";
 import useToken from "../hooks/useToken";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { theme } from "../theme/theme";
 
 interface ProfileProps {}
 
@@ -88,6 +90,7 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 			) : (
 				<p>Loading user data...</p> // Show loading state if userData is still null
 			)}
+			<Footer theme={theme} />;
 		</>
 	);
 };

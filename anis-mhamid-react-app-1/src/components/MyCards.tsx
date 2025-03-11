@@ -13,6 +13,7 @@ import Button from "../atoms/buttons/Button";
 import DeleteModal from "../atoms/modals/DeleteModal";
 import DeleteAndEditButtons from "../atoms/buttons/DeleteAndEditButtons";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface MyCardsProps {}
 
@@ -222,6 +223,7 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 					/>
 				</div>
 			</main>
+			<Footer theme={theme} />;
 		</>
 	);
 };

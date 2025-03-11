@@ -26,13 +26,13 @@ export const registeryFormikValues = {
 
 export const registeryFormikShcema = yup.object({
 	name: yup.object({
-		first: yup.string().required("Name is required").min(2).max(256),
+		first: yup.string().required("First name is required").min(2).max(256),
 		middle: yup.string().min(2).max(256).optional(),
-		last: yup.string().required().min(2).max(256),
+		last: yup.string().required("Last name is required").min(2).max(256),
 	}),
 	phone: yup
 		.string()
-		.required()
+		.required("Phone number is required")
 		.min(9)
 		.max(10)
 		.matches(

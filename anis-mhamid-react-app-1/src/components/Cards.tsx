@@ -1,6 +1,5 @@
 import {
 	FunctionComponent,
-	SetStateAction,
 	useCallback,
 	useContext,
 	useEffect,
@@ -26,6 +25,7 @@ import {Pagination} from "react-bootstrap";
 import DeleteAndEditButtons from "../atoms/buttons/DeleteAndEditButtons";
 import ImageModal from "../atoms/modals/ImageModal";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface CardsHomeProps {}
 
@@ -149,10 +149,10 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 							{currentCards.map((card: Cards) => (
 								<div
 									key={card._id}
-									className='col-12 col-md-6 col-xl-4 my-3'
+									className='col-12 col-md-6 col-xl-4 my-3 m-auto'
 								>
 									<div
-										className='custom-border card2 card w-100 h-100 border-1 shadow-lg rounded-lg overflow-hidden'
+										className='custom-border card2 card w-100 h-100 border-1 shadow rounded-lg overflow-hidden'
 										style={{
 											backgroundColor: theme.background,
 											color: theme.color,
@@ -222,9 +222,9 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 																	card.likes?.includes(
 																		decodedToken?._id,
 																	)
-																		? "text-danger"
-																		: ""
-																} fs-4 rounded-5`}
+																		? "text-danger border-0"
+																		: "border-0"
+																} `}
 															>
 																{heart}{" "}
 																{card.likes?.length}
@@ -240,7 +240,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 																		card.likes?.includes(
 																			decodedToken?._id,
 																		) && "text-danger"
-																	} mx-1 fs-5`}
+																	} ms-1 fs-5`}
 																></p>
 															</sub>
 														</div>
@@ -302,6 +302,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 					</div>
 				</div>
 			</main>
+			<Footer theme={theme} />
 		</>
 	);
 };

@@ -1,16 +1,23 @@
-import {FunctionComponent} from "react";
+import {FunctionComponent, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+import {SiteTheme} from "../theme/theme";
 
 interface PageNotFoundProps {}
 
 const PageNotFound: FunctionComponent<PageNotFoundProps> = () => {
 	const navigate = useNavigate();
+	const theme = useContext(SiteTheme);
+
 	return (
 		<>
 			<Navbar />
 			<main>
-				<div className='d-flex justify-content-center align-items-center vh-100 bg-light'>
+				<div
+					style={{background: theme.background, color: theme.color}}
+					className='d-flex justify-content-center align-items-center vh-100 bg-light'
+				>
 					<div className='text-center'>
 						{/* Main Heading */}
 						<h1 className='display-1 text-danger fw-bold'>404</h1>
@@ -40,6 +47,7 @@ const PageNotFound: FunctionComponent<PageNotFoundProps> = () => {
 					</div>
 				</div>
 			</main>
+			<Footer theme={theme} />;
 		</>
 	);
 };

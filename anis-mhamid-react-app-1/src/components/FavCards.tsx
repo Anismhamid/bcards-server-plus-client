@@ -20,6 +20,7 @@ import {useUserContext} from "../context/UserContext";
 import DeleteModal from "../atoms/modals/DeleteModal";
 import DeleteAndEditButtons from "../atoms/buttons/DeleteAndEditButtons";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface FavCardsProps {}
 
@@ -132,9 +133,9 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 															card.likes?.includes(
 																decodedToken._id,
 															)
-																? "text-danger"
-																: "text-light"
-														} fs-5 rounded-5`}
+																? "text-danger border-0"
+																: "border-0"
+														} fs-5`}
 													>
 														{heart}
 														<sub
@@ -191,6 +192,7 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 					}}
 				/>
 			</main>
+			<Footer theme={theme} />
 		</>
 	);
 };

@@ -7,6 +7,7 @@ const chalk = require("chalk");
 const jwt = require("jsonwebtoken");
 const _ = require("lodash");
 const auth = require("../middlewares/auth");
+const SpscripeForNews = require("../models/SubscripeForNews");
 
 // Joi Schema for user registration
 const userRegisterJoiSchema = Joi.object({
@@ -26,11 +27,7 @@ const userRegisterJoiSchema = Joi.object({
 			"The phone number must be an Israeli phone number starting with 05 and max digits is 9-10 ",
 		),
 	email: Joi.string().email().min(2).required(),
-	password: Joi.string()
-		.min(8)
-		.max(20)
-		.required()
-		,
+	password: Joi.string().min(8).max(20).required(),
 	address: Joi.object({
 		state: Joi.string().min(2).allow(""),
 		country: Joi.string().min(2).required(),
@@ -201,6 +198,29 @@ router.delete("/:userId", auth, async (req, res) => {
 
 		// Send success response
 		res.status(200).send("User deleted successfully");
+	} catch (error) {
+		res.status(400).send(error.message);
+	}
+});
+
+const subscripeForNews = Joi.object({
+	email: Joi.string().required().email(),
+});
+
+router.post("/subscripeForNews", async (req, res) => {
+	try {
+		const {error} = subscripeForNews.validate(req.body);
+		if (error) return res.status(400).send(error.details[0].message);
+
+		// find the email on database
+		const subscripeEmail = await User.findOne({email: req.body.email});
+		if (subscripeEmail)
+			return res.status(400).send("This email has supscriped before");
+
+		const setNewSubscripeEmail = new SpscripeForNews(req.body);
+
+		// save the email
+		await setNewSubscripeEmail.save();
 	} catch (error) {
 		res.status(400).send(error.message);
 	}

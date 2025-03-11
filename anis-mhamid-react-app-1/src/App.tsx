@@ -6,7 +6,6 @@ import {SiteTheme, theme} from "./theme/theme";
 import React from "react";
 import Sidebar from "./components/Sidebar";
 import {fathMe} from "./fontAwesome/Icons";
-import Footer from "./components/Footer";
 
 function App() {
 	const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -49,7 +48,7 @@ function App() {
 						>
 							bCards
 						</strong>
-						your go-to solution for digital business cards
+						Your Ultimate Digital Business Card Solution
 					</p>
 				</div>
 				<Sidebar />
@@ -58,7 +57,6 @@ function App() {
 						<React.Fragment key={key}>{route}</React.Fragment>
 					))}
 				</Routes>
-				<Footer />
 			</Router>
 		</SiteTheme.Provider>
 	);

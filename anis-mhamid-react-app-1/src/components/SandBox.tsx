@@ -20,6 +20,7 @@ import Button from "../atoms/buttons/Button";
 import {pathes} from "../routes/Routes";
 import DeleteModal from "../atoms/modals/DeleteModal";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface SandBoxProps {}
 
@@ -315,6 +316,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 					navigateTo={""}
 				/>
 			</main>
+			<Footer theme={theme} />;
 		</>
 	);
 };

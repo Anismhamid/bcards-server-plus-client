@@ -111,3 +111,12 @@ export const putUserData = async (userId: string, data: User) => {
 		return null;
 	}
 };
+
+export const subscripeEmailForNews = async (email: string) => {
+	try {
+		const response = await axios.post(`${api}/users/subscripeForNews`, {email});
+		return response.data;
+	} catch (error) {
+		console.log(error);
+	}
+};

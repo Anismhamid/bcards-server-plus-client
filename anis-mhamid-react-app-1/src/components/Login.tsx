@@ -103,8 +103,14 @@ const Login: FunctionComponent<LoginProps> = () => {
 
 	return (
 		<>
-		<Navbar/>
-			<main style={{paddingTop:"3rem",backgroundColor: theme.background, color: theme.color}}>
+			<Navbar />
+			<main
+				style={{
+					paddingTop: "3rem",
+					backgroundColor: theme.background,
+					color: theme.color,
+				}}
+			>
 				{formik.error && <p className=' text-danger'>{formik.error}</p>}
 
 				<form
@@ -230,16 +236,21 @@ const Login: FunctionComponent<LoginProps> = () => {
 							log in with Google
 						</button>
 					</div>
-				<div className='row border reg mt-5 rounded-4'>
-					<div className='col'>
-						<p style={{fontSize: "16px"}} className=' fw-bold text-center '>
-							Don't have an account?
-							<Link to='/register' aria-label='Go to registration page'>
-								<span className=' text-primary mx-2'>Register Now</span>
-							</Link>
-						</p>
+					<div className='row border reg mt-5 rounded-4'>
+						<div className='col'>
+							<p
+								style={{fontSize: "16px"}}
+								className=' fw-bold text-center '
+							>
+								Don't have an account?
+								<Link to='/register' aria-label='Go to registration page'>
+									<span className=' text-primary mx-2'>
+										Register Now
+									</span>
+								</Link>
+							</p>
+						</div>
 					</div>
-				</div>
 				</form>
 				<div className='one'>
 					<hr className='w-75 m-auto automatic-border m-5' />
