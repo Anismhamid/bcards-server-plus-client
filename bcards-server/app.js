@@ -1,6 +1,8 @@
 const express = require("express");
+const helmet = require("helmet");
 const app = express();
-require("dotenv").config();
+const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
+require("dotenv").config({path: envFile});
 const cors = require("cors");
 const mongoose = require("mongoose");
 const users = require("./routes/users");
@@ -66,11 +68,11 @@ mongoose
 		console.log(chalk.red.bold("Error while connecting to MongoDB:"), error),
 	);
 
-
-	// Middlewares
+// Middlewares
 app.use(express.json());
 app.use(cors());
-app.use(logger); // Register the logger middleware
+app.use(logger);
+app.use(helmet());
 
 // Routes
 app.use("/api/users", users);
@@ -79,4 +81,9 @@ app.use("/api/cards", cards);
 // Start server
 app.listen(port, () => console.log(chalk.blue.bold("Server started on port: "), port));
 
-expressRoutes(app);
+if (process.env.NODE_ENV === "development") {
+	console.log(chalk.bgWhite.red.bold("App is running in Development mode"));
+	expressRoutes(app);
+} else {
+	console.log(chalk.bgWhiteBright.bold("App is running in Production mode"));
+}
