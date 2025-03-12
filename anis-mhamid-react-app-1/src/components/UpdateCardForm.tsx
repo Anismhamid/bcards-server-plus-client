@@ -8,7 +8,6 @@ import {successMSG} from "../atoms/taosyify/Toastify";
 import {useParams} from "react-router-dom";
 import {SiteTheme} from "../theme/theme";
 import {cardsFormikValues} from "../fomikFormsValidation/cardsFormikValues";
-import Footer from "./Footer";
 
 interface UpdateCardFormProps {
 	refresh: () => void;
@@ -91,214 +90,228 @@ const UpdateCardForm: FunctionComponent<UpdateCardFormProps> = ({refresh}) => {
 	});
 
 	return (
-		<>
-			<div className='container'>
-				<form
-					style={{backgroundColor: theme.background, color: theme.color}}
-					onSubmit={formik.handleSubmit}
-					className=' card p-4 shadow-lg border rounded-4'
-				>
-					{/* Title and Subtitle */}
-					<div className='row'>
-						<div className='col-6 '>
-							<CardsInput
-								placeholder='Title'
-								name='title'
-								type='text'
-								value={formik.values.title}
-								error={formik.errors.title}
-								touched={formik.touched.title}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-6'>
-							<CardsInput
-								placeholder='Subtitle'
-								name='subtitle'
-								type='text'
-								value={formik.values.subtitle}
-								error={formik.errors.subtitle}
-								touched={formik.touched.subtitle}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
+		<div className='container'>
+			<form
+				style={{backgroundColor: theme.background, color: theme.color}}
+				onSubmit={formik.handleSubmit}
+				className=' card p-4 shadow-lg border rounded-4'
+			>
+				{/* Title and Subtitle */}
+				<div className='row'>
+					<div className='col-6 '>
+						<CardsInput
+							placeholder='Title'
+							name='title'
+							type='text'
+							value={formik.values.title}
+							error={formik.errors.title}
+							touched={formik.touched.title}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
 					</div>
+					<div className='col-6'>
+						<CardsInput
+							placeholder='Subtitle'
+							name='subtitle'
+							type='text'
+							value={formik.values.subtitle}
+							error={formik.errors.subtitle}
+							touched={formik.touched.subtitle}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+				</div>
 
-					{/* Description */}
-					<CardsInput
-						placeholder='Card description'
-						name='description'
-						type='text'
+				{/* Description */}
+				<div className='form-floating mb-2'>
+					<textarea
+						id={"description"}
+						name={"description"}
 						value={formik.values.description}
-						error={formik.errors.description}
-						touched={formik.touched.description}
+						placeholder={"Card description"}
+						className={`form-control shadow w-100 my-1 ${
+							formik.touched.description && formik.errors.description
+								? "is-invalid"
+								: ""
+						}`}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
+						aria-label={"description"}
 					/>
+					{formik.touched.description && formik.errors.description && (
+						<div className='invalid-feedback'>
+							{formik.errors.description}
+						</div>
+					)}
+					<label
+						htmlFor={"description"}
+						className='form-label fw-bold text-secondary'
+					>
+						{"Card description"}
+					</label>
+				</div>
 
-					{/* Phone and Email */}
-					<div className='row'>
-						<div className='col-6'>
-							<CardsInput
-								placeholder='Phone (9-11)'
-								name='phone'
-								type='tel'
-								value={formik.values.phone}
-								error={formik.errors.phone}
-								touched={formik.touched.phone}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-6'>
-							<CardsInput
-								placeholder='Email'
-								name='email'
-								type='email'
-								value={formik.values.email}
-								error={formik.errors.email}
-								touched={formik.touched.email}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
+				{/* Phone and Email */}
+				<div className='row'>
+					<div className='col-6'>
+						<CardsInput
+							placeholder='Phone (9-11)'
+							name='phone'
+							type='tel'
+							value={formik.values.phone}
+							error={formik.errors.phone}
+							touched={formik.touched.phone}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
 					</div>
-
-					{/* Website URL */}
-					<CardsInput
-						placeholder='Website url '
-						name='web'
-						type='url'
-						value={formik.values.web}
-						error={formik.errors.web}
-						touched={formik.touched.web}
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-					/>
-
-					{/* Image URL and Alt */}
-					<div className='row'>
-						<div className='col-8'>
-							<CardsInput
-								placeholder='image Url'
-								name='image.url'
-								type='url'
-								value={formik.values.image.url}
-								error={formik.errors.image?.url}
-								touched={formik.touched.image?.url}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='alt'
-								name='image.alt'
-								type='text'
-								value={formik.values.image.alt}
-								error={formik.errors.image?.alt}
-								touched={formik.touched.image?.alt}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
+					<div className='col-6'>
+						<CardsInput
+							placeholder='Email'
+							name='email'
+							type='email'
+							value={formik.values.email}
+							error={formik.errors.email}
+							touched={formik.touched.email}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
 					</div>
+				</div>
 
-					{/* Address Fields */}
-					<div className='row'>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='state'
-								name='address.state'
-								type='text'
-								value={formik.values.address.state}
-								error={formik.errors.address?.state}
-								touched={formik.touched.address?.state}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='country'
-								name='address.country'
-								type='text'
-								value={formik.values.address.country}
-								error={formik.errors.address?.country}
-								touched={formik.touched.address?.country}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='city'
-								name='address.city'
-								type='text'
-								value={formik.values.address.city}
-								error={formik.errors.address?.city}
-								touched={formik.touched.address?.city}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-					</div>
+				{/* Website URL */}
+				<CardsInput
+					placeholder='Website url '
+					name='web'
+					type='url'
+					value={formik.values.web}
+					error={formik.errors.web}
+					touched={formik.touched.web}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+				/>
 
-					{/* Street, House Number, Zip */}
-					<div className='row'>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='street'
-								name='address.street'
-								type='text'
-								value={formik.values.address.street}
-								error={formik.errors.address?.street}
-								touched={formik.touched.address?.street}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='house NO'
-								name='address.houseNumber'
-								type='number'
-								value={formik.values.address.houseNumber}
-								error={formik.errors.address?.houseNumber}
-								touched={formik.touched.address?.houseNumber}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
-						<div className='col-4'>
-							<CardsInput
-								placeholder='zip'
-								name='address.zip'
-								type='number'
-								value={formik.values.address.zip}
-								error={formik.errors.address?.zip}
-								touched={formik.touched.address?.zip}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-							/>
-						</div>
+				{/* Image URL and Alt */}
+				<div className='row'>
+					<div className='col-8'>
+						<CardsInput
+							placeholder='image Url'
+							name='image.url'
+							type='url'
+							value={formik.values.image.url}
+							error={formik.errors.image?.url}
+							touched={formik.touched.image?.url}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
 					</div>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='alt'
+							name='image.alt'
+							type='text'
+							value={formik.values.image.alt}
+							error={formik.errors.image?.alt}
+							touched={formik.touched.image?.alt}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+				</div>
 
-					<div className='mb-3'>
-						<button
-							disabled={!formik.isValid || !formik.dirty}
-							type='submit'
-							className='btn btn-success w-100 py-2 fw-bold shadow-lg'
-						>
-							Submit
-						</button>
+				{/* Address Fields */}
+				<div className='row'>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='state'
+							name='address.state'
+							type='text'
+							value={formik.values.address.state}
+							error={formik.errors.address?.state}
+							touched={formik.touched.address?.state}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
 					</div>
-				</form>
-			</div>
-			<Footer theme={theme} />;
-		</>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='country'
+							name='address.country'
+							type='text'
+							value={formik.values.address.country}
+							error={formik.errors.address?.country}
+							touched={formik.touched.address?.country}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='city'
+							name='address.city'
+							type='text'
+							value={formik.values.address.city}
+							error={formik.errors.address?.city}
+							touched={formik.touched.address?.city}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+				</div>
+
+				{/* Street, House Number, Zip */}
+				<div className='row'>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='street'
+							name='address.street'
+							type='text'
+							value={formik.values.address.street}
+							error={formik.errors.address?.street}
+							touched={formik.touched.address?.street}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='house NO'
+							name='address.houseNumber'
+							type='number'
+							value={formik.values.address.houseNumber}
+							error={formik.errors.address?.houseNumber}
+							touched={formik.touched.address?.houseNumber}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+					<div className='col-4'>
+						<CardsInput
+							placeholder='zip'
+							name='address.zip'
+							type='number'
+							value={formik.values.address.zip}
+							error={formik.errors.address?.zip}
+							touched={formik.touched.address?.zip}
+							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+						/>
+					</div>
+				</div>
+
+				<div className='mb-3'>
+					<button
+						disabled={!formik.isValid || !formik.dirty}
+						type='submit'
+						className='btn btn-success w-100 py-2 fw-bold shadow-lg'
+					>
+						Submit
+					</button>
+				</div>
+			</form>
+		</div>
 	);
 };
 

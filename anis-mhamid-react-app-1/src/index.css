@@ -315,3 +315,18 @@ input.form-control {
 .image-shadow {
 	box-shadow: 5px 10px 30px rgb(0, 0, 0);
 }
+
+.back-top {
+	width: 40px;
+	height: 40px;
+	left: 10px;
+	bottom: 100px;
+	font-size: 1rem;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: transform 2s, opacity 2s, visibility 2s;
+	-webkit-transition: transform 2s, opacity 2s, visibility 2s;
+	-moz-transition: transform 2s, opacity 2s, visibility 2s;
+	-ms-transition: transform 2s, opacity 2s, visibility 2s;
+	-o-transition: transform 2s, opacity 2s, visibility 2s;
+}

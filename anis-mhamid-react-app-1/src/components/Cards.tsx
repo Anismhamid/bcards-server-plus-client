@@ -185,10 +185,11 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 													{card.title}
 												</Link>
 											</h5>
+											<hr className='text-info' />
 											<h6 className='card-subtitle text-center mb-2 text-secondary'>
 												{card.subtitle}
 											</h6>
-											<hr />
+
 											<div className='card-text'>
 												<h5>Phone:</h5>
 												<p>{card.phone}</p>
@@ -245,6 +246,13 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 															</sub>
 														</div>
 													</div>
+													<p
+														style={{whiteSpace: "pre-line"}}
+														className='lead lh-base text-primary p-3 rounded'
+													>
+														{card.description}
+													</p>
+
 													{(isAdmin ||
 														card.user_id ===
 															decodedToken._id) && (
@@ -302,6 +310,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 					</div>
 				</div>
 			</main>
+
 			<Footer theme={theme} />
 		</>
 	);

@@ -19,7 +19,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 	return (
 		<>
 			{isLogedIn && (
-				<footer
+				<div
 					style={{backgroundColor: theme.background, color: theme.color}}
 					className='footer fixed-bottom d-flex flex-grow-1 '
 				>
@@ -150,8 +150,9 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 							</ButtonToolbar>
 						</Link>
 					</div>
-				</footer>
+				</div>
 			)}
+
 		</>
 	);
 };

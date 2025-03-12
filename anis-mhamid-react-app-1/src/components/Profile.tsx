@@ -1,15 +1,16 @@
-import {FunctionComponent, useEffect, useState} from "react";
+import {FunctionComponent, useContext, useEffect, useState} from "react";
 import {User} from "../interfaces/User";
 import {getUserById} from "../services/userServices";
 import useToken from "../hooks/useToken";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { theme } from "../theme/theme";
+import {SiteTheme} from "../theme/theme";
 
 interface ProfileProps {}
 
 const Profile: FunctionComponent<ProfileProps> = () => {
 	const {decodedToken} = useToken();
+	const theme = useContext(SiteTheme);
 
 	// Initialize userData as null since you're fetching a single user object
 	const [userData, setUserData] = useState<User | null>(null);
@@ -25,10 +26,19 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 			<Navbar />
 			{/* Check if userData is available and render the user data */}
 			{userData ? (
-				<div className='container'>
-					<div className='row my-5'>
-						<div className='card col-md-12'>
-							<div className='card-header bg-body-secondary rounded-3'>
+				<div
+					style={{background: theme.background, color: theme.color}}
+					className='container'
+				>
+					<div
+						style={{background: theme.background, color: theme.color}}
+						className='row my-5'
+					>
+						<div
+							style={{background: theme.background, color: theme.color}}
+							className='card col-md-12'
+						>
+							<div className='card-header rounded-3'>
 								<div className='card-title'>
 									First name:
 									<span className='text-success ms-1 me-5 fw-bolder'>

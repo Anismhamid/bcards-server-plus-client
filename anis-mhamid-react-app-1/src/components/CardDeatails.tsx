@@ -94,7 +94,7 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 								className={`${
 									card.likes?.includes(decodedToken?._id)
 										? "text-danger"
-										: "text-dark"
+										: ""
 								} fs-2 text-center`}
 							>
 								{heart}
@@ -103,7 +103,7 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 								className={`${
 									card.likes?.includes(decodedToken?._id)
 										? "text-danger"
-										: "text-dark"
+										: ""
 								} mx-1 text-center`}
 							>
 								Likes
@@ -112,8 +112,8 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 								className={`${
 									card.likes?.includes(decodedToken?._id)
 										? "text-danger"
-										: "text-dark"
-								} mx-1 fs-5 text-csnter`}
+										: ""
+								} mx-1 fs-5 text-center`}
 							>
 								{card.likes?.length}
 							</p>
@@ -121,25 +121,32 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 						<div className='row'>
 							<div className='col-12'>
 								<div className='card-text mt-5'>
-									<h6>
-										Phone:
+									<h2>
+										Call us at :
 										<Link
 											className='ms-2'
 											to={`tel:+972${card.phone.slice(1)}`}
 										>
 											{card.phone}
 										</Link>
-									</h6>
+									</h2>
 									<hr className='w-25 border-danger' />
-									<h6>
-										Address: {card.address.city},{card.address.street}
-									</h6>
+									<h2>
+										Ower address : {card.address.city},
+										{card.address.street}
+									</h2>
 									<hr className='w-25 border-danger' />
 								</div>
 
 								<div className='card-text'>
-									<h6>description</h6>
-									<p className='lead '>{card.description}</p>
+									<h2 className=' text-success'>description</h2>
+									<hr />
+									<p
+										style={{whiteSpace: "pre-line"}}
+										className='lead lh-base text-primary rounded'
+									>
+										{card.description}
+									</p>
 								</div>
 							</div>
 							<div className='w-100'>

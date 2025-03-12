@@ -1,4 +1,5 @@
 import {
+	faArrowCircleUp,
 	faArrowLeft,
 	faArrowRight,
 	faBriefcase,
@@ -41,3 +42,4 @@ export const eye = <FontAwesomeIcon icon={faEye} />;
 export const closedEye = <FontAwesomeIcon icon={faEyeSlash} />;
 export const linkedin = <FontAwesomeIcon icon={faLinkedin} />;
 export const instagram = <FontAwesomeIcon icon={faInstagram} />;
+export const arrowCircleUp = <FontAwesomeIcon icon={faArrowCircleUp} />;
