@@ -1,6 +1,6 @@
-# Tester Guide for User Authentication and Management API
+# Guide for User Authentication and Management API
 
-This README is specifically for testers to understand how to test the API, set up the test environment, and run the necessary tests for ensuring the functionality of the **User Authentication and Management API**.
+This README is specifically for understanding how to run the API, set up the test environment, and run the necessary tests for ensuring the functionality of the **User Authentication and Management API**.
 
 ## Table of Contents
 
@@ -27,9 +27,15 @@ As a tester, you are responsible for validating the functionality of these featu
 
 ## Setup
 
-Before you begin testing, follow these steps to set up the project:
+Before testing, make sure that you have the following prerequisites installed:
 
-1. **Clone the Repository**:
+-   **Node.js** (v14 or higher): [Download Node.js](https://nodejs.org/)
+-   **npm**: Node Package Manager (automatically installed with Node.js)
+-   **MongoDB**: If using a local database, install MongoDB (or use MongoDB Atlas).
+-   **Postman/Insomnia**: For API testing, download
+    -   [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download).
+
+1. **Clone the Repository**:  
    Open your terminal and run the following commands:
 
     ```bash
@@ -39,7 +45,7 @@ Before you begin testing, follow these steps to set up the project:
     npm run dev
     ```
 
-2. **Open a New Terminal**:
+2. **Open a New Terminal**:  
    In a new terminal window, run the following commands to set up the server:
 
     ```bash
@@ -56,13 +62,9 @@ Before you begin testing, follow these steps to set up the project:
 To ensure effective testing, you can use the following tools:
 
 -   **Postman**: A popular tool for testing APIs by sending HTTP requests.
-
     -   [Download Postman](https://www.postman.com/downloads/)
-
 -   **Insomnia**: An alternative to Postman for API testing.
-
     -   [Download Insomnia](https://insomnia.rest/download)
-
 -   **curl**: A command-line tool for testing APIs.
 
 ---
@@ -80,9 +82,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 1. **User Registration**:
 
     - **Method**: `POST`
-
-    - **URL**: `http://localhost:8000/api/register`
-
+    - **URL**: `http://localhost:8000/api/users`
     - **Body (JSON)**:
         ```json
         {
@@ -112,9 +112,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 2. **User Login**:
 
     - **Method**: `POST`
-
-    - **URL**: `http://localhost:8000/api/login`
-
+    - **URL**: `http://localhost:8000/api/users/login`
     - **Body (JSON)**:
         ```json
         {
@@ -123,23 +121,19 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         }
         ```
 
-3. **Protected Route Access (e.g., User Profile)**:
+<!-- 3. **Protected Route Access (e.g., User Profile)**:
 
     - **Method**: `GET`
-
     - **URL**: `http://localhost:8000/api/users`
-
     - **Headers**:
         - Authorization: `{AdminToken}` (Use the JWT from the login response)
 
 4. **Admin Routes**:
 
     - **Method**: `GET`
-
     - **URL**: `http://localhost:8000/api/admin/users`
-
     - **Headers**:
-        - Authorization: `{adminToken}`
+        - Authorization: `{adminToken}` -->
 
 ---
 
@@ -195,7 +189,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 4. **Get Card by ID**:
 
     - **Method**: `GET`
-    - **URL**: `http://localhost:8000/api/cards/my-cards`
+    - **URL**: `http://localhost:8000/api/cards/{cardId}`
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for logged-in user)
     - **Response**:
@@ -251,7 +245,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 7. **Delete Card**:
 
     - **Method**: `Delete`
-    - **URL**: `http://localhost:8000/api/cards/{id}`
+    - **URL**: `http://localhost:8000/api/cards/{cardId}`
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for user)
     - **Response**:
@@ -282,29 +276,30 @@ Here are the basic test cases to verify the functionality of the API:
 1. **Test Case: User Registration**
 
     - **Test Steps**:
-        - Send a `POST` request to the `/register` endpoint with valid data.
+        - Send a `POST` request to the `api/users` endpoint with valid data.
         - Verify that the user is successfully registered (status code `200`).
     - **Expected Result**: The user should be registered successfully, and a success message should be returned.
 
 2. **Test Case: User Login**
 
     - **Test Steps**:
-        - Send a `POST` request to the `/login` endpoint with valid credentials.
+        - Send a `POST` request to the `api/users/login` endpoint with valid credentials.
         - Verify that a JWT token is returned (status code `200`).
     - **Expected Result**: A valid JWT token should be returned.
 
-3. **Test Case: JWT Authentication**
+<!-- 3. **Test Case: JWT Authentication**
 
     - **Test Steps**:
         - Send a `GET` request to a protected route (e.g., `/profile`) with a valid token in the `Authorization` header.
         - Verify that the response contains the user data.
-    - **Expected Result**: The response should include the user data, and the status code should be `200`.
+    - **Expected Result**: The response should include the user data, and the status code should be `200`. -->
 
-4. **Test Case: Admin Route Access**
+<!-- 4. **Test Case: Admin Route Access**
+
     - **Test Steps**:
         - Send a `GET` request to the `/admin/users` endpoint with a valid admin token in the `Authorization` header.
         - Verify that all users are returned.
-    - **Expected Result**: The list of users should be returned with the status code `200`.
+    - **Expected Result**: The list of users should be returned with the status code `200`. -->
 
 ---
 
@@ -322,7 +317,7 @@ For testing, you can use sample data like the following:
 
 -   **Invalid User** (for error cases):
     -   `email`: "invalid-email"
-    -   `password`: "123" (too weak)
+    -   `password`: "abc123" (too weak)
 
 ---
 
@@ -339,12 +334,47 @@ Make sure to handle errors properly. Here are some scenarios to consider:
 
 ## Reporting Issues
 
-If you encounter any issues, please report them as follows:
+If you encounter any issues while using the API, please follow the steps below to ensure that the issue is properly reported and can be addressed quickly:
 
-1. Create a detailed description of the problem, including the steps to reproduce it.
-2. Include any error messages, HTTP status codes, and relevant data.
-3. Attach screenshots or logs if needed.
+### 1. **Labeling the Issue**
 
----
+When submitting an issue, please label it according to the type of problem you are experiencing. Some common labels include:
 
-effectively verify the functionality of the **User Authentication and Management API**.
+-   **Bug**: For any unexpected behavior or functionality errors.
+-   **Enhancement**: For suggestions on how to improve the system or add new features.
+-   **Question**: For general inquiries or clarifications on how the API works.
+-   **Security**: For any security vulnerabilities or concerns.
+-   **Performance**: For issues related to slow or unresponsive functionality.
+
+### 2. **Create a Detailed Description**
+
+Provide a detailed description of the problem you encountered, including:
+
+-   **Title**: A brief summary of the issue.
+-   **Steps to Reproduce**: List the exact steps to reproduce the issue.
+
+    Example:
+
+    1. Navigate to the login page.
+    2. Enter an invalid email address.
+    3. Submit the form.
+
+-   **Expected Behavior**: Describe what should happen if the system works correctly.
+-   **Actual Behavior**: Describe what happens when the issue occurs.
+
+### 3. **Provide Error Messages and HTTP Status Codes**
+
+If the issue involves an error, please include:
+
+-   **Error Messages**: Copy any relevant error messages you encounter.
+-   **HTTP Status Codes**: Provide any HTTP status codes returned by the server (e.g., 404, 500, etc.).
+-   **Relevant Data**: Include any request or response data that might help identify the issue.
+
+Example:
+
+```json
+{
+	"error": "Invalid email format",
+	"status": 400
+}
+```
