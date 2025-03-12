@@ -114,7 +114,7 @@ const Footer: FunctionComponent<FooterProps> = ({theme}) => {
 						}}
 						rel='nppener noreferrer'
 						target='_blank'
-						to='https://www.instagram.com'
+						to='https://www.instagram.com/anesmhamed/?igsh=MXZ3ZXZjaHlvanV0ag%3D%3D#'
 						className='mx-3'
 						aria-label='Follow us on Instagram'
 					>
