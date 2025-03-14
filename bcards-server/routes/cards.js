@@ -110,33 +110,21 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 // update like
-router.patch("/like/:cardId/:userId", auth, async (req, res) => {
-	try {
-		if (!req.payload) return res.status(401).send("Please login to add like");
-
-		const {cardId, userId} = req.params;
-
-		// Find the card by cardId
-		const card = await Cards.findById(cardId);
-		if (!card) return res.status(404).send("Card not found");
-
-		// Check if the userId is already in the likes array
-		const isLiked = card.likes.includes(userId);
-
-		// If user already liked, remove their ID (unlike)
-		if (isLiked) {
-			card.likes = card.likes.filter((like) => like !== userId);
-		} else {
-			// If not liked yet, add userId to likes
-			card.likes.push(userId);
-		}
-		// Save the updated card document
-		await card.save();
-
-		res.status(200).json(card);
-	} catch (error) {
-		console.log(error);
-	}
+// patch (registered user)
+router.patch("/:id", auth, async (req, res) => {
+    try {
+        // Check if the user is authorized to edit their profile
+        if (!req.payload._id) return res.status(403).send("Unauthorized");
+        const card = await Cards.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        if (!card) return res.status(400).send("card not found");
+        res.status(200).send(card);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
 });
 
 // dele card by user have the card or admin users
@@ -183,14 +171,17 @@ router.get("/", async (req, res) => {
 // get all cards for spicific user
 router.get("/my-cards", auth, async (req, res) => {
 	try {
-		// Ensure the user is logged in
+		// check if user is logged in
 		if (!req.payload._id) {
 			return res.status(401).send("You have to login to see your cards");
 		}
+
+		// find the user cards
 		const specific_user_cards = await Cards.find({user_id: req.payload._id});
 		if (specific_user_cards.length === 0)
 			return res.status(404).send("No cards found for this user");
 
+		// return status 200 and user cards
 		res.status(200).send(specific_user_cards);
 	} catch (error) {
 		res.status(400).send(error.message);
@@ -200,9 +191,12 @@ router.get("/my-cards", auth, async (req, res) => {
 // get spicific card by id
 router.get("/:id", async (req, res) => {
 	try {
-		const card_by_id = await Cards.findOne({_id: req.params.id});
-		if (!card_by_id) return res.status(404).send("Card not found");
-		res.status(200).send(card_by_id);
+		// find user card
+		const card = await Cards.findById(req.params.id);
+		if (!card) return res.status(404).send("Card not found");
+
+		// return status 200 and user card
+		res.status(200).send(card);
 	} catch (error) {
 		res.status(400).send(error.message);
 	}

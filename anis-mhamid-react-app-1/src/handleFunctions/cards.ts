@@ -2,7 +2,6 @@ import {Cards} from "../interfaces/Cards";
 import {User} from "../interfaces/User";
 import {deleteCardById, updateLikeStatus} from "../services/cardsServices";
 
-
 // delete Card | Cards/CardDetails components
 export const handleDeleteCard_Cards = (id: string, cardsSetter: void) => {
 	deleteCardById(id)
@@ -32,7 +31,7 @@ export const handleLikeToggle_Cards = (
 			}
 
 			// Update like status on the server
-			updateLikeStatus(cardId, userId as string).catch((err) => {
+			updateLikeStatus(cardId).catch((err) => {
 				console.log("Failed to update like status:", err);
 			});
 		}
@@ -42,9 +41,9 @@ export const handleLikeToggle_Cards = (
 };
 
 // Card component handleSearch
-	export const handleSearch = (e: React.FormEvent) => {
-		e.preventDefault();
-	};
+export const handleSearch = (e: React.FormEvent) => {
+	e.preventDefault();
+};
 
 //MyCards component handling like/unlike
 export const handleLikeToggle_MyCards = (
@@ -67,9 +66,7 @@ export const handleLikeToggle_MyCards = (
 		return card;
 	});
 	cardsSetter(updatedCards);
-	updateLikeStatus(cardId, user._id).catch((err) => {
+	updateLikeStatus(cardId).catch((err) => {
 		console.log("Failed to update like status:", err);
 	});
 };
-
-

@@ -217,6 +217,30 @@ const subscripeForNews = Joi.object({
 	email: Joi.string().required().email(),
 });
 
+//change business status
+router.patch("/:id", auth, async (req, res) => {
+	try {
+		// Check if the user is authorized to edit their profile
+		if (req.payload._id !== req.params.id)
+			return res.status(403).send("Unauthorized");
+
+		// find the user
+		const user = await User.findOneAndUpdate(
+			{_id: req.params.id},
+			{$set: {isBusiness: req.body.isBusiness}},
+			{new: true},
+		);
+		if (!user) return res.status(404).send("User not found");
+
+		// send the result status
+		res.status(200).send(
+			`your business account status is: ${user.isBusiness ? "business" : "client"}`,
+		);
+	} catch (error) {
+		res.status(400).send(error);
+	}
+});
+
 router.post("/subscripeForNews", async (req, res) => {
 	try {
 		const {error} = subscripeForNews.validate(req.body);

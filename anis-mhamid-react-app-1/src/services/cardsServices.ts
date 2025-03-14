@@ -1,6 +1,7 @@
 import axios, {AxiosRequestConfig} from "axios";
 import {Cards} from "../interfaces/Cards";
 import {errorMSG} from "../atoms/taosyify/Toastify";
+import { data } from "react-router-dom";
 
 const api: string = import.meta.env.VITE_API_URL;
 
@@ -34,26 +35,16 @@ export const getLikedCardById = async (userId: string) => {
 	}
 };
 
-export const updateLikeStatus = async (cardId: string, userId: string): Promise<any> => {
-	const payload = {
-		cardId,
-		userId,
-	};
-
+export const updateLikeStatus = async (cardId: string): Promise<any> => {
 	try {
-		const updatedCard: Cards[] = await axios.patch(
-			`${getCards.url}/like/${payload.cardId}/${userId}`,
-			payload,
-			{
-				headers: {
-					Authorization: localStorage.getItem("bCards_token"),
-				},
-			},
-		);
+		const updatedCard = await axios.patch(`${getCards.url}/${cardId}`, {
+			headers: {
+				Authorization: localStorage.getItem("bCards_token"),
+			}
+		});
 		return updatedCard;
 	} catch (error) {
 		console.log(error);
-
 		errorMSG("Failed to update like status. Please try again later");
 	}
 };

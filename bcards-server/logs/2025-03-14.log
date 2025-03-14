@@ -28,3 +28,14 @@
 3/14/2025, 8:50:43 PM - Status Code: 404 - Error: User not found
 3/14/2025, 8:50:55 PM - Status Code: 400 - Error: Cannot read properties of null (reading 'deletedCount')
 3/14/2025, 8:51:08 PM - Status Code: 404 - Error: User not found
+3/14/2025, 10:04:18 PM - Status Code: 404 - Error: No cards found for this user
+3/14/2025, 10:20:11 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:20:15 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:20:44 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:20:50 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:21:07 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:21:15 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:24:12 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:25:57 PM - Status Code: 401 - Error: access denied. no token provided
+3/14/2025, 10:30:52 PM - Status Code: 400 - Error: no cards to provide
+3/14/2025, 10:30:57 PM - Status Code: 400 - Error: no cards to provide
