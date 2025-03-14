@@ -52,10 +52,10 @@ const Footer: FunctionComponent<FooterProps> = ({theme}) => {
 			aria-labelledby='footer-contact'
 		>
 			<div className='container'>
-				<h2 id='footer-contact' className='mt-4'>
+				<h2 id='footer-contact' className='mt-4 w-50 m-auto'>
 					Contact Us
 				</h2>
-				<p className='lead'>
+				<p className='lead w-75 my-3 m-auto'>
 					Have questions or want to learn more? Feel free to reach out to us at
 					<Link
 						to='mailto:support@bcards.com'
@@ -64,7 +64,7 @@ const Footer: FunctionComponent<FooterProps> = ({theme}) => {
 						style={{
 							color: hoverState.email ? "#d84f49" : "#3b31e3",
 						}}
-						className=' d-block fs-5 fw-bold text-decoration-none mb-5'
+						className='mt-5 d-block fs-5 fw-bold text-decoration-none mb-5 w-50 m-auto'
 						aria-label='Send an email to bCards support'
 					>
 						anesmhamed1@gmail.com

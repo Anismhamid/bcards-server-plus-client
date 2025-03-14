@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Joi = require("joi");
 const User = require("../models/User");
+const Card = require("../models/Card");
 const {genSalt, hash, compare} = require("bcrypt");
 const chalk = require("chalk");
 const jwt = require("jsonwebtoken");
@@ -56,11 +57,12 @@ router.post("/", async (req, res) => {
 
 		// check if user exist
 		const userExist = await User.findOne({email: req.body.email});
-
-		// if user exist create error with c.log red color chalk
 		if (userExist) {
-			console.log(chalk.red("Invalid email or password"));
-			return res.status(400).send("Invalid email or password");
+			console.log(
+				chalk.blue('"error:"'),
+				chalk.red("User already exists: Invalid email"),
+			);
+			return res.status(400).send({error: "Email is already taken"});
 		}
 
 		// if user not exist salt the password
@@ -69,20 +71,30 @@ router.post("/", async (req, res) => {
 		// hash the password
 		const passwordHashing = await hash(req.body.password, salt);
 
-		// create new user
+		// create a new user
 		const user = new User({
 			...req.body,
 			password: passwordHashing,
 		});
 
+		const token = jwt.sign(
+			_.pick(user, [
+				"_id",
+				"name.first",
+				"name.last",
+				"email",
+				"isAdmin",
+				"isBusiness",
+			]),
+			process.env.JWT_SECRET,
+		);
+
 		// save the user on database
 		await user.save();
 
 		// c.log is registered
-		console.log(
-			chalk.yellowBright(res.status(200), "user has been registered successfully"),
-		);
-		res.status(200).send("user has been registered successfully");
+		console.log(chalk.yellowBright("user has been registered successfully"));
+		res.status(200).send(token);
 	} catch (error) {
 		res.status(400).send(error);
 	}
@@ -116,7 +128,7 @@ router.post("/login", async (req, res) => {
 			return res.status(404).send("wrong email or password");
 		}
 		//if user found compare the password
-		userPassword = await compare(req.body.password, user.password);
+		const userPassword = await compare(req.body.password, user.password);
 
 		// if the password is invalid
 		if (!userPassword) {
@@ -184,20 +196,18 @@ router.get("/:id", auth, async (req, res) => {
 	}
 });
 
+// delete user by id
 router.delete("/:userId", auth, async (req, res) => {
 	try {
-		const userIdFromPayload = req.payload._id;
-		if (req.params.userId != userIdFromPayload && !req.payload.isAdmin)
+		if (req.params.userId != req.payload._id && !req.payload.isAdmin)
 			return res.status(401).send("You do not have permission to delete this user");
 
 		// find the user in the database
 		const user = await User.findByIdAndDelete(req.params.userId);
-
-		// If user not found, return an error
 		if (!user) return res.status(404).send("User not found");
 
 		// Send success response
-		res.status(200).send("User deleted successfully");
+		res.status(200).send("User and associated cards deleted successfully");
 	} catch (error) {
 		res.status(400).send(error.message);
 	}

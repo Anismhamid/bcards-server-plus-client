@@ -143,7 +143,7 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 												</p>
 												<hr />
 												<div className='d-flex justify-content-between align-items-center'>
-													<div className='likes-container d-flex align-items-center'>
+													<div style={{cursor:"pointer"}} className='likes-container d-flex align-items-center'>
 														<p
 															onClick={() =>
 																handleLikeToggle_MyCards(

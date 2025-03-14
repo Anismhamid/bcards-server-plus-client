@@ -1,14 +1,17 @@
 import {FunctionComponent} from "react";
-import { arrowCircleUp } from "../../fontAwesome/Icons";
+import {arrowCircleUp} from "../../fontAwesome/Icons";
 
 interface BackToTopbutonProps {}
 
 const BackToTopbuton: FunctionComponent<BackToTopbutonProps> = () => {
 	const scrollToTop = () => {
-		window.scrollTo({top: 0, behavior: "smooth"});
+		window.scrollTo({top: 100, behavior: "smooth"});
 	};
 	return (
-		<button className='back-top sticky-bottom rounded-circle ratio' onClick={scrollToTop}>
+		<button
+			className='back-top sticky-bottom rounded-circle ratio'
+			onClick={scrollToTop}
+		>
 			{arrowCircleUp}
 		</button>
 	);

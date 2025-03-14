@@ -8,6 +8,5 @@ import {UserProvider} from "./context/UserContext.tsx";
 createRoot(document.getElementById("root")!).render(
 	<UserProvider>
 		<App />
-
 	</UserProvider>,
 );

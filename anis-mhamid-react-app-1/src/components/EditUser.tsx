@@ -70,18 +70,16 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 
 	useEffect(() => {
 		if (!userId) return;
-
 		setIsLoading(true);
 		getUserById(userId)
 			.then((data) => {
 				setUser(data.data);
 				setIsLoading(false);
 			})
-			.catch((err) => {
+			.catch(() => {
 				setUser((prev: User) => prev);
-				console.log(err);
 				setIsLoading(false);
-				errorMSG("Error fetching user details");
+				errorMSG("Error while fetching user details");
 			});
 	}, [userId]);
 
