@@ -76,7 +76,7 @@ mongoose
 	app.use(helmet());
 	app.use(
 		morgan(
-			chalk.cyan(
+			chalk.underline.cyan(
 				":method :url :status :res[content-length] - :response-time ms :date[web]",
 			),
 		),

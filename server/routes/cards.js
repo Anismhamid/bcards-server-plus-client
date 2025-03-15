@@ -16,7 +16,7 @@ const cardSchema = Joi.object({
 		.required()
 		.regex(/^05\d{8,9}$/),
 	email: Joi.string().email().min(5).required(),
-	web: Joi.string().optional().allow(""),
+	web: Joi.string().allow(""),
 	image: Joi.object({
 		url: Joi.string().uri().required(),
 		alt: Joi.string().required(),
@@ -32,7 +32,7 @@ const cardSchema = Joi.object({
 	bizNumber: Joi.number(),
 	likes: Joi.array().items(Joi.string()),
 	user_id: Joi.string(),
-	__v: Joi.number().optional(),
+	__v: Joi.number(),
 });
 
 // function to generate the bizNumber
@@ -110,21 +110,33 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 // update like
-// patch (registered user)
 router.patch("/:id", auth, async (req, res) => {
-    try {
-        // Check if the user is authorized to edit their profile
-        if (!req.payload._id) return res.status(403).send("Unauthorized");
-        const card = await Cards.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true }
-        );
-        if (!card) return res.status(400).send("card not found");
-        res.status(200).send(card);
-    } catch (error) {
-        res.status(400).send(error.message);
-    }
+	try {
+		// Check if the user is authorized to edit their profile
+		if (!req.payload._id) return res.status(401).send("Unauthorized");
+
+		let card = await Cards.findById(req.params.id);
+		if (!card) return res.status(400).send("card not found");
+
+		// Check if the user has already liked the card
+		const isLiked = card.likes.includes(req.payload._id);
+
+		// if userId is include in likes array remove the userId
+		if (isLiked) {
+			card.likes = card.likes.filter((like) => like !== req.payload._id);
+		} else {
+			// if user id not in the likes add it on
+			card.likes.push(req.payload._id);
+		}
+
+		// updated card
+		await card.save();
+
+		// terusrn the card
+		res.status(200).send(card);
+	} catch (error) {
+		res.status(400).send(error.message);
+	}
 });
 
 // dele card by user have the card or admin users

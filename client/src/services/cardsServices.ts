@@ -31,18 +31,17 @@ export const getLikedCardById = async (userId: string) => {
 		return response.data;
 	} catch (error) {
 		errorMSG("Failed to fetch cards");
-		return null;
 	}
 };
 
-export const updateLikeStatus = async (cardId: string): Promise<any> => {
+export const updateLikeStatus = async (cardId: string) => {
 	try {
-		const updatedCard = await axios.patch(`${getCards.url}/${cardId}`, {
+		const updatedCard = await axios.patch(`${getCards.url}/${cardId}`,{}, {
 			headers: {
 				Authorization: localStorage.getItem("bCards_token"),
 			}
 		});
-		return updatedCard;
+		return updatedCard.data;
 	} catch (error) {
 		console.log(error);
 		errorMSG("Failed to update like status. Please try again later");

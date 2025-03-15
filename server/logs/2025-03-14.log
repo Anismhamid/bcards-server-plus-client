@@ -39,3 +39,20 @@
 3/14/2025, 10:25:57 PM - Status Code: 401 - Error: access denied. no token provided
 3/14/2025, 10:30:52 PM - Status Code: 400 - Error: no cards to provide
 3/14/2025, 10:30:57 PM - Status Code: 400 - Error: no cards to provide
+3/15/2025, 12:41:10 AM - Status Code: 404 - Error: No cards found for this user
+3/15/2025, 12:41:32 AM - Status Code: 409 - Error: The card already exists
+3/15/2025, 12:49:01 AM - Status Code: 404 - Error: No cards found for this user
+3/15/2025, 1:08:39 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:10:13 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:19:44 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:21:43 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:22:12 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:22:15 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:23:37 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:23:38 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:28:14 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:32:36 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:33:29 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:33:38 AM - Status Code: 404 - Error: No cards found for this user
+3/15/2025, 1:33:45 AM - Status Code: 401 - Error: access denied. no token provided
+3/15/2025, 1:35:00 AM - Status Code: 401 - Error: access denied. no token provided

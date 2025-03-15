@@ -39,9 +39,16 @@ Before testing, make sure that you have the following prerequisites installed:
    Open your terminal and run the following commands:
 
     ```bash
+    ### 1. Clone the repository:
     git clone https://github.com/Anismhamid/bcards-server-plus-client.git
+
+    ### 2. Navigate to the project directory:
     cd anis-mhamid-react-app-1
+
+    ### 3. Install the dependencies:
     npm install
+
+    ###4. Start the project:
     npm run dev
     ```
 
@@ -49,10 +56,18 @@ Before testing, make sure that you have the following prerequisites installed:
    In a new terminal window, run the following commands to set up the server:
 
     ```bash
+    ### 1. Navigate to the project directory:
     cd bcards-server
-    npm install
-    npm install --save-dev nodemon
-    nodemon
+
+    ### 2. Install the dependencies
+    npm i
+
+    ### Start the server in development mode
+    npm start
+
+    ### Start the server in production mode
+    npm run dev
+
     ```
 
 ---

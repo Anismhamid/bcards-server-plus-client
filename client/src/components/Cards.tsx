@@ -96,6 +96,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 		));
 	}, [currentPage, filteredCards.length]);
 
+
 	if (isLoading) return <Loading />;
 
 	return (

@@ -22,6 +22,7 @@ export const handleLikeToggle_Cards = (
 		if (card._id === cardId) {
 			const isLiked = card.likes.includes(userId);
 
+			// like/unlike status
 			if (isLiked) {
 				// Remove like
 				card.likes = card.likes.filter((id: string) => id !== userId);
