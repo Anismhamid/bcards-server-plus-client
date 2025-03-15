@@ -13,7 +13,7 @@ const path = require("path");
 const expressRoutes = require("express-list-routes");
 const morgan = require("morgan");
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 // File logger to log requests with status code 400 and above
 const logToFile = (statusCode, errorMessage) => {

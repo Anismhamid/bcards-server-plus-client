@@ -19,15 +19,13 @@ This API handles **user authentication**, **card management**, and provides **ad
 
 -   User registration
 -   User login (JWT Authentication)
--   Card creation, updates, and deletions
+-   Card creation, Read, updates, and deletions
 -   Liking/unliking cards
 -   Admin functionalities to manage users
 
-As a tester, you are responsible for validating the functionality of these features through API tests. You will need to verify that the endpoints work as expected, handle edge cases, and provide appropriate error messages when necessary.
+# Project Setup and Running Instructions
 
-## Setup
-
-Before testing, make sure that you have the following prerequisites installed:
+Ensure you have the following prerequisites installed::
 
 -   **Node.js** (v14 or higher): [Download Node.js](https://nodejs.org/)
 -   **npm**: Node Package Manager (automatically installed with Node.js)
@@ -35,46 +33,43 @@ Before testing, make sure that you have the following prerequisites installed:
 -   **Postman/Insomnia**: For API testing, download
     -   [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download).
 
-1. **Clone the Repository**:  
-   Open your terminal and run the following commands:
+1. **Clone the Repository and setup the project**:
+
+    - Open your terminal and run the following commands:
 
     ```bash
     ### 1. Clone the repository:
     git clone https://github.com/Anismhamid/bcards-server-plus-client.git
 
-    ### 2. Navigate to the project directory:
+    ### 2. Navigate to the project directory, run:
     cd bcards-server-plus-client
 
-    ### 3. Install the dependencies:
-    npm install
+    ### 3. Install the dependencies for both  **client** and **server** from the root directory, run:
+    npm run install
 
-    ### 4. Start the project in development mode:
+    ### 4. Start the Project in Development:
     npm run start:dev
-    ```
 
-2. **2. Start the Server in Production Mode**:  
-   If you want to start the server in production mode, run:
-
-    ```bash
-    ### 1. Start the server in production mode:
+    ### Start the Project in Production Mode;
     npm run start:prod
     ```
 
+## Running Client and Server Independently
+
+1. **To Start the Client in Development Mode**:
+
+    - Open a terminal window and run
+
+    ```bash
+    # to run the ( client ):
+    npm run start:client
+
+    # to run the ( server ):
+    npm run start:server
+
+    ```
+
 ---
-
-## Testing Tools
-
-To ensure effective testing, you can use the following tools:
-
--   **Postman**: A popular tool for testing APIs by sending HTTP requests.
-    -   [Download Postman](https://www.postman.com/downloads/)
--   **Insomnia**: An alternative to Postman for API testing.
-    -   [Download Insomnia](https://insomnia.rest/download)
--   **curl**: A command-line tool for testing APIs.
-
----
-
-## Running Tests
 
 ### Manual Testing
 
@@ -93,18 +88,19 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         {
         	"name": {
         		"first": "John",
-        		"middle": "Doe",
+        		"middle": "Doe", // optional
         		"last": "Smith"
         	},
         	"email": "john.doe@example.com",
         	"phone": "0501234567",
         	"password": "Password123!",
         	"image": {
-        		"url": "http://your_picture_path/picture.jpg",
-        		"alt": "picture name"
+        		"url": "http://your_picture_path/picture.jpg", // optional
+        		"alt": "picture name" // optional
         	},
         	"isBusiness": false,
         	"address": {
+        		"state": "", // optional
         		"country": "Israel",
         		"city": "Tel Aviv",
         		"street": "Dizengoff",

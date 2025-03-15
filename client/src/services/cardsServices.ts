@@ -1,9 +1,8 @@
 import axios, {AxiosRequestConfig} from "axios";
 import {Cards} from "../interfaces/Cards";
 import {errorMSG} from "../atoms/taosyify/Toastify";
-import { data } from "react-router-dom";
 
-const api: string = import.meta.env.VITE_API_URL;
+let api: string = import.meta.env.VITE_API_URL;
 
 const getCards: AxiosRequestConfig = {
 	method: "get",
@@ -36,11 +35,15 @@ export const getLikedCardById = async (userId: string) => {
 
 export const updateLikeStatus = async (cardId: string) => {
 	try {
-		const updatedCard = await axios.patch(`${getCards.url}/${cardId}`,{}, {
-			headers: {
-				Authorization: localStorage.getItem("bCards_token"),
-			}
-		});
+		const updatedCard = await axios.patch(
+			`${getCards.url}/${cardId}`,
+			{},
+			{
+				headers: {
+					Authorization: localStorage.getItem("bCards_token"),
+				},
+			},
+		);
 		return updatedCard.data;
 	} catch (error) {
 		console.log(error);
