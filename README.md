@@ -43,31 +43,21 @@ Before testing, make sure that you have the following prerequisites installed:
     git clone https://github.com/Anismhamid/bcards-server-plus-client.git
 
     ### 2. Navigate to the project directory:
-    cd anis-mhamid-react-app-1
+    cd bcards-server-plus-client
 
     ### 3. Install the dependencies:
     npm install
 
-    ###4. Start the project:
-    npm run dev
+    ### 4. Start the project in development mode:
+    npm run start:dev
     ```
 
-2. **Open a New Terminal**:  
-   In a new terminal window, run the following commands to set up the server:
+2. **2. Start the Server in Production Mode**:  
+   If you want to start the server in production mode, run:
 
     ```bash
-    ### 1. Navigate to the project directory:
-    cd bcards-server
-
-    ### 2. Install the dependencies
-    npm i
-
-    ### Start the server in development mode
-    npm start
-
-    ### Start the server in production mode
-    npm run dev
-
+    ### 1. Start the server in production mode:
+    npm run start:prod
     ```
 
 ---

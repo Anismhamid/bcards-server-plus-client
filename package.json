@@ -1,0 +1,21 @@
+{
+	"name": "bcards-server-plus-client",
+	"version": "1.0.0",
+	"description": "A project with React front-end and Node.js back-end",
+	"main": "index.js",
+	"scripts": {
+		"start:client": "cd client && npm run dev",
+		"start:server": "cd server && cross-env NODE_ENV=production node app.js",
+		"dev:server": "cd server && cross-env NODE_ENV=development node --watch app.js",
+		"start": "concurrently \"npm run start:client\" \"npm run dev:server\"",
+		"build": "concurrently \"npm run start:client\" \"npm run start:server\"",
+		"start:server:dev": "cd server && cross-env NODE_ENV=development node --watch app.js",
+		"start:server:prod": "cd server && cross-env NODE_ENV=production node app.js",
+		"start:dev": "npm run start:server:dev",
+		"start:prod": "npm run start:server:prod"
+	},
+	"devDependencies": {
+		"concurrently": "^9.1.2",
+		"cross-env": "^7.0.3"
+	}
+}
