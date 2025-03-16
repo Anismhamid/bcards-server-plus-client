@@ -38,25 +38,25 @@ Ensure you have the following prerequisites installed::
     - Open your terminal and run the following commands:
 
     ```bash
-    ### 1. Clone the repository:
+    # Clone the repository:
     git clone https://github.com/Anismhamid/bcards-server-plus-client.git
 
-    ### 2. Navigate to the project directory, run:
+    # 1. Navigate to the project directory, run:
     cd bcards-server-plus-client
 
-    ### 3. Install the dependencies for both  **client** and **server** from the root directory, run:
+    # 2. Install the dependencies for both ( client ) - ( server ) from the root directory ( bcards-server-plus-client ):
     npm run install
 
-    ### 4. Start the Project in Development:
+    # 3. Start the Project In Development:
     npm run start:dev
 
-    ### Start the Project in Production Mode;
+    # 3. Start the Project In Production:
     npm run start:prod
     ```
 
 ## Running Client and Server Independently
 
-1. **To Start the Client in Development Mode**:
+1. **Start the ( Client ) or ( Server ) in Production Mode**:
 
     - Open a terminal window and run
 
@@ -69,6 +69,18 @@ Ensure you have the following prerequisites installed::
 
     ```
 
+1. **Start the ( Client ) or ( Server ) in Development Mode:**:
+
+    - Open a New terminal window and run
+
+    ```bash
+    # to run the ( client ):
+    npm run start:client
+
+    # to run the ( server ):
+    npm run start:server
+
+    ```
 ---
 
 ### Manual Testing

@@ -8,12 +8,14 @@ const BackToTopbuton: FunctionComponent<BackToTopbutonProps> = () => {
 		window.scrollTo({top: 100, behavior: "smooth"});
 	};
 	return (
-		<button
-			className='back-top sticky-bottom rounded-circle ratio'
-			onClick={scrollToTop}
-		>
-			{arrowCircleUp}
-		</button>
+		<div className='back-top-parrent'>
+			<button
+				className='back-top sticky-bottom rounded-circle ratio'
+				onClick={scrollToTop}
+			>
+				{arrowCircleUp}
+			</button>
+		</div>
 	);
 };
 

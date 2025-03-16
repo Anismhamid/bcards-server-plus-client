@@ -22,12 +22,7 @@
 }
 
 main {
-	padding-bottom: 106px;
-	background: url('/bg2.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	min-height: 100vh;
 }
 
 .card2 {
@@ -40,7 +35,7 @@ main {
 }
 
 .login {
-	max-width: 20rem;
+	max-width: 26rem;
 	margin: auto;
 }
 
@@ -316,16 +311,21 @@ input.form-control {
 	box-shadow: 5px 10px 30px rgb(0, 0, 0);
 }
 
-.back-top {
-	width: 10px;
-	height: 30px;
-	left: 10px;
-	bottom: 100px;
-	font-size: .8rem;
-	cursor: pointer;
-	transition: transform 2s, opacity 2s, visibility 2s;
-	-webkit-transition: transform 2s, opacity 2s, visibility 2s;
-	-moz-transition: transform 2s, opacity 2s, visibility 2s;
-	-ms-transition: transform 2s, opacity 2s, visibility 2s;
-	-o-transition: transform 2s, opacity 2s, visibility 2s;
+.back-top-parrent {
+	position: relative;
+	height: 0;
+	& .back-top {
+		position: fixed;
+		width: 10px;
+		height: 30px;
+		left: 10px;
+		bottom: 100px;
+		font-size: .8rem;
+		cursor: pointer;
+		transition: transform 2s, opacity 2s, visibility 2s;
+		-webkit-transition: transform 2s, opacity 2s, visibility 2s;
+		-moz-transition: transform 2s, opacity 2s, visibility 2s;
+		-ms-transition: transform 2s, opacity 2s, visibility 2s;
+		-o-transition: transform 2s, opacity 2s, visibility 2s;
+	}
 }
