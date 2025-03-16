@@ -69,18 +69,18 @@ mongoose
 		console.log(chalk.red.bold("Error while connecting to MongoDB:"), error),
 	);
 
-	// Middlewares
-	app.use(express.json());
-	app.use(cors());
-	app.use(logger);
-	app.use(helmet());
-	app.use(
-		morgan(
-			chalk.underline.cyan(
-				":method :url :status :res[content-length] - :response-time ms :date[web]",
-			),
+// Middlewares
+app.use(express.json());
+app.use(cors());
+app.use(logger);
+app.use(helmet());
+app.use(
+	morgan(
+		chalk.underline.cyan(
+			":method :url :status :res[content-length] - :response-time ms :date[web]",
 		),
-	);
+	),
+);
 
 // Routes
 app.use("/api/users", users);
@@ -91,7 +91,7 @@ app.listen(port, () => console.log(chalk.blue.bold("Server started on port: "), 
 
 if (process.env.NODE_ENV === "development") {
 	console.log(chalk.bgWhite.red.bold("App is running in Development mode"));
-	// expressRoutes(app);
+	expressRoutes(app);
 } else {
 	console.log(chalk.bgWhiteBright.bold("App is running in Production mode"));
 }

@@ -1,22 +1,22 @@
 {
 	"name": "bcards-server-plus-client",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"description": "A project with React front-end and Node.js back-end",
 	"main": "index.js",
-	"auther":{
-		"name":"Anis Mhamid",
-		"email":"anesmhamed1@gmail.com"
+	"author": {
+		"name": "Anis Mhamid",
+		"email": "anesmhamed1@gmail.com"
 	},
 	"scripts": {
 		"install:client": "cd client && npm install",
 		"install:server": "cd server && npm install",
 		"install": "concurrently \"npm run install:client\" \"npm run install:server\"",
-		"start:client": "cd client && npm run dev",
+		"start:client": "cd client && npm run preview",
+		"dev:client": "cd client && npm run dev",
 		"start:server": "cd server && cross-env NODE_ENV=production node app.js",
 		"dev:server": "cd server && cross-env NODE_ENV=development node --watch app.js",
 		"start:dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
-		"start:prod": "concurrently \"npm run start:client\" \"npm run start:server\"",
-		"build": "concurrently \"npm run start:client\" \"npm run start:server\""
+		"start:prod": "concurrently \"npm run start:client\" \"npm run start:server\""
 	},
 	"devDependencies": {
 		"concurrently": "^9.1.2",

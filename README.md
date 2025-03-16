@@ -75,12 +75,13 @@ Ensure you have the following prerequisites installed::
 
     ```bash
     # to run the ( client ):
-    npm run start:client
+    npm run dev:client
 
     # to run the ( server ):
-    npm run start:server
+    npm run dev:server
 
     ```
+
 ---
 
 ### Manual Testing
