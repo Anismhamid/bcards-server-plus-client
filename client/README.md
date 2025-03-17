@@ -47,7 +47,7 @@ The application supports **CRUD** operations, allowing users to:
 **Delete**:
 
 -   Users can delete their own business cards. Admin users can delete any business card or user data.
-Roles and Permissions
+    Roles and Permissions
 
 ### 1. **Unregistered User**
 

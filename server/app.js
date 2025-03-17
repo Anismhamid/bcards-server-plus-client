@@ -12,8 +12,20 @@ const fs = require("fs");
 const path = require("path");
 const expressRoutes = require("express-list-routes");
 const morgan = require("morgan");
+const {rateLimit} = require("express-rate-limit");
 
 const port = process.env.PORT || 8000;
+
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // hours / minutes / seconds /:: 24 hours
+	limit: 150, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+	standardHeaders: "draft-8", // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+	// store: ... , // Redis, Memcached, etc. See below.
+});
+
+// Apply the rate limiting middleware to all requests.
+app.use(limiter);
 
 // File logger to log requests with status code 400 and above
 const logToFile = (statusCode, errorMessage) => {
@@ -40,14 +52,33 @@ const logToFile = (statusCode, errorMessage) => {
 
 // Logger middleware
 const logger = (req, res, next) => {
-	const originalSend = res.send; // Save the original res.send method
+	// Save the original res.send method
+	const originalSend = res.send;
 
 	// Intercept the response
 	res.send = function (body) {
 		// Log if the status code is 400 or higher
 		if (res.statusCode >= 400) {
-			logToFile(res.statusCode, body); // Log the error details
+			// Log the error details
+			logToFile(res.statusCode, body);
+		} else {
+			// Log every request to access log id code less thane 400
+			const accessLogMessage = `${req.method} ${req.originalUrl} - Status: ${res.statusCode}\n`;
+
+			// Append the requist message to the access file
+			fs.appendFile(
+				path.join(
+					__dirname,
+					"access",
+					`${new Date().toISOString().split("T")[0]}.log`,
+				),
+				accessLogMessage,
+				(err) => {
+					if (err) console.error("Error logging access:", err);
+				},
+			);
 		}
+
 		originalSend.call(this, body); // Continue the normal response flow
 	};
 	console.log(req.method + req.url);
@@ -74,11 +105,18 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 app.use(helmet());
+
+// Morgan stream (logging HTTP requests)
+// const stream = fs.createWriteStream(path.join(__dirname, "logs", "http-logs.log"), {
+// 	flags: "a",
+// });
+
 app.use(
 	morgan(
 		chalk.underline.cyan(
 			":method :url :status :res[content-length] - :response-time ms :date[web]",
 		),
+		// {stream},
 	),
 );
 

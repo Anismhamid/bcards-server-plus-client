@@ -69,7 +69,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 											isActive(pathes.favCards)
 												? "text-info"
 												: "text-light"
-										} rounded-5 fs-5`}
+										} rounded-5 fs-6`}
 									>
 										{heart}
 									</button>
@@ -91,7 +91,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 										isActive(pathes.cards)
 											? "text-info"
 											: "text-light"
-									} rounded-5 fs-2`}
+									} rounded-5 fs-6`}
 								>
 									{home}
 								</button>
@@ -118,7 +118,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 												isActive(pathes.myCards)
 													? "text-info"
 													: "text-light"
-											} rounded-5 fs-5`}
+											} rounded-5 fs-6`}
 										>
 											{business}
 										</button>
@@ -152,7 +152,6 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 					</div>
 				</div>
 			)}
-
 		</>
 	);
 };

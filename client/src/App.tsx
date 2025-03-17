@@ -13,14 +13,18 @@ function App() {
 		const savedTheme = localStorage.getItem("darkMode");
 		return savedTheme ? JSON.parse(savedTheme) : false;
 	});
+	const timestamp = Math.floor(Date.now() / 1000);
+	const readableDate = new Date(timestamp * 1000).toLocaleString();
+
 	console.log(
-		"%cWelcome to Bcards!\n%cReact components are the bee's knees! 😄",
+		`%cWelcome to Bcards!\n%cReact components are the bee's knees! 😄 ${readableDate}`,
 		"font-size:1.5em;color:#4558c9;",
 		"color:#d61a7f;font-size:1em;",
 	);
+
 	useEffect(() => {
 		localStorage.setItem("darkMode", JSON.stringify(darkMode));
-	}, [darkMode]);
+	}, []);
 
 	const handleTheme = () => {
 		setDarkMode((oldprev) => !oldprev);
