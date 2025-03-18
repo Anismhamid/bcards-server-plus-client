@@ -57,9 +57,19 @@ const Register: FunctionComponent<RegisterProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
-				<h6 className='lead display-5 p-3 fw-bold text-primary'>User Register</h6>
-				<hr />
-				<Button text={"Back"} path={() => navigate(-1)} />
+				<div className='row w-100'>
+					<div className='col-md-12 col-lg-3'>
+						<h6
+							style={{backgroundColor: theme.background}}
+							className='shadow text-center lead display-5 p-3 fw-bold my-3  rounded-end-pill'
+						>
+							User Registe
+						</h6>
+					</div>
+				</div>
+				<div className='p-3'>
+					<Button text={"Back"} path={() => navigate(-1)} />
+				</div>
 				<div className='container justify-content-center pt-5'>
 					<p className='text-center fs-6 my-3 fw-bold'>Download the app</p>
 					<hr className=' w-50 m-auto mb-2' />

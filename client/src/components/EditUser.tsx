@@ -89,10 +89,19 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
-				<h6 className='lead display-5 p-3 fw-bold text-primary'>User Details</h6>
-				<hr />
-				<Button text={"Back"} path={() => navigate(-1)} />
-				<hr />
+				<div className='row w-100'>
+					<div className='col-md-12 col-lg-3'>
+						<h6
+							style={{backgroundColor: theme.background}}
+							className='shadow text-center lead display-5 p-3 fw-bold my-3  rounded-end-pill'
+						>
+							User Details and edit
+						</h6>
+					</div>
+				</div>
+				<div className='p-3'>
+					<Button text={"Back"} path={() => navigate(-1)} />
+				</div>
 				<div className='container'>
 					<div className='row mp-5 fw-bold lead'>
 						<div className='col-12'>

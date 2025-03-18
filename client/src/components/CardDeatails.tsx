@@ -44,18 +44,18 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
 				<div className='row w-100'>
-					<div className='col-md-4 col-lg-3'>
+					<div className='col-md-12 col-lg-3'>
 						<h6
 							style={{backgroundColor: theme.background}}
-							className='lead display-5 p-3 fw-bold rounded-5 border'
+							className='shadow text-center lead display-5 p-3 fw-bold my-3  rounded-end-pill'
 						>
 							Card Details
 						</h6>
 					</div>
 				</div>
-
-				<hr />
-				<Button text='Home' path={() => navigate(pathes.cards)} />
+				<div className='p-3'>
+					<Button text='Home' path={() => navigate(pathes.cards)} />
+				</div>
 				<div className='card-details-image'>
 					<img
 						style={{

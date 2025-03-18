@@ -103,6 +103,16 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
+				<div className='row w-100'>
+					<div className='col-md-12 col-lg-3'>
+						<h6
+							style={{backgroundColor: theme.background}}
+							className='shadow text-center lead display-5 p-3 fw-bold my-3 rounded-end-pill'
+						>
+							Cards
+						</h6>
+					</div>
+				</div>
 				<div className='container py-5 lead'>
 					{isBusiness && (
 						<div className='mb-4'>

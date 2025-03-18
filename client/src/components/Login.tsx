@@ -106,13 +106,21 @@ const Login: FunctionComponent<LoginProps> = () => {
 			<Navbar />
 			<main
 				style={{
-					paddingTop: "3rem",
 					backgroundColor: theme.background,
 					color: theme.color,
 				}}
 			>
-				{formik.error && <p className=' text-danger'>{formik.error}</p>}
-
+				<div className='row w-100'>
+					<div className='col-md-12 col-lg-3'>
+						<h6
+							style={{backgroundColor: theme.background}}
+							className='shadow text-center lead display-5 p-3 fw-bold my-3  rounded-end-pill'
+						>
+							Login
+						</h6>
+					</div>
+				</div>
+				{formik.error && <p className='text-danger'>{formik.error}</p>}
 				<form
 					className='login shadow-lg p-4 rounded-4'
 					onSubmit={formik.handleSubmit}

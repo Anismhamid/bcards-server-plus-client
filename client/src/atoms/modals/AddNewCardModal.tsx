@@ -35,7 +35,6 @@ const AddNewCardModal: FunctionComponent<AddNewCardModalProps> = ({
 				>
 					<Modal.Title className='text-danger bg-light p-1 rounded border border-danger'>
 						<span className='fs-6'>
-							On pc
 							<span className='mx-1 border border-2 rounded p-1 fw-bold'>
 								Esc
 							</span>

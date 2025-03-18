@@ -119,15 +119,15 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 					<div className='col-md-4 col-lg-3'>
 						<h6
 							style={{backgroundColor: theme.background}}
-							className='inset-shadow lead display-5 p-3 fw-bold  rounded-end-pill'
+							className='shadow text-center lead display-5 p-3 fw-bold my-3 rounded-end-pill'
 						>
 							SandBox
 						</h6>
 					</div>
 				</div>
-
-				<hr />
-				<Button text={"Home"} path={() => navigate(pathes.cards)} />
+				<div className='p-3'>
+					<Button text={"Home"} path={() => navigate(pathes.cards)} />
+				</div>{" "}
 				{/* Pagination */}
 				<div className='container-sm'>
 					<Pagination className='m-auto w-100 d-flex justify-content-center mb-3 flex-wrap'>

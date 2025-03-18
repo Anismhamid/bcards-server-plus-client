@@ -13,20 +13,19 @@ const About: FunctionComponent<AboutProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
-				<header className='row w-100'>
-					<div className='col-md-6 col-lg-3'>
+				<div className='row w-100'>
+					<div className='col-md-12 col-lg-3'>
 						<h6
 							style={{backgroundColor: theme.background}}
-							className='display-4 text-primary p-2'
+							className='inset-shadow lead display-5 p-3 fw-bold my-3  rounded-end-pill'
 						>
 							About bCards
 						</h6>
-						<div className='p-3'>
-							<Button text={"Back"} path={() => nanegate(-1)} />
-						</div>
 					</div>
-				</header>
-				<hr />
+				</div>
+				<div className='p-3'>
+					<Button text={"Back"} path={() => nanegate(-1)} />
+				</div>
 				<div className='container'>
 					<section>
 						<p className='lead'>

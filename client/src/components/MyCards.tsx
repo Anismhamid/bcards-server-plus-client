@@ -63,7 +63,17 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 		<>
 			<Navbar />
 			<main style={{backgroundColor: theme.background, color: theme.color}}>
-				<h6 className='lead display-5 p-2 fw-bold'>My cards</h6>
+				
+				<div className='row w-100'>
+					<div className='col-md-12 col-lg-3'>
+						<h6
+							style={{backgroundColor: theme.background}}
+							className='shadow text-center lead display-5 p-3 fw-bold my-3  rounded-end-pill'
+						>
+							My cards
+						</h6>
+					</div>
+				</div>
 				<hr />
 				<div className='p-3'>
 					<Button text='Back' path={() => navigate(pathes.cards)} />
@@ -143,7 +153,10 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 												</p>
 												<hr />
 												<div className='d-flex justify-content-between align-items-center'>
-													<div style={{cursor:"pointer"}} className='likes-container d-flex align-items-center'>
+													<div
+														style={{cursor: "pointer"}}
+														className='likes-container d-flex align-items-center'
+													>
 														<p
 															onClick={() =>
 																handleLikeToggle_MyCards(
