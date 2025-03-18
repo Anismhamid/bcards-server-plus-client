@@ -55,7 +55,6 @@ export const getMyCards = async () => {
 	try {
 		const response = await axios.get(`${getCards.url}/my-cards`, {
 			headers: {
-				"Content-Type": "application/json",
 				Authorization: localStorage.getItem("bCards_token"),
 			},
 		});

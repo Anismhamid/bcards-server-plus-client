@@ -64,7 +64,7 @@ const Footer: FunctionComponent<FooterProps> = ({theme}) => {
 						style={{
 							color: hoverState.email ? "#d84f49" : "#3b31e3",
 						}}
-						className='mt-5 d-block fs-5 fw-bold text-decoration-none mb-5 w-50 m-auto'
+						className='my-5 d-block fs-5 fw-bold text-decoration-none m-auto'
 						aria-label='Send an email to bCards support'
 					>
 						anesmhamed1@gmail.com

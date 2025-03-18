@@ -1,6 +1,6 @@
 {
 	"name": "bcards-server-plus-client",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A project with React front-end and Node.js back-end",
 	"main": "index.js",
 	"author": {

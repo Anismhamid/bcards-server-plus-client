@@ -17,7 +17,7 @@ function App() {
 	const readableDate = new Date(timestamp * 1000).toLocaleString();
 
 	console.log(
-		`%cWelcome to Bcards!\n%cReact components are the bee's knees! 😄 ${readableDate}`,
+		`%cWelcome to Bcards!\n${readableDate}\n%cReact components are the bee's knees! 😄`,
 		"font-size:1.5em;color:#4558c9;",
 		"color:#d61a7f;font-size:1em;",
 	);

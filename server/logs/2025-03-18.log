@@ -1,0 +1,60 @@
+3/18/2025, 9:40:20 PM - Status Code: 400 - Error: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+3/18/2025, 9:40:20 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:40:20 PM - Status Code: 400 - Error: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+3/18/2025, 9:40:20 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:40:22 PM - Status Code: 400 - Error: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+3/18/2025, 9:40:22 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:40:22 PM - Status Code: 400 - Error: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+3/18/2025, 9:40:22 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:41:00 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:00 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:00 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:00 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:02 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:02 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:02 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:02 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:03 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:03 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:03 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:03 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:04 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:04 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:04 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:04 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:13 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:13 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:13 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:13 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:21 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:21 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:21 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:21 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:23 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:23 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:41:23 PM - Status Code: 400 - Error: TypeError: Illegal invocation
+3/18/2025, 9:41:23 PM - Status Code: 400 - Error: {"code":"ERR_INVALID_THIS"}
+3/18/2025, 9:46:41 PM - Status Code: 400 - Error: RangeError: Incorrect locale information provided
+3/18/2025, 9:46:41 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:46:41 PM - Status Code: 400 - Error: RangeError: Incorrect locale information provided
+3/18/2025, 9:46:41 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:46:48 PM - Status Code: 400 - Error: RangeError: Incorrect locale information provided
+3/18/2025, 9:46:48 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:46:48 PM - Status Code: 400 - Error: RangeError: Incorrect locale information provided
+3/18/2025, 9:46:48 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:46:58 PM - Status Code: 400 - Error: RangeError: Incorrect locale information provided
+3/18/2025, 9:46:58 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:46:58 PM - Status Code: 400 - Error: RangeError: Incorrect locale information provided
+3/18/2025, 9:46:58 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:48:07 PM - Status Code: 400 - Error: TypeError: startTime.getDate is not a function
+3/18/2025, 9:48:07 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:48:07 PM - Status Code: 400 - Error: TypeError: startTime.getDate is not a function
+3/18/2025, 9:48:07 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:48:11 PM - Status Code: 400 - Error: TypeError: startTime.getDate is not a function
+3/18/2025, 9:48:11 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:48:11 PM - Status Code: 400 - Error: TypeError: startTime.getDate is not a function
+3/18/2025, 9:48:11 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:49:04 PM - Status Code: 400 - Error: ReferenceError: formattedDate is not defined
+3/18/2025, 9:49:04 PM - Status Code: 400 - Error: {}
+3/18/2025, 9:49:04 PM - Status Code: 400 - Error: ReferenceError: formattedDate is not defined
+3/18/2025, 9:49:04 PM - Status Code: 400 - Error: {}

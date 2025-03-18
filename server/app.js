@@ -17,15 +17,17 @@ const {rateLimit} = require("express-rate-limit");
 const port = process.env.PORT || 8000;
 
 const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // hours / minutes / seconds /:: 24 hours
-	limit: 150, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+	windowMs: 24 * 60 * 60 * 1000, // hours / minutes / seconds / milliseconds :: 24 hours
+	limit: 1000, // Limit each IP to 1000 requests per `window` (here, per 15 minutes).
 	standardHeaders: "draft-8", // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
-	// store: ... , // Redis, Memcached, etc. See below.
 });
 
-// Apply the rate limiting middleware to all requests.
-app.use(limiter);
+// Middlewares
+app.use(limiter); // Apply the rate limiting middleware to all requests.
+app.use(express.json());
+app.use(cors());
+app.use(helmet());
 
 // File logger to log requests with status code 400 and above
 const logToFile = (statusCode, errorMessage) => {
@@ -55,15 +57,23 @@ const logger = (req, res, next) => {
 	// Save the original res.send method
 	const originalSend = res.send;
 
+	const startTime = Date.now();
+
 	// Intercept the response
 	res.send = function (body) {
+		// Calculate the time taken to process the request
+		const timeTaken = Date.now() - startTime;
+
 		// Log if the status code is 400 or higher
 		if (res.statusCode >= 400) {
 			// Log the error details
 			logToFile(res.statusCode, body);
 		} else {
+			const underLine = "_______________________";
 			// Log every request to access log id code less thane 400
-			const accessLogMessage = `${req.method} ${req.originalUrl} - Status: ${res.statusCode}\n`;
+			const accessLogMessage = `${new Date().toLocaleString()} | ${req.method} ${
+				req.url
+			} | Status: ${res.statusCode} | ${timeTaken}ms\n${underLine}\n`;
 
 			// Append the requist message to the access file
 			fs.appendFile(
@@ -84,6 +94,7 @@ const logger = (req, res, next) => {
 	console.log(req.method + req.url);
 	next();
 };
+app.use(logger);
 
 // MongoDB connection
 mongoose
@@ -100,17 +111,7 @@ mongoose
 		console.log(chalk.red.bold("Error while connecting to MongoDB:"), error),
 	);
 
-// Middlewares
-app.use(express.json());
-app.use(cors());
-app.use(logger);
-app.use(helmet());
-
-// Morgan stream (logging HTTP requests)
-// const stream = fs.createWriteStream(path.join(__dirname, "logs", "http-logs.log"), {
-// 	flags: "a",
-// });
-
+// morgan method
 app.use(
 	morgan(
 		chalk.underline.cyan(

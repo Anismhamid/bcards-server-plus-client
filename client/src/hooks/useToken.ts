@@ -51,7 +51,6 @@ function useToken() {
 		checkToken();
 
 		// listen for mouse or keyboard activity
-		window.addEventListener("mousemove", handleUserActivity);
 		window.addEventListener("keydown", handleUserActivity);
 
 		// Check for inactivity every 5 seconds
@@ -65,7 +64,6 @@ function useToken() {
 
 		// Cleanup event listeners and interval on component unmount
 		return () => {
-			window.removeEventListener("mousemove", handleUserActivity);
 			window.removeEventListener("keydown", handleUserActivity);
 			window.removeEventListener("storage", handleStorageChange);
 			clearInterval(inactivityInterval);
