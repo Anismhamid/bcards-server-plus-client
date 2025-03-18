@@ -41,11 +41,11 @@ Ensure you have the following prerequisites installed::
     # Clone the repository:
     git clone https://github.com/Anismhamid/bcards-server-plus-client.git
 
-    # 1. Navigate to the project directory, run:
+    # 1. Navigate to the project directory, If nedded:
     cd bcards-server-plus-client
 
     # 2. Install the dependencies for both ( client ) - ( server ) from the root directory ( bcards-server-plus-client ):
-    npm run install
+    npm install
 
     # 3. Start the Project In Development:
     npm run start:dev
