@@ -95,25 +95,27 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 1. **User Registration**:
 
     - **Method**: `POST`
-    - **URL**: `http://localhost:8000/api/users`
+    - **Development Mode URL**: `http://localhost:8000/api/users`
+    - **Productin Mode URL**: `http://localhost:8001/api/users`
     - **Body (JSON)**:
         ```json
         {
         	"name": {
         		"first": "John",
-        		"middle": "Doe", // optional
+        		"middle": "", // Middle name is Optional
         		"last": "Smith"
         	},
         	"email": "john.doe@example.com",
         	"phone": "0501234567",
         	"password": "Password123!",
         	"image": {
-        		"url": "http://your_picture_path/picture.jpg", // optional
-        		"alt": "picture name" // optional
+        		// Image is optional
+        		"url": "http://your_picture_path/picture.jpg",
+        		"alt": "picture name"
         	},
         	"isBusiness": false,
         	"address": {
-        		"state": "", // optional
+        		"state": "", // State is Optional
         		"country": "Israel",
         		"city": "Tel Aviv",
         		"street": "Dizengoff",
@@ -126,7 +128,8 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 2. **User Login**:
 
     - **Method**: `POST`
-    - **URL**: `http://localhost:8000/api/users/login`
+    - **Development Mode URL**: `http://localhost:8000/api/users/login`
+    - **Productin Mode URL**: `http://localhost:8001/api/users/login`
     - **Body (JSON)**:
         ```json
         {
@@ -156,8 +159,9 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 1. **Post New Card**:
 
     - **Method**: `POST`
-    - **URL**: `http://localhost:8000/api/cards`
-    - **Response**: `200 OK` (Returns the card).
+    - **Development Mode URL**: `http://localhost:8000/api/cards`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards`
+    - **Response**: `200 OK` (Returns the card)
     - **Body (JSON)**:
         ```json
         {
@@ -176,7 +180,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         		"city": "Tel Aviv",
         		"street": "New Street",
         		"houseNumber": 456,
-        		"zip": "65432"
+        		"zip": 65432
         	}
         }
         ```
@@ -184,7 +188,8 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 2. **Get All Cards (Global)**:
 
     - **Method**: `GET`
-    - **URL**: `http://localhost:8000/api/cards`
+    - **Development Mode URL**: `http://localhost:8000/api/cards`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards`
     - **Response**:
         - **200 OK**: Returns the card.
         - **400 Bad Request**: No cards found.
@@ -192,7 +197,8 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 3. **Get Favorite Cards for Specific User**:
 
     - **Method**: `GET`
-    - **URL**: `http://localhost:8000/api/cards/my-cards`
+    - **Development Mode URL**: `http://localhost:8000/api/cards/my-cards`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards/my-cards`
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for logged-in user)
     - **Response**:
@@ -203,7 +209,8 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 4. **Get Card by ID**:
 
     - **Method**: `GET`
-    - **URL**: `http://localhost:8000/api/cards/{cardId}`
+    - **Development Mode URL**: `http://localhost:8000/api/cards/{cardId}`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards/{cardId}`
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for logged-in user)
     - **Response**:
@@ -213,7 +220,9 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 5. **Update Card by ID**:
 
     - **Method**: `PUT`
-    - **URL**: `http://localhost:8000/api/cards/{cardId}`
+    - **URL**:
+    - **Development Mode URL**: `http://localhost:8000/api/cards/{cardId}`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards/{cardId}`
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for logged-in user)
     - **Response**:
@@ -241,7 +250,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         		"city": "Tel Aviv",
         		"street": "New Street",
         		"houseNumber": 456,
-        		"zip": "65432"
+        		"zip": 65432
         	}
         }
         ```
@@ -249,7 +258,8 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 6. **Like/Unlike Card**:
 
     - **Method**: `PATCH`
-    - **URL**: `http://localhost:8000/api/cards/like/{cardId}/{userId}`
+    - **Development Mode URL**: `http://localhost:8000/api/cards/{cardId}`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards/{cardId}`
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for logged-in user)
     - **Response**:
@@ -259,9 +269,10 @@ You can manually test the API by sending HTTP requests using Postman or any simi
 7. **Delete Card**:
 
     - **Method**: `Delete`
-    - **URL**: `http://localhost:8000/api/cards/{cardId}`
+    - **Development Mode URL**:`http://localhost:8000/api/cards/{cardId}`
+    - **Productin Mode URL**: `http://localhost:8001/api/cards/{cardId}`
     - **Headers**:
-        - Authorization: `{UserToken}` (JWT token for user)
+        - Authorization: `{UserToken}` (JWT token for owner user or admin user)
     - **Response**:
         - **200 OK**: Successfully deletes the card.
         - **403 Forbidden**: User must be the card owner or an admin to delete the card.
