@@ -11,7 +11,7 @@
 		"install:client": "cd client && npm install",
 		"install:server": "cd server && npm install",
 		"install": "concurrently \"npm run install:client\" \"npm run install:server\"",
-		"start:client": "cd client && npm run preview",
+		"start:client": "cd client && npm run build && npm run preview",
 		"dev:client": "cd client && npm run dev",
 		"start:server": "cd server && cross-env NODE_ENV=production node app.js",
 		"dev:server": "cd server && cross-env NODE_ENV=development node --watch app.js",
