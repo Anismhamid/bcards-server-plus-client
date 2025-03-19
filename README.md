@@ -1,6 +1,7 @@
-# Guide for User Authentication and Management API
+<h1 align="center">Guide for User Authentication and Business Cards Management API</h1>
 
-This README is specifically for understanding how to run the API, set up the test environment, and run the necessary tests for ensuring the functionality of the **User Authentication and Management API**.
+
+This README is specifically designed to understand how to implement the API, set up different development and production environments, and run the necessary tests to ensure the functionality of the **User Authentication and Business Cards Management API**.
 
 ## Table of Contents
 
@@ -27,9 +28,10 @@ This API handles **user authentication**, **card management**, and provides **ad
 
 Ensure you have the following prerequisites installed::
 
--   **Node.js** (v14 or higher): [Download Node.js](https://nodejs.org/)
+-   **Node.js** (v20.18.x or higher): [Download Node.js](https://nodejs.org/)
 -   **npm**: Node Package Manager (automatically installed with Node.js)
 -   **MongoDB**: If using a local database, install MongoDB (or use MongoDB Atlas).
+-   **Create Database**: For Development mode, create a new database on MongoDB with the name `bcards`.
 -   **Postman/Insomnia**: For API testing, download
     -   [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download).
 
@@ -37,50 +39,69 @@ Ensure you have the following prerequisites installed::
 
     - Open your terminal and run the following commands:
 
-    ```bash
-    # Clone the repository:
-    git clone https://github.com/Anismhamid/bcards-server-plus-client.git
+        ```bash
+        git clone https://github.com/Anismhamid/bcards-server-plus-client.git
+        ```
 
-    # 1. Navigate to the project directory, If nedded:
-    cd bcards-server-plus-client
+    - Navigate to the project directory and run, If nedded:
+        ```bash
+        cd bcards-server-plus-client
+        ```
+    - Install the dependencies for both ( client ) - ( server ) from the root directory ( bcards-server-plus-client ):
+        ```bash
+        npm install
+        ```
 
-    # 2. Install the dependencies for both ( client ) - ( server ) from the root directory ( bcards-server-plus-client ):
-    npm install
+2. **Run the Project**:
 
-    # 3. Start the Project In Development:
-    npm run start:dev
+    - **In Development Mode**:
 
-    # 3. Start the Project In Production:
-    npm run start:prod
-    ```
+        ```bash
+        npm run start:dev
+        ```
+
+    - **In Production Mode**:
+        ```bash
+        npm run start:prod
+        ```
 
 ## Running Client and Server Independently
 
-1. **Start the ( Client ) or ( Server ) in Production Mode**:
+-   **Production mode**
+
+1. **Start the ( Server ) in Production Mode**:
 
     - Open a terminal window and run
 
-    ```bash
-    # to run the ( client ):
-    npm run start:client
+        ```bash
+        npm run start:server
+        ```
 
-    # to run the ( server ):
-    npm run start:server
+2. **Start the ( Client ) in Production Mode**:
 
-    ```
+    - Open new terminal window and run
 
-1. **Start the ( Client ) or ( Server ) in Development Mode:**:
+        ```bash
+        npm run start:client
+        ```
+
+---
+
+1. **Start the ( Server ) in Development Mode:**:
 
     - Open a New terminal window and run
 
-    ```bash
-    # to run the ( client ):
-    npm run dev:client
+        ```bash
+            npm run dev:server
+        ```
 
-    # to run the ( server ):
-    npm run dev:server
+1. **Start the ( Client ) in Development Mode:**:
 
-    ```
+    - Open a New terminal window and run
+
+        ```bash
+        npm run dev:client
+        ```
 
 ---
 
