@@ -1,5 +1,4 @@
 import {Cards} from "../interfaces/Cards";
-import {User} from "../interfaces/User";
 import {deleteCardById, updateLikeStatus} from "../services/cardsServices";
 
 // delete Card | Cards/CardDetails components
@@ -11,7 +10,7 @@ export const handleDeleteCard_Cards = (id: string, cardsSetter: void) => {
 		});
 };
 
-//Cards component handling like/unlike
+//Cards handling like/unlike
 export const handleLikeToggle_Cards = (
 	cardId: string,
 	cards: Cards[],
@@ -47,27 +46,27 @@ export const handleSearch = (e: React.FormEvent) => {
 };
 
 //MyCards component handling like/unlike
-export const handleLikeToggle_MyCards = (
-	cardId: string,
-	user: User,
-	cards: Cards[],
-	cardsSetter: Function,
-) => {
-	if (!user || !user._id) return;
+// export const handleLikeToggle_MyCards = (
+// 	cardId: string,
+// 	user: User,
+// 	cards: Cards[],
+// 	cardsSetter: Function,
+// ) => {
+// 	if (!user || !user._id) return;
 
-	const updatedCards = cards.map((card: any) => {
-		if (card._id === cardId) {
-			const isLiked = card.likes.includes(user._id);
-			const updatedLikes = isLiked
-				? card.likes.filter((id: string) => id !== user._id)
-				: [...card.likes, user._id];
+// 	const updatedCards = cards.map((card: any) => {
+// 		if (card._id === cardId) {
+// 			const isLiked = card.likes.includes(user._id);
+// 			const updatedLikes = isLiked
+// 				? card.likes.filter((id: string) => id !== user._id)
+// 				: [...card.likes, user._id];
 
-			return {...card, likes: updatedLikes};
-		}
-		return card;
-	});
-	cardsSetter(updatedCards);
-	updateLikeStatus(cardId).catch((err) => {
-		console.log("Failed to update like status:", err);
-	});
-};
+// 			return {...card, likes: updatedLikes};
+// 		}
+// 		return card;
+// 	});
+// 	cardsSetter(updatedCards);
+// 	updateLikeStatus(cardId).catch((err) => {
+// 		console.log("Failed to update like status:", err);
+// 	});
+// };

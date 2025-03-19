@@ -8,7 +8,7 @@ import {Cards} from "../interfaces/Cards";
 import {SiteTheme} from "../theme/theme";
 import {Link, useNavigate} from "react-router-dom";
 import {pathes} from "../routes/Routes";
-import {handleDeleteCard_Cards, handleLikeToggle_MyCards} from "../handleFunctions/cards";
+import {handleDeleteCard_Cards, handleLikeToggle_Cards} from "../handleFunctions/cards";
 import Button from "../atoms/buttons/Button";
 import DeleteModal from "../atoms/modals/DeleteModal";
 import DeleteAndEditButtons from "../atoms/buttons/DeleteAndEditButtons";
@@ -159,10 +159,10 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 													>
 														<p
 															onClick={() =>
-																handleLikeToggle_MyCards(
+																handleLikeToggle_Cards(
 																	card._id as string,
-																	decodedToken,
 																	cards,
+																	decodedToken._id,
 																	setCards,
 																)
 															}
@@ -214,12 +214,12 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 						)}
 					</div>
 					<DeleteModal
+					render={refresh}
 						method='Delete'
 						navigateTo={""}
 						toDelete='CardAre you sure you want to Delete This Card? this card will be permanently removed. This action cannot be undone.'
-						render={() => onHideDeleteModal()}
 						show={showDeleteModal}
-						onHide={() => onHideDeleteModal()}
+						onHide={(onHideDeleteModal)}
 						onDelete={() => {
 							handleDeleteCard_Cards(
 								cardToDelete as string,

@@ -1,52 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const Joi = require("joi");
 const User = require("../models/User");
-const Card = require("../models/Card");
+const SpscripeForNews = require("../models/SubscripeForNews");
 const {genSalt, hash, compare} = require("bcrypt");
 const chalk = require("chalk");
 const jwt = require("jsonwebtoken");
 const _ = require("lodash");
 const auth = require("../middlewares/auth");
-const SpscripeForNews = require("../models/SubscripeForNews");
-
-// Joi Schema for user registration
-const userRegisterJoiSchema = Joi.object({
-	name: Joi.object({
-		first: Joi.string().min(2).required(),
-		middle: Joi.string().allow(""),
-		last: Joi.string().min(1).required(),
-	}),
-	isBusiness: Joi.boolean().required(),
-	isAdmin: Joi.boolean(),
-	phone: Joi.string()
-		.required()
-		.min(9)
-		.max(10)
-		.pattern(/^05\d{8,9}$/)
-		.message(
-			"The phone number must be an Israeli phone number starting with 05 and max digits is 9-10 ",
-		),
-	email: Joi.string().email().min(2).required(),
-	password: Joi.string().min(8).max(20).required(),
-	address: Joi.object({
-		state: Joi.string().min(2).allow(""),
-		country: Joi.string().min(2).required(),
-		city: Joi.string().min(2).required(),
-		street: Joi.string().min(2).required(),
-		houseNumber: Joi.number().required(),
-		zip: Joi.number().required(),
-	}),
-	image: Joi.object({
-		url: Joi.string()
-			.default(
-				"https://images.unsplash.com/photo-1740418644050-7c315b61bbff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8",
-			)
-			.allow("")
-			.optional(),
-		alt: Joi.string().default("profile").allow("").optional(),
-	}).optional(),
-});
+const {
+	userRegisterJoiSchema,
+	loginSchema,
+	subscripeForNews,
+	userUpdateJoiSchema,
+} = require("../schemas/userSchema");
 
 // user registeration
 router.post("/", async (req, res) => {
@@ -100,18 +66,6 @@ router.post("/", async (req, res) => {
 	}
 });
 
-// user login schema
-const loginSchema = Joi.object({
-	email: Joi.string().email().min(2).required(),
-	password: Joi.string()
-		.min(6)
-		.required()
-		.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/)
-		.message(
-			"Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character",
-		),
-});
-
 // user login
 router.post("/login", async (req, res) => {
 	try {
@@ -138,13 +92,7 @@ router.post("/login", async (req, res) => {
 
 		// set token and send it to user
 		const token = jwt.sign(
-			_.pick(user, [
-				"_id",
-				"name.first",
-				"name.last",
-				"isAdmin",
-				"isBusiness",
-			]),
+			_.pick(user, ["_id", "name.first", "name.last", "isAdmin", "isBusiness"]),
 			process.env.JWT_SECRET,
 		);
 		res.status(200).send(token);
@@ -212,8 +160,27 @@ router.delete("/:userId", auth, async (req, res) => {
 	}
 });
 
-const subscripeForNews = Joi.object({
-	email: Joi.string().required().email(),
+router.put("/:id", auth, async (req, res) => {
+	try {
+		// check if user have permission to update this user data
+		if (req.params.id !== req.payload._id && !req.payload.isAdmin)
+			return res
+				.status(401)
+				.send("You don't have permission to update this user data");
+
+		// validate the body
+		const {error} = userUpdateJoiSchema.validate(req.body);
+		if (error) return res.status(400).send(error.details[0].message);
+
+		// find and update the user
+		const user = await User.findByIdAndUpdate(req.params.id,req.body, {new: true}).select("-password");
+		if (!user) return res.status(405).send("User not found");
+
+		// return the user with new updates
+		res.status(200).send(user);
+	} catch (error) {
+		res.status(400).send(error.message);
+	}
 });
 
 //change business status
@@ -240,6 +207,7 @@ router.patch("/:id", auth, async (req, res) => {
 	}
 });
 
+// update user data
 router.post("/subscripeForNews", async (req, res) => {
 	try {
 		const {error} = subscripeForNews.validate(req.body);

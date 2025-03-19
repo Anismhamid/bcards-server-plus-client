@@ -21,11 +21,12 @@ import {pathes} from "../routes/Routes";
 import DeleteModal from "../atoms/modals/DeleteModal";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Checkbox from "../atoms/checkboxBotton/Checkbox";
 
 interface SandBoxProps {}
 
 const SandBox: FunctionComponent<SandBoxProps> = () => {
-	const usersPerPage = 50;
+	const usersPerPage = 10;
 	const {decodedToken} = useToken();
 	const {isAdmin} = useUserContext();
 	const [users, setUsers] = useState<User[]>([]);
@@ -36,10 +37,12 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 	const [userSearch, setUserSearch] = useState<User[] | null>(null);
 	const [selectedUserId, setSelectedUserId] = useState<string>("");
 	const [render, setRender] = useState<boolean>(false);
-	const onHide = () => setShowDeleteModal(false);
-	const onShow = () => setShowDeleteModal(true);
 	const theme = useContext(SiteTheme);
 	const navigate = useNavigate();
+	const onHide = () => setShowDeleteModal(false);
+	const onShow = () => setShowDeleteModal(true);
+
+	const refresh = () => setRender(!render);
 
 	// Pagination logic
 	const startIndex = (currentPage - 1) * usersPerPage;
@@ -57,7 +60,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 				email?.includes(query)
 			);
 		});
-	}, [searchTerm, users]);
+	}, [searchTerm, users, refresh]);
 
 	const usersToDisplay = useMemo(() => {
 		if (userSearch && searchTerm) {
@@ -68,7 +71,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 
 	const currentUsers = useMemo(() => {
 		return usersToDisplay.slice(startIndex, startIndex + usersPerPage);
-	}, [usersToDisplay, startIndex]);
+	}, [usersToDisplay, startIndex, users]);
 
 	useEffect(() => {
 		getAllUsers(currentPage, usersPerPage)
@@ -80,8 +83,6 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 			})
 			.finally(() => setISLoading(false));
 	}, []);
-
-	const refresh = () => setRender(!render);
 
 	const handleEdit = useCallback((userId: string) => {
 		setSelectedUserId(userId);
@@ -174,13 +175,14 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 								backgroundColor: theme.background,
 								color: theme.color,
 							}}
-							className='table table-striped'
+							className='table table-striped table-dark'
 						>
 							<thead>
 								<tr>
 									<th colSpan={3}>Image</th>
+									<th colSpan={4}>Name</th>
 									<th colSpan={3}>email</th>
-									<th colSpan={4}>Full Name</th>
+									<th colSpan={2}>55</th>
 									<th colSpan={1}>Edit</th>
 									<th colSpan={1}>Delete</th>
 								</tr>
@@ -191,7 +193,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 										<td colSpan={3}>
 											<Link to={`/userDetails/${user._id}`}>
 												<img
-													className='img-fluid mx-5 rounded-5'
+													className='img-fluid rounded-2'
 													src={
 														user?.image?.url ||
 														"/avatar-design.png"
@@ -204,6 +206,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 												/>
 											</Link>
 										</td>
+
 										<td colSpan={3}>
 											{user.name.first} {user.name.last}
 										</td>
@@ -211,6 +214,15 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 
 										{decodedToken?.isAdmin && (
 											<>
+												<td colSpan={2} className={user.isAdmin?" text-primary":" text-warning"}>
+													<Checkbox
+														role={
+															user.isAdmin
+																? "Admin"
+																: "Client"
+														}
+													/>
+												</td>
 												<td colSpan={1}>
 													<Link to={`/userDetails/${user._id}`}>
 														<button className='text-warning '>
@@ -309,11 +321,11 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 				<DeleteModal
 					method='Delete'
 					toDelete='Are you sure you want to Delete This User? this User will be permanently removed. This action cannot be undone.'
-					render={() => refresh()}
 					show={showDeleteModal}
-					onHide={() => onHide()}
+					onHide={onHide}
 					onDelete={() => handleDelete(selectedUserId)}
 					navigateTo={""}
+					render={refresh}
 				/>
 			</main>
 			<Footer theme={theme} />;

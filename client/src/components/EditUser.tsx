@@ -20,6 +20,7 @@ interface EditUserProps {}
 
 const EditUser: FunctionComponent<EditUserProps> = () => {
 	const [isLoading, setIsLoading] = useState(true);
+	const [rendering, setRindering] = useState(false);
 	const {userId} = useParams<string>();
 	const theme = useContext(SiteTheme);
 	const navigate = useNavigate();
@@ -67,6 +68,8 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 			});
 		},
 	});
+
+	const refresh = () => setRindering(!rendering);
 
 	useEffect(() => {
 		if (!userId) return;
@@ -141,8 +144,8 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 						<div className=' border p-2 bg-light d-flex align-items-center justify-content-around'>
 							<button
 								onClick={() => {
-									onShowDeleteCardModal();
 									setCardToDelete(user._id as string);
+									onShowDeleteCardModal();
 								}}
 								className='btn btn-outline-danger fw-bold'
 							>
@@ -357,25 +360,25 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 						{/* Submit Button */}
 						<button
 							type='submit'
-							className='btn btn-success w-100 py-2 mt-3'
+							className='btn btn-success w-50 py-2 mt-3'
 							disabled={
 								!UpdateUserFormik.dirty || !UpdateUserFormik.isValid
 							}
 						>
-							Update
+							Update ! !
 						</button>
 					</form>
 				</div>
 				<DeleteModal
+					render={refresh}
 					method='Delete'
 					toDelete='Are you sure you want to Delete This Account? this Account will be permanently removed. This action cannot be undone.'
-					render={() => onHideDeleteCardModal()}
 					show={showDeleteModal}
-					onHide={() => onHideDeleteCardModal()}
+					onHide={onHideDeleteCardModal}
 					onDelete={() => {
 						handleDelete_User(cardToDelete as string);
 					}}
-					navigateTo={""}
+					navigateTo={-1}
 				/>
 			</main>
 			<Footer theme={theme} />;

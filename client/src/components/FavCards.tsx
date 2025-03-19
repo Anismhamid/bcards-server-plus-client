@@ -33,9 +33,14 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 	const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 	const [cardToDelete, setCardToDelete] = useState<SetStateAction<string>>("");
 	const {isAdmin} = useUserContext();
+	const [refreshing, setRefreshing] = useState(false);
 
 	const onShowDeleteCardModal = useCallback(() => setShowDeleteModal(true), []);
 	const onHideDeleteCardModal = useCallback(() => setShowDeleteModal(false), []);
+
+	const refresh = () => {
+		setRefreshing(!refreshing);
+	};
 
 	useEffect(() => {
 		if (!decodedToken._id) return;
@@ -51,7 +56,7 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 				console.log("Failed to fetch cards.");
 			})
 			.finally(() => setLoading(false));
-	}, [decodedToken._id]);
+	}, [decodedToken._id, refreshing]);
 
 	if (loading) return <Loading />;
 
@@ -64,7 +69,6 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 					color: theme.color,
 				}}
 			>
-				
 				<div className='row w-100'>
 					<div className='col-md-12 col-lg-3'>
 						<h6
@@ -137,6 +141,7 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 																decodedToken._id as string,
 																setCCards,
 															);
+															refresh();
 														}}
 														className={`${
 															card.likes?.includes(
@@ -185,12 +190,12 @@ const FavCards: FunctionComponent<FavCardsProps> = () => {
 					</div>
 				</div>
 				<DeleteModal
+					render={refresh}
 					method='Delete'
 					navigateTo={""}
 					toDelete='CardAre you sure you want to Delete This Card? this card will be permanently removed. This action cannot be undone.'
-					render={() => onHideDeleteCardModal()}
 					show={showDeleteModal}
-					onHide={() => onHideDeleteCardModal()}
+					onHide={onHideDeleteCardModal}
 					onDelete={() => {
 						handleDeleteCard_Cards(
 							cardToDelete as string,

@@ -13,7 +13,7 @@ import {SiteTheme} from "../theme/theme";
 import DeleteModal from "../atoms/modals/DeleteModal";
 import UpdateCardForm from "./UpdateCardForm";
 import useToken from "../hooks/useToken";
-import {handleDeleteCard_Cards, handleLikeToggle_MyCards} from "../handleFunctions/cards";
+import {handleDeleteCard_Cards, handleLikeToggle_Cards} from "../handleFunctions/cards";
 import Loading from "./Loading";
 import Button from "../atoms/buttons/Button";
 import NextCardButton from "../atoms/buttons/NextCardButton";
@@ -36,6 +36,11 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 	const navigate = useNavigate();
 	const {decodedToken} = useToken();
 	const card = allCards?.find((card: Cards) => card._id === cardId);
+	const [refreshing, setRefreshing] = useState(false);
+
+	const refresh = () => {
+		setRefreshing(!refreshing);
+	};
 
 	if (!card) return <Loading />;
 
@@ -84,10 +89,10 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 						<div className='container w-25 d-flex align-items-center justify-content-center'>
 							<p
 								onClick={() =>
-									handleLikeToggle_MyCards(
+									handleLikeToggle_Cards(
 										card._id as string,
-										decodedToken,
 										allCards,
+										decodedToken._id,
 										setCards,
 									)
 								}
@@ -184,11 +189,11 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 					) : null}
 				</div>
 				<DeleteModal
+					render={refresh}
 					method='Delete Card'
 					toDelete='Are you sure you want to Delete This Card? this card will be permanently removed. This action cannot be undone.'
-					render={() => onHideDeleteCardModal()}
 					show={showDeleteModal}
-					onHide={() => onHideDeleteCardModal()}
+					onHide={onHideDeleteCardModal}
 					onDelete={() => {
 						handleDeleteCard_Cards(
 							cardToDelete as string,

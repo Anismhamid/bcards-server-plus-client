@@ -43,6 +43,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 	const [onShowImageModal, setOnShowImageModal] = useState<boolean>(false);
 	const [cardImageUrl, setCardImageUrl] = useState<string>("");
 	const [cardImageAlt, setCardImageAlt] = useState<string>("");
+	const [refreshing, setRefreshing] = useState(false);
 
 	const OnShowImageCardModal = useCallback(() => setOnShowImageModal(true), []);
 	const OnHideImageCardModal = () => {
@@ -52,6 +53,10 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 	};
 	const onShowDeleteCardModal = useCallback(() => setShowDeleteModal(true), []);
 	const onHideDeleteCardModal = useCallback(() => setShowDeleteModal(false), []);
+
+	const refresh = () => {
+		setRefreshing(!refreshing);
+	};
 
 	useEffect(() => {
 		const token = localStorage.getItem("bCards_token");
@@ -95,7 +100,6 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 			</Pagination.Item>
 		));
 	}, [currentPage, filteredCards.length]);
-
 
 	if (isLoading) return <Loading />;
 
@@ -299,7 +303,7 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 								method={"Delete"}
 								navigateTo={""}
 								toDelete='CardAre you sure you want to Delete This Card? this card will be permanently removed. This action cannot be undone.'
-								render={() => onHideDeleteCardModal()}
+								render={refresh}
 								show={showDeleteModal}
 								onHide={() => onHideDeleteCardModal()}
 								onDelete={() => {

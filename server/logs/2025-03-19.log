@@ -1,0 +1,10 @@
+3/20/2025, 12:56:15 AM - Status Code: 400 - Error: userRegisterJoiSchema is not a function
+3/20/2025, 12:56:48 AM - Status Code: 400 - Error: "password" is required
+3/20/2025, 12:58:19 AM - Status Code: 400 - Error: "password" is required
+3/20/2025, 1:12:46 AM - Status Code: 400 - Error: "email" is not allowed
+3/20/2025, 1:13:22 AM - Status Code: 400 - Error: "isBusiness" is required
+3/20/2025, 1:15:02 AM - Status Code: 400 - Error: "isBusiness" is required
+3/20/2025, 1:16:28 AM - Status Code: 400 - Error: "isBusiness" is required
+3/20/2025, 1:16:40 AM - Status Code: 400 - Error: "isBusiness" is required
+3/20/2025, 1:23:20 AM - Status Code: 400 - Error: "isBusiness" is required
+3/20/2025, 1:23:54 AM - Status Code: 400 - Error: "isBusiness" is required

@@ -60,10 +60,8 @@ export const registerNewUser = async (user: User): Promise<any | null> => {
 // Delete specific user by ID
 export const deleteUserById = async (userId: string) => {
 	try {
-		const response = await axios.request({
-			...getUsers,
-			url: `${getUsers.url}/${userId}`,
-			method: "delete",
+		const response = await axios.delete(`${getUsers.url}/${userId}`, {
+			headers: {Authorization: localStorage.getItem("bCards_token")},
 		});
 		return response.data;
 	} catch (error) {
@@ -80,6 +78,7 @@ export const patchUserBusiness = async (
 	try {
 		const response = await axios.patch(`${getUsers.url}/${cardId}`, data, {
 			headers: {
+				"Content-Type": "application/json",
 				Authorization: localStorage.getItem("bCards_token"),
 			},
 		});
@@ -98,17 +97,15 @@ export const patchUserBusiness = async (
 // Put specific user by ID
 export const putUserData = async (userId: string, data: User) => {
 	try {
-		const response = await axios.request({
-			...getUsers,
-			url: `${getUsers.url}/${userId}`,
-			method: "put",
-			data: data,
+		const response = await axios.put(`${getUsers.url}/${userId}`, data, {
+			headers: {
+				Authorization: localStorage.getItem("bCards_token"),
+			},
 		});
-
 		return response.data;
 	} catch (error) {
+		console.log(error);
 		errorMSG("Failed to update user data. Please try again later.");
-		return null;
 	}
 };
 
