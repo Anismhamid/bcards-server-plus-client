@@ -182,7 +182,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 									<th colSpan={3}>Image</th>
 									<th colSpan={4}>Name</th>
 									<th colSpan={3}>email</th>
-									<th colSpan={2}>55</th>
+									<th colSpan={2}>Admin</th>
 									<th colSpan={1}>Edit</th>
 									<th colSpan={1}>Delete</th>
 								</tr>
@@ -214,13 +214,16 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 
 										{decodedToken?.isAdmin && (
 											<>
-												<td colSpan={2} className={user.isAdmin?" text-primary":" text-warning"}>
+												<td
+													colSpan={2}
+													className={
+														user.isAdmin
+															? " text-primary"
+															: " text-warning"
+													}
+												>
 													<Checkbox
-														role={
-															user.isAdmin
-																? "Admin"
-																: "Client"
-														}
+														role={user.isAdmin ? true : false}
 													/>
 												</td>
 												<td colSpan={1}>

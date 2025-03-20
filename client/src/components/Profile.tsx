@@ -30,6 +30,16 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 					style={{background: theme.background, color: theme.color}}
 					className='container'
 				>
+					<div className='row w-100'>
+						<div className='col-md-12 col-lg-3'>
+							<h6
+								style={{backgroundColor: theme.background}}
+								className='shadow text-center lead display-5 p-3 fw-bold my-3 rounded-end-pill'
+							>
+								Profile
+							</h6>
+						</div>
+					</div>
 					<div
 						style={{background: theme.background, color: theme.color}}
 						className='row my-5'

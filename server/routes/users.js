@@ -187,7 +187,7 @@ router.put("/:id", auth, async (req, res) => {
 router.patch("/:id", auth, async (req, res) => {
 	try {
 		// Check if the user is authorized to edit their profile
-		if (req.payload._id !== req.params.id)
+		if (req.payload._id !== req.params.id && !req.payload.isAdmin)
 			return res.status(403).send("Unauthorized");
 
 		// find the user
@@ -200,7 +200,7 @@ router.patch("/:id", auth, async (req, res) => {
 
 		// send the result status
 		res.status(200).send(
-			`your business account status is: ${user.isBusiness ? "business" : "client"}`,
+			`your business account status is: ${user.isBusiness ? "Business" : "Client"}`,
 		);
 	} catch (error) {
 		res.status(400).send(error);

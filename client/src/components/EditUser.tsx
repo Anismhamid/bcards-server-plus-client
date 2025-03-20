@@ -73,9 +73,9 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 
 	useEffect(() => {
 		if (!userId) return;
-		setIsLoading(true);
 		getUserById(userId)
 			.then((data) => {
+				setIsLoading(true);
 				setUser(data.data);
 				setIsLoading(false);
 			})
@@ -106,19 +106,22 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 					<Button text={"Back"} path={() => navigate(-1)} />
 				</div>
 				<div className='container'>
-					<div className='row mp-5 fw-bold lead'>
+					<div className='row mb-5 lead'>
 						<div className='col-12'>
-							<p className='fs-1 lead mt-5 w-25'>
-								{user.isBusiness ? "Business" : "Client"}
-							</p>
 							<img
 								style={{maxWidth: "55px"}}
 								src={user.isAdmin ? "/admin.png" : "/user.png"}
 								alt={user.isAdmin ? "/admin icon" : "/user icon"}
 							/>
-							<p className='lead w-25 fw-bold text-success'>
-								{user.isAdmin ? "Admin" : "Client"}
-							</p>
+							{/* Business Account ? */}
+							<div className='text-start my-3 bg-danger-subtle text-center text-success fw-bold '>
+								<label
+									className='fw-bold'
+									htmlFor='isBusiness?'
+								>
+									{user.isBusiness ? "Business" : "Client"} Account
+								</label>
+							</div>
 						</div>
 						<div className='col-12'>
 							<img
