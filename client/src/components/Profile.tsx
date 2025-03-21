@@ -1,19 +1,27 @@
 import {FunctionComponent, useContext, useEffect, useState} from "react";
 import {User} from "../interfaces/User";
-import {getUserById} from "../services/userServices";
+import {getUserById, patchUserBusiness} from "../services/userServices";
 import useToken from "../hooks/useToken";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import {SiteTheme} from "../theme/theme";
+import {useUserContext} from "../context/UserContext";
 
 interface ProfileProps {}
 
 const Profile: FunctionComponent<ProfileProps> = () => {
 	const {decodedToken} = useToken();
+	const {isBusiness, setIsBusiness} = useUserContext();
 	const theme = useContext(SiteTheme);
 
 	// Initialize userData as null since you're fetching a single user object
 	const [userData, setUserData] = useState<User | null>(null);
+
+	const handleBusiness = () => {
+		patchUserBusiness(decodedToken._id, !isBusiness).then((res) =>
+			setIsBusiness(isBusiness),
+		);
+	};
 
 	useEffect(() => {
 		getUserById(decodedToken._id || "")
@@ -91,7 +99,10 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 										{userData.isAdmin ? "Admin" : "User"}
 									</span>
 								</h5>
-								<h5 className='catd-text text-light p-2 rounded my-3 bg-dark w-50'>
+								<h5
+									onClick={handleBusiness}
+									className='catd-text text-light p-2 rounded my-3 bg-dark w-50'
+								>
 									Account role:
 									<span
 										className={`${

@@ -71,26 +71,28 @@ export const deleteUserById = async (userId: string) => {
 };
 
 export const patchUserBusiness = async (
-	cardId: string,
-	data: {isBusiness: boolean},
-	user: {isBusiness: boolean},
+	userId: string,
+	data: boolean,
 ) => {
 	try {
-		const response = await axios.patch(`${getUsers.url}/${cardId}`, data, {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: localStorage.getItem("bCards_token"),
+		const response = await axios.patch(
+			`${getUsers.url}/${userId}`,
+			{data},
+			{
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: localStorage.getItem("bCards_token"),
+				},
 			},
-		});
+		);
 		infoMSG(
 			`administration has been changed for ${response.data.email} to ${
-				user.isBusiness ? "Client account" : "Business account"
+				response.data.isBusiness ?  "Business account" :"Client account"
 			}`,
 		);
 		return response.data;
 	} catch (error) {
 		errorMSG("Failed to update user. Please try again later.");
-		return null;
 	}
 };
 

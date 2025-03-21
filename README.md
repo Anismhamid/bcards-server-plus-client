@@ -89,7 +89,7 @@ Ensure you have the following prerequisites installed::
 
 1. **Start the ( Server ) in Development Mode:**:
 
-    - Open a New terminal window and run
+    - Open a terminal window and run
 
         ```bash
             npm run dev:server

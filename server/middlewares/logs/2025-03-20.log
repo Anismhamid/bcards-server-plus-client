@@ -1,0 +1,150 @@
+3/21/2025, 12:36:11 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:36:18 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:36:21 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:36:57 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:37:08 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:37:30 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:38:00 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:38:10 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:38:21 AM - Status Code: 400 - Error: ValidationError: loginStemp: Cast to date failed for value "1,742,510,301,329" (type string) at path "loginStemp"
+3/21/2025, 12:38:21 AM - Status Code: 400 - Error: {"errors":{"loginStemp":{"stringValue":"\"1,742,510,301,329\"","valueType":"string","kind":"date","value":"1,742,510,301,329","path":"loginStemp","reason":{"generatedMessage":true,"code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"name":"CastError","message":"Cast to date failed for value \"1,742,510,301,329\" (type string) at path \"loginStemp\""}},"_message":"Users validation failed","name":"ValidationError","message":"Users validation failed: loginStemp: Cast to date failed for value \"1,742,510,301,329\" (type string) at path \"loginStemp\""}
+3/21/2025, 12:38:44 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:38:49 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:38:52 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:38:59 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:39:24 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:39:39 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:39:52 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:40:38 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:40:46 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:41:21 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:41:24 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:41:33 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:41:35 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:42:15 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:42:31 AM - Status Code: 400 - Error: ValidationError: loginStamp: Cast to date failed for value "1,742,510,551,958" (type string) at path "loginStamp"
+3/21/2025, 12:42:31 AM - Status Code: 400 - Error: {"errors":{"loginStamp":{"stringValue":"\"1,742,510,551,958\"","valueType":"string","kind":"date","value":"1,742,510,551,958","path":"loginStamp","reason":{"generatedMessage":true,"code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"name":"CastError","message":"Cast to date failed for value \"1,742,510,551,958\" (type string) at path \"loginStamp\""}},"_message":"Users validation failed","name":"ValidationError","message":"Users validation failed: loginStamp: Cast to date failed for value \"1,742,510,551,958\" (type string) at path \"loginStamp\""}
+3/21/2025, 12:42:52 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:42:56 AM - Status Code: 400 - Error: TypeError: Date.now is not a constructor
+3/21/2025, 12:42:56 AM - Status Code: 400 - Error: {}
+3/21/2025, 12:43:20 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:43:32 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:43:33 AM - Status Code: 400 - Error: ValidationError: loginStamp: Cast to date failed for value "1,742,510,613,760" (type string) at path "loginStamp"
+3/21/2025, 12:43:33 AM - Status Code: 400 - Error: {"errors":{"loginStamp":{"stringValue":"\"1,742,510,613,760\"","valueType":"string","kind":"date","value":"1,742,510,613,760","path":"loginStamp","reason":{"generatedMessage":true,"code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"name":"CastError","message":"Cast to date failed for value \"1,742,510,613,760\" (type string) at path \"loginStamp\""}},"_message":"Users validation failed","name":"ValidationError","message":"Users validation failed: loginStamp: Cast to date failed for value \"1,742,510,613,760\" (type string) at path \"loginStamp\""}
+3/21/2025, 12:44:05 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:44:07 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:44:12 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:44:15 AM - Status Code: 400 - Error: ValidationError: loginStamp: Cast to date failed for value "1,742,510,655,144" (type string) at path "loginStamp"
+3/21/2025, 12:44:15 AM - Status Code: 400 - Error: {"errors":{"loginStamp":{"stringValue":"\"1,742,510,655,144\"","valueType":"string","kind":"date","value":"1,742,510,655,144","path":"loginStamp","reason":{"generatedMessage":true,"code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"name":"CastError","message":"Cast to date failed for value \"1,742,510,655,144\" (type string) at path \"loginStamp\""}},"_message":"Users validation failed","name":"ValidationError","message":"Users validation failed: loginStamp: Cast to date failed for value \"1,742,510,655,144\" (type string) at path \"loginStamp\""}
+3/21/2025, 12:44:28 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:44:38 AM - Status Code: 400 - Error: ValidationError: loginStamp: Cast to date failed for value "1,742,510,678,433" (type string) at path "loginStamp"
+3/21/2025, 12:44:38 AM - Status Code: 400 - Error: {"errors":{"loginStamp":{"stringValue":"\"1,742,510,678,433\"","valueType":"string","kind":"date","value":"1,742,510,678,433","path":"loginStamp","reason":{"generatedMessage":true,"code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"name":"CastError","message":"Cast to date failed for value \"1,742,510,678,433\" (type string) at path \"loginStamp\""}},"_message":"Users validation failed","name":"ValidationError","message":"Users validation failed: loginStamp: Cast to date failed for value \"1,742,510,678,433\" (type string) at path \"loginStamp\""}
+3/21/2025, 12:45:26 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:46:02 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:47:35 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:49:39 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:49:43 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:49:46 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:50:53 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:50:58 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:04 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:07 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:16 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:24 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:38 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:51 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:51:57 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:54:04 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:54:07 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:54:13 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:54:26 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:56:12 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:56:24 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:56:43 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:57:26 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:57:28 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:58:10 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:58:52 AM - Status Code: undefined - Error: undefined
+3/21/2025, 12:59:34 AM - Status Code: 404 - Error: wrong email or password
+3/21/2025, 1:03:20 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:03:22 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:04:05 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:04:20 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:04:36 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:05:17 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:05:24 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:06:21 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:06:26 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:06:29 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:06:37 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:06:59 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:07:02 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:09:51 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:10:25 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:10:33 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:11:05 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:13:05 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:13:45 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:15:17 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:15:32 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:35:47 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:36:00 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:38:59 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:39:11 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:40:18 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:40:41 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:42:59 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:43:12 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:43:28 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:52:42 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:52:45 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:53:12 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:53:25 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:53:54 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:54:05 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:54:14 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:54:39 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:54:41 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:55:32 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:55:38 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:55:45 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:19 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:25 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:27 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:37 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:39 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:42 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:45 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:48 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:52 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:54 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:56:59 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:57:03 AM - Status Code: 400 - Error: TypeError: Date.new is not a function
+3/21/2025, 1:57:03 AM - Status Code: 400 - Error: {}
+3/21/2025, 1:57:11 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:57:12 AM - Status Code: 400 - Error: TypeError: Date(...).new is not a function
+3/21/2025, 1:57:12 AM - Status Code: 400 - Error: {}
+3/21/2025, 1:57:18 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:57:22 AM - Status Code: 400 - Error: TypeError: (intermediate value).new is not a function
+3/21/2025, 1:57:22 AM - Status Code: 400 - Error: {}
+3/21/2025, 1:57:28 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:57:29 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:57:31 AM - Status Code: 400 - Error: TypeError: (intermediate value).toLocalString is not a function
+3/21/2025, 1:57:31 AM - Status Code: 400 - Error: {}
+3/21/2025, 1:57:42 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:57:46 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:58:13 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:58:20 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:58:22 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:58:38 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:58:45 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:59:00 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:59:03 AM - Status Code: 400 - Error: {}
+3/21/2025, 1:59:03 AM - Status Code: 400 - Error: TypeError: Date.now is not a constructor
+3/21/2025, 1:59:34 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:59:37 AM - Status Code: 400 - Error: ReferenceError: date is not defined
+3/21/2025, 1:59:37 AM - Status Code: 400 - Error: {}
+3/21/2025, 1:59:47 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:59:50 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:59:54 AM - Status Code: undefined - Error: undefined
+3/21/2025, 1:59:57 AM - Status Code: undefined - Error: undefined

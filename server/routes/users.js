@@ -40,6 +40,7 @@ router.post("/", async (req, res) => {
 		// create a new user
 		const user = new User({
 			...req.body,
+			registryStamp: new Date().toLocaleString(),
 			password: passwordHashing,
 		});
 
@@ -90,11 +91,15 @@ router.post("/login", async (req, res) => {
 			return res.status(400).send("invalid email or password");
 		}
 
+		user.loginStamp.push(new Date().toLocaleString());
+		await user.save();
+
 		// set token and send it to user
 		const token = jwt.sign(
 			_.pick(user, ["_id", "name.first", "name.last", "isAdmin", "isBusiness"]),
 			process.env.JWT_SECRET,
 		);
+
 		res.status(200).send(token);
 	} catch (error) {
 		// if the login has any error
@@ -173,7 +178,9 @@ router.put("/:id", auth, async (req, res) => {
 		if (error) return res.status(400).send(error.details[0].message);
 
 		// find and update the user
-		const user = await User.findByIdAndUpdate(req.params.id,req.body, {new: true}).select("-password");
+		const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+			new: true,
+		}).select("-password");
 		if (!user) return res.status(405).send("User not found");
 
 		// return the user with new updates
@@ -188,12 +195,12 @@ router.patch("/:id", auth, async (req, res) => {
 	try {
 		// Check if the user is authorized to edit their profile
 		if (req.payload._id !== req.params.id && !req.payload.isAdmin)
-			return res.status(403).send("Unauthorized");
+			return res.status(401).send("Unauthorized");
 
 		// find the user
 		const user = await User.findOneAndUpdate(
 			{_id: req.params.id},
-			{$set: {isBusiness: req.body.isBusiness}},
+			{$set: {isBusiness: !req.body.isBusiness}},
 			{new: true},
 		);
 		if (!user) return res.status(404).send("User not found");

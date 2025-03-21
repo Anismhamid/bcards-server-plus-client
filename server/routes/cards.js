@@ -1,39 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Joi = require("joi");
 const chalk = require("chalk");
 const auth = require("../middlewares/auth");
 const Cards = require("../models/Card");
-
-const cardSchema = Joi.object({
-	_id: Joi.string(),
-	title: Joi.string().required(),
-	subtitle: Joi.string().required(),
-	description: Joi.string().optional(),
-	phone: Joi.string()
-		.min(9)
-		.max(10)
-		.required()
-		.regex(/^05\d{8,9}$/),
-	email: Joi.string().email().min(5).required(),
-	web: Joi.string().allow(""),
-	image: Joi.object({
-		url: Joi.string().uri().required(),
-		alt: Joi.string().required(),
-	}),
-	address: Joi.object({
-		state: Joi.string().allow("").default("not defined"),
-		country: Joi.string().min(2).required(),
-		city: Joi.string().min(2).required(),
-		street: Joi.string().min(2).required(),
-		houseNumber: Joi.number().required(),
-		zip: Joi.string().default("00000"),
-	}),
-	bizNumber: Joi.number(),
-	likes: Joi.array().items(Joi.string()),
-	user_id: Joi.string(),
-	__v: Joi.number(),
-});
+const cardSchema = require("../schemas/cardSchema");
 
 // function to generate the bizNumber
 async function generateBizNumber() {
@@ -98,9 +68,6 @@ router.put("/:id", auth, async (req, res) => {
 			new: true,
 		});
 		if (!userCardToUpdae) return res.status(404).send("Card not found");
-
-		// // save the card
-		// await userCardToUpdae.save();
 
 		// return the card
 		res.status(200).send(userCardToUpdae);
