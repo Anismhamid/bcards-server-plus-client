@@ -1,0 +1,10 @@
+3/22/2025, 12:00:44 AM - Status Code: undefined - Error: undefined
+3/22/2025, 12:00:46 AM - Status Code: undefined - Error: undefined
+3/22/2025, 12:01:31 AM - Status Code: 400 - Error: "phone" with value "5141234567" fails to match the required pattern: /^05\d{8,9}$/
+3/22/2025, 12:01:32 AM - Status Code: undefined - Error: undefined
+3/22/2025, 12:03:43 AM - Status Code: 400 - Error: "phone" with value "5141234567" fails to match the required pattern: /^05\d{8,9}$/
+3/22/2025, 12:10:18 AM - Status Code: undefined - Error: undefined
+3/22/2025, 12:10:29 AM - Status Code: undefined - Error: undefined
+3/22/2025, 12:10:54 AM - Status Code: undefined - Error: undefined
+3/22/2025, 12:12:54 AM - Status Code: 400 - Error: "phone" with value "5141234567" fails to match the required pattern: /^05\d{8,9}$/
+3/22/2025, 12:14:09 AM - Status Code: undefined - Error: undefined

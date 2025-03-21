@@ -46,6 +46,6 @@ export const cardsFormikValuesSchema = yup.object({
 		city: yup.string().required(),
 		street: yup.string().required(),
 		houseNumber: yup.number().required(),
-		zip: yup.number(),
+		zip: yup.string(),
 	}),
 });

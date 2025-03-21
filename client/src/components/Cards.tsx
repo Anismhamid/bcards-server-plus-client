@@ -156,8 +156,6 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 							{paginationItems}
 						</Pagination>
 					</div>
-					<h1 className='text-center my-5'>Home</h1>
-					<hr />
 
 					<div className='row ms-auto'>
 						<div className='row'>
@@ -206,13 +204,33 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 											</h6>
 
 											<div className='card-text'>
-												<h5>Phone:</h5>
-												<p>{card.phone}</p>
-												<h5>Address:</h5>
-												{/* <p>
-												{card.address.city},{card.address.street}
-											</p> */}
-												<h5>{card.email}</h5>
+												<section className='phone'>
+													{/* Phone Number Section */}
+													<Link
+														to={`tel:${card.phone}`}
+														className='text-decoration-none'
+													>
+														<h5>Call: {card.phone}</h5>
+													</Link>
+												</section>
+												<section className='address'>
+													<h5>Address:</h5>
+													<p>
+														{card.address.city},{" "}
+														{card.address.street}
+													</p>
+												</section>
+												<section className='email'>
+													<h5>
+														Email:{" "}
+														<Link
+															className='text-decoration-none'
+															to={`mailto:${card.email}`}
+														>
+															{card.email}
+														</Link>
+													</h5>
+												</section>
 											</div>
 
 											{decodedToken._id && (
@@ -271,19 +289,22 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 													{(isAdmin ||
 														card.user_id ===
 															decodedToken._id) && (
-														<div className='mt-3 d-flex justify-content-around'>
-															<DeleteAndEditButtons
-																onShowDeleteCardModal={() =>
-																	onShowDeleteCardModal()
-																}
-																setCardToDelete={() => {
-																	setCardToDelete(
-																		card._id as string,
-																	);
-																}}
-																card={card}
-															/>
-														</div>
+														<>
+															<hr />
+															<div className='mt-3 d-flex justify-content-around'>
+																<DeleteAndEditButtons
+																	onShowDeleteCardModal={() =>
+																		onShowDeleteCardModal()
+																	}
+																	setCardToDelete={() => {
+																		setCardToDelete(
+																			card._id as string,
+																		);
+																	}}
+																	card={card}
+																/>
+															</div>
+														</>
 													)}
 												</>
 											)}

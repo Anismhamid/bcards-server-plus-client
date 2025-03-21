@@ -8,7 +8,10 @@ const cardSchema = new mongoose.Schema(
 		phone: {
 			type: String,
 			required: true,
-			match: /^05\d{8,9}$/,
+			match: [
+				/^(\(\d{3}\)\s?|\d{3}[-.\s]?)\d{3}[-.\s]?\d{4}$/,
+				"Invalid phone number format. Example: (123) 456-7890 or 123-456-7890",
+			],
 		},
 		email: {type: String, required: true, minlength: 5},
 		web: {type: String},

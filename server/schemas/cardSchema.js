@@ -10,7 +10,8 @@ const cardSchema = Joi.object({
 		.min(9)
 		.max(10)
 		.required()
-		.regex(/^05\d{8,9}$/),
+		.regex(/^(\(\d{3}\)\s?|\d{3}[-.\s]?)\d{3}[-.\s]?\d{4}$/, "Phone number format")
+		.message("Invalid phone number format. Example: (123) 456-7890 or 123-456-7890"),
 	email: Joi.string().email().min(5).required(),
 	web: Joi.string().allow(""),
 	image: Joi.object({

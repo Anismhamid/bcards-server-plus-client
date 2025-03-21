@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes} from "react-router-dom";
 import {routes} from "./routes/Routes";
 import {ToastContainer} from "react-toastify";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import {SiteTheme, theme} from "./theme/theme";
 import React from "react";
 import Sidebar from "./components/Sidebar";
@@ -23,6 +23,10 @@ function App() {
 	const handleTheme = () => {
 		setDarkMode((oldprev) => !oldprev);
 	};
+
+	useEffect(() => {
+		localStorage.setItem("darkMode", JSON.stringify(darkMode));
+	}, [darkMode]);
 
 	return (
 		<SiteTheme.Provider value={darkMode ? theme.dark : theme.light}>
