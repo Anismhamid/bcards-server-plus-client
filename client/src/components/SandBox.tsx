@@ -74,7 +74,7 @@ const SandBox: FunctionComponent<SandBoxProps> = () => {
 	}, [usersToDisplay, startIndex, users]);
 
 	useEffect(() => {
-		getAllUsers(currentPage, usersPerPage)
+		getAllUsers()
 			.then((res) => {
 				setUsers(res);
 			})

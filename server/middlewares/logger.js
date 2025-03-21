@@ -4,7 +4,7 @@ const path = require("path");
 const logToFile = (statusCode, errorMessage) => {
 	const date = new Date();
 	const formattedDate = date.toISOString().split("T")[0]; // Format date as YYYY-MM-DD
-	const logDir = path.join(__dirname, "./logs"); // Directory to store log files
+	const logDir = path.join(__dirname, "../logs"); // Directory to store log files
 	const logFilePath = path.join(logDir, `${formattedDate}.log`); // Log file path based on the date
 
 	// Create the logs directory if it doesn't exist

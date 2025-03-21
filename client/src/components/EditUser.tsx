@@ -1,6 +1,6 @@
 import {useState, useEffect, FunctionComponent, useContext, SetStateAction} from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import {putUserData, getUserById} from "../services/userServices";
+import {putUserData, getUserProfileById} from "../services/userServices";
 import Loading from "./Loading";
 import {errorMSG, successMSG} from "../atoms/taosyify/Toastify";
 import {User} from "../interfaces/User";
@@ -73,7 +73,7 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 
 	useEffect(() => {
 		if (!userId) return;
-		getUserById(userId)
+		getUserProfileById(userId)
 			.then((data) => {
 				setIsLoading(true);
 				setUser(data.data);
@@ -115,10 +115,7 @@ const EditUser: FunctionComponent<EditUserProps> = () => {
 							/>
 							{/* Business Account ? */}
 							<div className='text-start my-3 bg-danger-subtle text-center text-success fw-bold '>
-								<label
-									className='fw-bold'
-									htmlFor='isBusiness?'
-								>
+								<label className='fw-bold' htmlFor='isBusiness?'>
 									{user.isBusiness ? "Business" : "Client"} Account
 								</label>
 							</div>

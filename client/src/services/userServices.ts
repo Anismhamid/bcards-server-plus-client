@@ -24,16 +24,25 @@ export async function loginIn(login: UserLogin): Promise<any> {
 }
 
 // Fetch all users
-export const getAllUsers = async (page: number, limit: number) => {
+export const getAllUsers = async () => {
 	try {
 		const response = await axios.request({
 			...getUsers,
-			url: `${getUsers.url}?page=${page}&limit=${limit}`,
+			url: `${getUsers.url}`,
 		});
 		return response.data;
 	} catch (error) {
 		errorMSG("Filed to fetch data please try again later");
 	}
+};
+
+// Get specific user by ID
+export const getUserProfileById = (userId: string) => {
+	return axios.get(`${getUsers.url}/profile/${userId}`, {
+		headers: {
+			Authorization: localStorage.getItem("bCards_token"),
+		},
+	});
 };
 
 // Get specific user by ID

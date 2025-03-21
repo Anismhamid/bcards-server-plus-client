@@ -1,6 +1,6 @@
 import {FunctionComponent, useContext, useEffect, useState} from "react";
 import {User} from "../interfaces/User";
-import {getUserById, patchUserBusiness} from "../services/userServices";
+import {getUserProfileById, patchUserBusiness} from "../services/userServices";
 import useToken from "../hooks/useToken";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -24,7 +24,7 @@ const Profile: FunctionComponent<ProfileProps> = () => {
 	};
 
 	useEffect(() => {
-		getUserById(decodedToken._id || "")
+		getUserProfileById(decodedToken._id || "")
 			.then((user) => setUserData(user.data))
 			.catch((err) => console.log(err));
 	}, [decodedToken._id]);

@@ -18,8 +18,7 @@ interface LoginProps {}
 
 const Login: FunctionComponent<LoginProps> = () => {
 	const [showPassword, setShowPassword] = useState(false);
-	const {isAdmin, auth, setAuth, setIsAdmin, setIsBusiness, setIsLogedIn} =
-		useUserContext();
+	const {setIsAdmin, setIsBusiness, setIsLogedIn} = useUserContext();
 	const theme = useContext(SiteTheme);
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState<boolean>(false);
@@ -29,7 +28,7 @@ const Login: FunctionComponent<LoginProps> = () => {
 	const onHideSocialModal = useCallback(() => setShowSocialModall(false), []);
 
 	useEffect(() => {
-		const token = localStorage.bCards_token;
+		const token = localStorage.getItem("bCards_token");
 		if (token && decodedToken._id) {
 			setIsLogedIn(true);
 			navigate(pathes.cards);
@@ -39,33 +38,19 @@ const Login: FunctionComponent<LoginProps> = () => {
 	}, [decodedToken]);
 
 	useEffect(() => {
-		try {
-			if (decodedToken._id)
-				getUserById(decodedToken._id)
-					.then(() => {
-						setAuth({...decodedToken, isAdmin: isAdmin});
-						setIsAdmin(decodedToken.isAdmin);
-						setIsBusiness(auth?.isBusiness ? true : false);
-						setIsLogedIn(true);
-					})
-					.catch((err) => {
-						wellcomeMSG(err);
-						setIsLogedIn(false);
-					});
-		} catch (err) {
-			errorMSG("Failed to find user");
-			setIsLogedIn(false);
-		}
-	}, []);
-
-	useEffect(() => {
-		if (decodedToken && localStorage.bCards_token) {
-			setIsLogedIn(true);
-			navigate(pathes.cards);
-		} else {
-			setIsLogedIn(false);
-			return;
-		}
+		if (decodedToken)
+			getUserById(decodedToken._id)
+				.then(() => {
+					setIsAdmin(decodedToken.isAdmin);
+					setIsBusiness(decodedToken.isBusiness);
+					setIsLogedIn(true);
+				})
+				.catch((err) => {
+					wellcomeMSG(err);
+					setIsAdmin(false);
+					setIsBusiness(false);
+					setIsLogedIn(false);
+				});
 	}, [decodedToken]);
 
 	const validationSchema = yup.object({

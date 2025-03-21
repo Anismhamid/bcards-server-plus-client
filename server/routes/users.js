@@ -24,11 +24,8 @@ router.post("/", async (req, res) => {
 		// check if user exist
 		const userExist = await User.findOne({email: req.body.email});
 		if (userExist) {
-			console.log(
-				chalk.blue('"error:"'),
-				chalk.red("User already exists: Invalid email"),
-			);
-			return res.status(400).send({error: "Email is already taken"});
+			console.log(chalk.red("User already exists try another email"));
+			return res.status(400).send("User already exists try another email");
 		}
 
 		// if user not exist salt the password
@@ -45,14 +42,7 @@ router.post("/", async (req, res) => {
 		});
 
 		const token = jwt.sign(
-			_.pick(user, [
-				"_id",
-				"name.first",
-				"name.last",
-				"email",
-				"isAdmin",
-				"isBusiness",
-			]),
+			_.pick(user, ["_id", "isAdmin", "isBusiness"]),
 			process.env.JWT_SECRET,
 		);
 
@@ -72,23 +62,23 @@ router.post("/login", async (req, res) => {
 	try {
 		// validate login body
 		const {error} = loginSchema.validate(req.body);
-		if (error) return res.status(400).send("Invalid email or password");
+		if (error) return res.status(400).send(error.details[0].message);
 
 		// check if user exist
 		const user = await User.findOne({email: req.body.email});
 
 		// if user not exixst
 		if (!user) {
-			console.log(chalk.red("wrong email or password"));
-			return res.status(404).send("wrong email or password");
+			console.log(chalk.red("invalid email or password please try again"));
+			return res.status(400).send("invalid email or password please try again");
 		}
 		//if user found compare the password
 		const userPassword = await compare(req.body.password, user.password);
 
 		// if the password is invalid
 		if (!userPassword) {
-			console.log(chalk.red("invalid email or password"));
-			return res.status(400).send("invalid email or password");
+			console.log(chalk.red("invalid email or password please try again"));
+			return res.status(400).send("invalid email or password please try again");
 		}
 
 		user.loginStamp.push(new Date().toLocaleString());
@@ -117,7 +107,7 @@ router.get("/", auth, async (req, res) => {
 
 		// find user
 		const users = await User.find().select("-password");
-		if (!users) return res.status(401).send("no found users");
+		if (!users) return res.status(404).send("no users found ");
 
 		// return the user
 		res.status(200).send(users);
@@ -127,22 +117,21 @@ router.get("/", auth, async (req, res) => {
 	}
 });
 
-// get information for The registered user or admin users
-router.get("/:id", auth, async (req, res) => {
+// get information for The registered user
+router.get("/profile/:id", auth, async (req, res) => {
 	try {
 		// Check if the user is an admin or if the user is accessing their own data
-		if (req.payload.isAdmin || req.payload._id === req.params.id) {
-			// Fetch user by ID
-			const user = await User.findById(req.params.id).select("-password");
-			if (!user) return res.status(404).send("User not found");
-
-			// Send the user data with status 200
-			return res.status(200).send(user);
-		} else {
+		if (req.payload._id !== req.params.id && !req.payload.isAdmin)
 			return res
 				.status(401)
 				.send("Access denied. You are not authorized to access this user's data");
-		}
+
+		// Fetch user by ID
+		const user = await User.findById(req.params.id,{password:0})
+		if (!user) return res.status(404).send("User not found");
+
+		// Send the user data with status 200
+		return res.status(200).send(user);
 	} catch (error) {
 		return res.status(400).send(error);
 	}

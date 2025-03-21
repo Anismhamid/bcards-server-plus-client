@@ -1,6 +1,6 @@
 import {FunctionComponent, useContext} from "react";
 import {Modal} from "react-bootstrap";
-import {SiteTheme, theme} from "../../theme/theme";
+import {SiteTheme} from "../../theme/theme";
 
 interface ImageModalProps {
 	show: boolean;
