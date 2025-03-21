@@ -78,7 +78,6 @@ const CardsHome: FunctionComponent<CardsHomeProps> = () => {
 
 			return (
 				cardName.includes(query) || phone.includes(query) || email.includes(query)
-				// country.includes(query)
 			);
 		});
 	}, [allCards, searchTerm]);

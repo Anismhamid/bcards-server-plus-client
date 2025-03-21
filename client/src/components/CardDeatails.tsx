@@ -21,6 +21,7 @@ import {heart} from "../fontAwesome/Icons";
 import {pathes} from "../routes/Routes";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import DynamicMap from "./DynamicMap";
 
 interface CardDetailsProps {}
 
@@ -155,14 +156,6 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 								</div>
 							</div>
 							<div className='w-100'>
-								<iframe
-									src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13424.14129243641!2d35.176770531207595!3d32.7382527280794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151db255b165af1b%3A0x229654d621e08c5e!2z15TXqNeZINeg16bXqNeqINeq15nXqNei158!5e0!3m2!1siw!2sil!4v1734360541093!5m2!1siw!2sil'
-									width='100%'
-									height='350'
-									className='border-3'
-									loading='lazy'
-									referrerPolicy='no-referrer-when-downgrade'
-								></iframe>
 								{((isLogedIn && isAdmin) ||
 									(isLogedIn && card.user_id === decodedToken._id)) && (
 									<button
@@ -179,6 +172,7 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 						</div>
 					</div>
 				</div>
+				<DynamicMap address={`${card.address.city}, ${card.address.street}`} />
 				<div className='container-sm'>
 					{isAdmin || (isLogedIn && card.user_id === decodedToken._id) ? (
 						<>
