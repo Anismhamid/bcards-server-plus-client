@@ -1,6 +1,5 @@
 <h1 align="center">Guide for User Authentication and Business Cards Management API</h1>
 
-
 This README is specifically designed to understand how to implement the API, set up different development and production environments, and run the necessary tests to ensure the functionality of the **User Authentication and Business Cards Management API**.
 
 ## Table of Contents
@@ -30,8 +29,7 @@ Ensure you have the following prerequisites installed::
 
 -   **Node.js** (v20.18.x or higher): [Download Node.js](https://nodejs.org/)
 -   **npm**: Node Package Manager (automatically installed with Node.js)
--   **MongoDB**: If using a local database, install MongoDB (or use MongoDB Atlas).
--   **Create Database**: For Development mode, create a new database on MongoDB with the name `bcards`.
+-   **MongoDB And Create Database**: If using a local database, install MongoDB Compass And Create Database with the name `bcards` (or use MongoDB Atlas On port 8001).
 -   **Postman/Insomnia**: For API testing, download
     -   [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download).
 
@@ -134,7 +132,8 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         		"url": "http://your_picture_path/picture.jpg",
         		"alt": "picture name"
         	},
-        	"isBusiness": false,
+        	"isBusiness": true,
+        	"isAdmin": true, // it's false by default, but for your convenienc you are admin for editig stuff
         	"address": {
         		"state": "", // State is Optional
         		"country": "Israel",
@@ -201,7 +200,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         		"city": "Tel Aviv",
         		"street": "New Street",
         		"houseNumber": 456,
-        		"zip": 65432
+        		"zip": "65432"
         	}
         }
         ```
@@ -261,17 +260,18 @@ You can manually test the API by sending HTTP requests using Postman or any simi
         	"description": "Updated description of the business card",
         	"phone": "0509876543",
         	"email": "updated.business.email@example.com",
-        	"web": "https://www.updatedwebsite.com",
+        	"web": "https://www.updatedwebsite.com", // optional
         	"image": {
         		"url": "http://new_picture_path/business-card-updated.jpg",
         		"alt": "updated business card image"
         	},
         	"address": {
+        		"state": "", // optional
         		"country": "Israel",
         		"city": "Tel Aviv",
         		"street": "New Street",
         		"houseNumber": 456,
-        		"zip": 65432
+        		"zip": "65432"
         	}
         }
         ```
@@ -281,6 +281,7 @@ You can manually test the API by sending HTTP requests using Postman or any simi
     - **Method**: `PATCH`
     - **Development Mode URL**: `http://localhost:8000/api/cards/{cardId}`
     - **Productin Mode URL**: `http://localhost:8001/api/cards/{cardId}`
+    - **Body**: Empty
     - **Headers**:
         - Authorization: `{UserToken}` (JWT token for logged-in user)
     - **Response**:
