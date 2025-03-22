@@ -172,7 +172,11 @@ const CardDetails: FunctionComponent<CardDetailsProps> = () => {
 						</div>
 					</div>
 				</div>
-				<DynamicMap address={`${card.address.city}, ${card.address.street}`} />
+				<div className=' w-75 m-auto'>
+					<DynamicMap
+						address={`${card.address.city}, ${card.address.street}`}
+					/>
+				</div>
 				<div className='container-sm'>
 					{isAdmin || (isLogedIn && card.user_id === decodedToken._id) ? (
 						<>

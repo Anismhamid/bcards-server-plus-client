@@ -53,7 +53,9 @@ const DynamicMap: React.FC<DynamicMapProps> = ({address}) => {
 		}
 	}, [latitude, longitude, address]);
 
-	return <div id='map' className="m-auto"  style={{width: "65%", height: "450px"}}></div>;
+	return (
+		<div id='map' className='m-auto' style={{width: "100%", height: "450px"}}></div>
+	);
 };
 
 export default DynamicMap;
