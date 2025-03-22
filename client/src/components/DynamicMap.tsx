@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import Loading from "./Loading";
 
 interface DynamicMapProps {
 	address: string;
@@ -9,9 +10,12 @@ interface DynamicMapProps {
 const DynamicMap: React.FC<DynamicMapProps> = ({address}) => {
 	const [latitude, setLatitude] = useState<number | null>(null);
 	const [longitude, setLongitude] = useState<number | null>(null);
+	const [mapLoaded, setMapLoaded] = useState(false);
 
 	useEffect(() => {
 		const fetchCoordinates = async () => {
+			if (!address) return;
+
 			try {
 				// Fetch latitude and longitude using Nominatim API (OpenStreetMap)
 				const response = await fetch(
@@ -23,6 +27,8 @@ const DynamicMap: React.FC<DynamicMapProps> = ({address}) => {
 
 				// Check if the data is available
 				if (data.length > 0) {
+					setLatitude(null);
+					setLongitude(null);
 					setLatitude(parseFloat(data[0].lat));
 					setLongitude(parseFloat(data[0].lon));
 				} else {
@@ -33,13 +39,11 @@ const DynamicMap: React.FC<DynamicMapProps> = ({address}) => {
 			}
 		};
 
-		if (address) {
-			fetchCoordinates();
-		}
-	}, [address]);
+		fetchCoordinates();
+	}, [address,latitude,longitude]);
 
 	useEffect(() => {
-		if (latitude && longitude) {
+		if (latitude && longitude && !mapLoaded) {
 			const map = L.map("map").setView([latitude, longitude], 13);
 
 			// Add OpenStreetMap tile layer
@@ -50,8 +54,20 @@ const DynamicMap: React.FC<DynamicMapProps> = ({address}) => {
 				.addTo(map)
 				.bindPopup(`<b>${address}</b>`)
 				.openPopup();
+
+			// Set mapLoaded to true to avoid re-initializing the map
+			setMapLoaded(true);
 		}
-	}, [latitude, longitude, address]);
+	}, [latitude, longitude, address, mapLoaded]); // Remove mapLoaded from dependencies
+
+	// Show loading spinner if coordinates are not available yet
+	if (!latitude || !longitude) {
+		return (
+			<div>
+				<Loading />
+			</div>
+		);
+	}
 
 	return (
 		<div id='map' className='m-auto' style={{width: "100%", height: "450px"}}></div>

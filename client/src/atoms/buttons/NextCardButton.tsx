@@ -4,7 +4,7 @@ import {SiteTheme} from "../../theme/theme";
 import {leftArrow, rightArrow} from "../../fontAwesome/Icons";
 import useCards from "../../hooks/useCards";
 import {Cards} from "../../interfaces/Cards";
-import {errorMSG, infoMSG} from "../taosyify/Toastify";
+import { infoMSG} from "../taosyify/Toastify";
 
 interface NextCardButtonProps {}
 
@@ -19,18 +19,14 @@ const NextCardButton: FunctionComponent<NextCardButtonProps> = () => {
 	const nextCard = allCards[currentCardIndex + 1];
 	const backCard = allCards[currentCardIndex - 1];
 
-	const handleNextCardNavigation = (next: string) => {
-		if (nextCard) {
-			navigate(`/cardDetails/${next}`);
-		} else if (backCard) {
-			navigate(`/cardDetails/${next}`);
-		} else {
-			errorMSG("No next card found.");
-		}
+	// Handle navigation to next or previous card
+	const handleNextCardNavigation = (nextCardId: string) => {
+		navigate(`/cardDetails/${nextCardId}`);
 	};
 
 	return (
 		<div className='d-flex justify-content-around mb-5'>
+			{/* Back button */}
 			<button
 				style={{backgroundColor: theme.background, color: theme.color}}
 				className='bg-transparent border-0'
@@ -38,22 +34,28 @@ const NextCardButton: FunctionComponent<NextCardButtonProps> = () => {
 					if (backCard) {
 						handleNextCardNavigation(backCard._id as string);
 					} else {
-						infoMSG("This is the first card found.");
+						infoMSG("This is the first card.");
 					}
 				}}
-				disabled={!nextCard}
+				disabled={!backCard}
 			>
 				<span className='fs-4 next-back-home'>{leftArrow} Back</span>
 			</button>
+
+			{/* Next button */}
 			<button
 				style={{backgroundColor: theme.background, color: theme.color}}
 				className='bg-transparent border-0'
 				onClick={() => {
-					handleNextCardNavigation(nextCard._id as string);
+					if (nextCard) {
+						handleNextCardNavigation(nextCard._id as string);
+					} else {
+						infoMSG("This is the last card.");
+					}
 				}}
 				disabled={!nextCard}
 			>
-				<span className='fs-4 next-back-home'>next {rightArrow}</span>
+				<span className='fs-4 next-back-home'>Next {rightArrow}</span>
 			</button>
 		</div>
 	);
